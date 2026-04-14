@@ -3,15 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Módulo 4.1 — Framework de comparação (matriz de 10 eixos) | DeerFlow 2.0 | INEMA.CLUB</title>
+  <title>Módulo 4.1 — Framework de comparação | DeerFlow 2.0 | INEMA.CLUB</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
+
+    /* Light mode - base */
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -22,6 +27,7 @@
     html:not(.dark) .text-neutral-400 { color: #6b7280; }
     html:not(.dark) .text-neutral-500 { color: #9ca3af; }
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .text-yellow-400 { color: #a16207; }
@@ -30,28 +36,53 @@
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
     html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+
+    /* Light mode - T4 Amber (acento da trilha) */
     html:not(.dark) .text-amber-400 { color: #92400e; }
     html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217, 119, 6, 0.12); }
     html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217, 119, 6, 0.08); }
+    html:not(.dark) .bg-amber-900\/20 { background-color: rgba(217, 119, 6, 0.08); }
     html:not(.dark) .border-amber-500\/30 { border-color: rgba(217, 119, 6, 0.25); }
     html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217, 119, 6, 0.08); }
     html:not(.dark) .bg-amber-600 { background-color: #92400e; }
     html:not(.dark) .hover\:bg-amber-500:hover { background-color: #b45309; }
+
+    /* Light mode - nav hovers T1/T2/T3 */
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
     html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
     html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    /* Light mode - emerald (fazer) */
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+
+    /* Light mode - blue (dados) */
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+
+    /* Light mode - red (alertas / não fazer) */
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220, 38, 38, 0.08); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220, 38, 38, 0.25); }
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
+  <!-- NAVIGATION -->
   <nav class="sticky top-0 z-40 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🦌</span><span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
@@ -69,81 +100,349 @@
     </div>
   </nav>
 
+  <!-- BREADCRUMB -->
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-amber-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-amber-400">Trilha 4</a><span>/</span>
+      <a href="../../index.html" class="hover:text-amber-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-amber-400">Trilha 4</a>
+      <span>/</span>
       <span class="text-amber-400">Módulo 4.1</span>
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MÓDULO 4.1</span>
-      <h1 class="text-3xl sm:text-4xl font-bold mb-4">📐 Framework de comparação (matriz de 10 eixos)</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Antes de comparar plataformas, é preciso fixar a régua. Este módulo estabelece os 10 eixos que valem para qualquer ferramenta agêntica — da categoria ao público-alvo — e termina preenchendo a matriz inteira para DeerFlow 2.0.</p>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">📊 Framework de comparação</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Antes de comparar plataformas, é preciso fixar a régua. Este módulo estabelece os 10 eixos que valem para qualquer ferramenta agêntica — da categoria ao público-alvo — e termina preenchendo a matriz inteira para DeerFlow 2.0.
+      </p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">8</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">60</div><div class="text-xs text-neutral-400">Minutos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Transversal</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Teoria + Lab</div><div class="text-xs text-neutral-400">Tipo</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">50</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Intermediário</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Teoria</div><div class="text-xs text-neutral-400">Tipo</div></div>
       </div>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Intro -->
     <div class="mb-12 bg-primary/10 rounded-xl border border-primary/30 p-6">
-      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚧</span> Módulo em produção</h3>
-      <p class="text-neutral-300">Este módulo está sendo escrito em detalhe. A estrutura abaixo já reflete o recorte final; o texto completo de cada tópico virá na próxima iteração do curso.</p>
+      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Como ler este módulo</h3>
+      <p class="text-neutral-300">Este módulo existe para <strong class="text-primary">instalar a régua antes do combate</strong>. Não vamos dizer quem é melhor — vamos fixar dez perguntas que você vai repetir para toda plataforma nova que aparecer. Leia inteiro antes dos módulos 4.2 a 4.4. O lab final monta o gabarito da matriz para DeerFlow, que você vai reusar nos labs comparativos.</p>
     </div>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6">Tópicos previstos</h2>
-      <div class="space-y-4">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">1</span>
-          <div><h3 class="font-semibold text-white mb-1">Por que matriz fixa em vez de "X vs Y"</h3><p class="text-sm text-neutral-400">Régua antes do combate: como um conjunto pré-definido de perguntas evita comparações enviesadas e prepara o aluno para avaliar ferramentas que ainda nem existem.</p></div>
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🧭 Por que matriz fixa em vez de "X vs Y"</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        "Claude Code vs DeerFlow" é uma pergunta preguiçosa. Categoria diferente, público diferente, preço diferente. Sem uma <strong class="text-amber-400">matriz fixa de eixos</strong>, a comparação vira torcida: a plataforma que você usou mais recentemente parece melhor, a mais nova parece mais capaz, a que tem a demo mais bonita vence no slide. A matriz é a forma honesta de comparar — e, mais importante, é <strong>reutilizável</strong> para as plataformas que ainda vão aparecer.
+      </p>
+
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Conceito Central</h3>
+        <p class="text-neutral-300 mb-4">Uma <strong class="text-amber-400">matriz fixa</strong> é um conjunto pré-definido de 10 perguntas que você aplica a qualquer plataforma agêntica antes de usá-la a fundo. Os eixos são escolhidos porque <em>separam categorias</em>, não porque favorecem uma ferramenta. Quando a matriz está pronta, comparar é preencher linhas — não argumentar.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Critério fixo</strong> — os eixos não mudam entre plataformas</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Comparabilidade longitudinal</strong> — funciona para ferramentas que ainda nem existem</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Empate honesto</strong> — duas células idênticas são empate, não disputa</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Anti-marketing</strong> — uma feature só entra na matriz se corresponde a um eixo</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> O erro mais comum</h3>
+        <p class="text-neutral-300">Começar a comparação por uma tarefa só. Se o seu primeiro teste é "refatore esse Python", Claude Code parece vencer antes da análise começar. Se é "pesquise 10 fontes sobre X", DeerFlow parece vencer. A matriz vem <strong>antes</strong> das tarefas — só depois dela é que os labs comparativos rodam.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🏷️ Eixo 1: Categoria</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Cada plataforma agêntica de 2026 cai em uma de quatro categorias estruturais. Elas não se sobrepõem por acidente: resolvem problemas diferentes, com arquiteturas diferentes. Comparar ferramentas de categorias diferentes como "rivais" é o primeiro erro de leitura.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-amber-400 mb-2">💻 IDE-agent</h4>
+          <p class="text-neutral-300 text-sm">Vive dentro do editor de código. Otimizado para tarefas de engenharia de software com acesso ao working tree. Ex.: <strong>Claude Code</strong>, <strong>Antigravity</strong>.</p>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">2</span>
-          <div><h3 class="font-semibold text-white mb-1">Eixo 1 — Categoria</h3><p class="text-sm text-neutral-400">IDE-agent, harness, framework, SaaS — por que confundir categoria com feature é o erro de leitura mais comum e como classificar uma ferramenta nova em 30 segundos.</p></div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-amber-400 mb-2">🦌 Harness</h4>
+          <p class="text-neutral-300 text-sm">Hospedeiro de propósito geral que você roda e estende. Multi-canal, multi-skill, multi-modelo. Ex.: <strong>DeerFlow 2.0</strong>.</p>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">3</span>
-          <div><h3 class="font-semibold text-white mb-1">Eixo 2 — Onde roda</h3><p class="text-sm text-neutral-400">Local, cloud, hybrid e as implicações reais em data residency, offline, dependência de uptime de terceiros e superfície de ataque.</p></div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-amber-400 mb-2">📚 Framework</h4>
+          <p class="text-neutral-300 text-sm">Biblioteca para você construir seu próprio agente. Não é um produto rodando — é código que vira produto. Ex.: <strong>LangGraph</strong>, <strong>LlamaIndex</strong>.</p>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">4</span>
-          <div><h3 class="font-semibold text-white mb-1">Eixo 3 — Modelo de extensibilidade</h3><p class="text-sm text-neutral-400">Skills, tools, extensions, plugins, MCP — ou nada. O eixo que define o teto prático da plataforma quando o primeiro caso de uso sai do catálogo.</p></div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-amber-400 mb-2">☁️ SaaS vertical</h4>
+          <p class="text-neutral-300 text-sm">Produto fechado focado num domínio, vendido pronto. Pouca ou nenhuma extensibilidade. Ex.: assistentes corporativos de ticket, research SaaS.</p>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">5</span>
-          <div><h3 class="font-semibold text-white mb-1">Eixo 4 — Execução de código e sandbox</h3><p class="text-sm text-neutral-400">Host, Docker, K8s, sandbox remoto. O eixo que mais separa ferramenta pessoal de ferramenta de empresa e que decide perfil de risco e portabilidade.</p></div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Fronteira borrada é normal</h3>
+        <p class="text-neutral-300">Claude Code tem traços de harness (skills, MCP). Antigravity tem traços de IDE e de SaaS. DeerFlow nasceu como produto de research e virou harness. A categoria é sobre <strong>o centro de gravidade</strong> da ferramenta, não sobre ausência total das outras.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🌍 Eixo 2: Onde roda</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Pergunta crua: a plataforma roda na sua máquina, no servidor do fornecedor, ou num híbrido? A resposta decide o que você pode fazer com <strong class="text-amber-400">dados sensíveis</strong>, quanto você depende do uptime de terceiros e qual é a superfície de ataque para incidentes.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Local-first</h4>
+            <p class="text-sm text-neutral-400 mb-3">O processo roda na máquina do usuário</p>
+            <p class="text-neutral-300 text-sm">Claude Code roda no terminal do dev; chamadas de modelo saem para Anthropic, mas o contexto de arquivos fica local. Forte em código sensível, fraco em acesso remoto.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">6</span>
-          <div><h3 class="font-semibold text-white mb-1">Eixo 5 — Memória</h3><p class="text-sm text-neutral-400">Stateless, sessão, long-term. Quanto a plataforma lembra entre interações muda de "repetir contexto" para "acumular projeto" ao longo do tempo.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Cloud-first</h4>
+            <p class="text-sm text-neutral-400 mb-3">Todo o agente vive no servidor do fornecedor</p>
+            <p class="text-neutral-300 text-sm">Antigravity puxa bastante computação do lado do Google, com o editor como frontend. Forte em escala, fraco em data residency estrita.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">7</span>
-          <div><h3 class="font-semibold text-white mb-1">Eixo 6 — Sub-agentes e orquestração</h3><p class="text-sm text-neutral-400">Sub-agent primeira classe vs. só paralelismo de tool calls. Por que tarefa real quase sempre quebra em papéis diferentes e o que isso exige do harness.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">8</span>
-          <div><h3 class="font-semibold text-white mb-1">Lab: matriz completa para DeerFlow</h3><p class="text-sm text-neutral-400">Preencher os 10 eixos para DeerFlow 2.0 usando as Trilhas 1–3 como fonte e criar o gabarito que será usado como baseline nos módulos 4.2, 4.3 e 4.4.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Self-hosted / hybrid</h4>
+            <p class="text-sm text-neutral-400 mb-3">Você roda o harness; modelos podem vir de fora</p>
+            <p class="text-neutral-300 text-sm">DeerFlow 2.0 você mesmo sobe (Docker ou K8s). Dados, memória, sandbox e traces ficam em infra sua; o provider pode ser OpenAI, Anthropic, vLLM local. É o modelo mais flexível — e o único que dá data residency real.</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🧩 Eixo 3: Modelo de extensibilidade</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Esta pergunta define o <strong class="text-amber-400">teto prático</strong> da plataforma. Ferramenta fechada trava no primeiro caso de uso fora do catálogo. Ferramenta extensível sobrevive às mudanças de escopo do time. A forma de estender varia — skills, tools, MCP servers, plugins, extensions — e a DX de cada uma decide quanto esforço custa cobrir um caso novo.
+      </p>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Como as três se posicionam</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>Claude Code:</strong> skills oficiais + MCP servers. DX boa, catálogo crescendo, forte em código.</li>
+          <li><strong>Antigravity:</strong> extensões dentro do editor, ainda amadurecendo. Catálogo público pequeno em 2026.</li>
+          <li><strong>DeerFlow 2.0:</strong> skills próprias + tools + custom agents + MCP. Catálogo público com research, mídia, análise. DX exige Python.</li>
+          <li><strong>Sinal de alerta:</strong> quem não tem MCP precisa reinventar toda integração — é sinal de imaturidade em 2026.</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Pergunta-teste</h3>
+        <p class="text-neutral-300">"Se amanhã eu quiser uma capacidade X totalmente nova, quantas horas de trabalho, quantos arquivos e quem precisa aprovar?" Se a resposta é "depende do fornecedor lançar", a extensibilidade é decorativa.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🧱 Eixo 4: Execução de código e sandbox</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Onde o código gerado pelo agente é executado? Esta é a pergunta que mais separa <strong class="text-amber-400">ferramenta pessoal</strong> de <strong class="text-amber-400">ferramenta de empresa</strong>. Não é sobre performance — é sobre perfil de risco e portabilidade.
+      </p>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Modos típicos por plataforma</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>Sandbox no host:</strong> rápido, sem isolamento. Claude Code trabalha assim — confia no dev.</li>
+          <li><strong>Container Docker:</strong> isolamento decente, default razoável. DeerFlow suporta.</li>
+          <li><strong>Pod Kubernetes:</strong> isolamento forte, quotas, network policies. DeerFlow suporta — único viável em multi-tenant.</li>
+          <li><strong>Sandbox remoto do fornecedor:</strong> você não escolhe a imagem, não audita a rede. Mais prático, menos controle.</li>
+        </ul>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">🚨</span> Questão de risco</h3>
+        <p class="text-neutral-300">Rodar código gerado por LLM no host é equivalente a rodar um anexo de email de remetente desconhecido. Prompt injection, alucinação e erro de digitação do modelo são todos vetores reais. Para código sensível, o eixo 4 é eliminatório: sem isolamento de verdade, a plataforma fica fora.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🧠 Eixo 5: Memória</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Quanto a plataforma <strong>lembra</strong> entre interações? Três níveis: nenhuma (stateless), sessão inteira, ou long-term persistido entre sessões e projetos. Parece detalhe de UX — não é. Memória de longo prazo muda a forma como você usa a ferramenta: deixa de repetir contexto e começa a <strong class="text-amber-400">acumular projeto</strong>.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-amber-400 mb-3">Stateless</h4>
+          <p class="text-neutral-300 text-sm mb-2">Nenhuma memória entre sessões.</p>
+          <p class="text-neutral-400 text-xs">Todo contexto é reenviado a cada vez. Simples de raciocinar, ruim para projetos contínuos.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-amber-400 mb-3">Session memory</h4>
+          <p class="text-neutral-300 text-sm mb-2">Lembra durante a conversa atual.</p>
+          <p class="text-neutral-400 text-xs">É o que Claude Code e Antigravity oferecem nativamente: a janela cobre a sessão, mas termina com ela. Forte em code tasks curtas.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-amber-400 mb-3">Long-term</h4>
+          <p class="text-neutral-300 text-sm mb-2">Memória persiste entre sessões e projetos.</p>
+          <p class="text-neutral-400 text-xs">DeerFlow 2.0 tem como primeira classe — user, feedback, project, reference. Forte em projetos longos, exige higiene.</p>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">Para code tasks diárias, session memory é suficiente e mais previsível. Para pesquisas longas, consultoria, análise contínua de um mesmo projeto — long-term vira multiplicador de produtividade. Não é "mais memória é sempre melhor"; é <strong>memória adequada ao tipo de tarefa</strong>.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">7</span>
+        <h2 class="text-2xl font-bold">🕸️ Eixo 6: Sub-agentes e orquestração</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Tarefas reais em produção quase sempre quebram em sub-tarefas com papéis diferentes. Sem sub-agentes, você acaba fazendo rodízio manual: "lê esses artigos, agora pausa, abre outra sessão, analisa, volta aqui". A pergunta é: a plataforma tem sub-agentes de <strong class="text-amber-400">primeira classe</strong>, ou só paralelismo de tools disfarçado?
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-amber-400 mb-3">Sub-agent de verdade</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>Tem contexto próprio isolado</li>
+            <li>Retorna só o resumo pedido</li>
+            <li>Pode ter SOUL/config próprio</li>
+            <li>Paralelizável entre si</li>
+            <li>Roteamento por nome/intent</li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-semibold text-amber-400 mb-3">"Paralelismo de tools" fingindo</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>Tudo volta para o mesmo contexto</li>
+            <li>Sem isolamento de histórico</li>
+            <li>Bug num "sub-agent" contamina o lead</li>
+            <li>Fica inviável em tarefas longas</li>
+            <li>Prejudica memory hygiene</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">Para identificar qual é qual: peça uma tarefa que envolva ler 20 páginas e resumir em 3 frases. Se o contexto do agente principal cresce proporcionalmente à quantidade de páginas lidas, <strong>não há sub-agent de verdade</strong> — é só tool call paralela com nome bonito.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 8 -->
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">8</span>
+        <h2 class="text-2xl font-bold">🧪 Lab: matriz completa de 10 eixos para DeerFlow</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Os eixos 1 a 6 foram detalhados acima. Os eixos 7 a 10 (modelos suportados, interface, open source, público-alvo) completam a matriz — vamos exercitá-los agora preenchendo o gabarito para DeerFlow 2.0 usando o que você já aprendeu nas Trilhas 1, 2 e 3.
+      </p>
+
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Passos do lab</h3>
+        <ol class="space-y-3 text-neutral-300 text-sm list-decimal list-inside">
+          <li><strong>Abra uma planilha</strong> (ou tabela Markdown) com duas colunas: "Eixo" e "DeerFlow 2.0".</li>
+          <li><strong>Preencha os eixos 1-6</strong> com base nos tópicos acima — uma frase por célula, citando a fonte (README, docs, módulo da Trilha 1).</li>
+          <li><strong>Eixo 7 — Modelos suportados:</strong> multi-vendor (OpenAI, Anthropic via Claude Code OAuth, OpenRouter, vLLM local, Doubao/DeepSeek/Kimi). Cite o módulo 1.2.</li>
+          <li><strong>Eixo 8 — Interface:</strong> web (Next.js), API, e canais IM (Telegram, Slack, Feishu, WeChat, WeCom). Cite o módulo 1.6.</li>
+          <li><strong>Eixo 9 — Open source?</strong> Sim, repositório público, licença permissiva. Cite o README.</li>
+          <li><strong>Eixo 10 — Público-alvo primário:</strong> times que querem hospedar e estender o harness em casos de uso além de código — research, mídia, análise, integração com IM.</li>
+          <li><strong>Revisão crítica:</strong> releia a tabela e marque com "depende" toda célula em que a resposta muda por contexto (ex.: sandbox depende do deploy).</li>
+        </ol>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Critérios de pronto</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li>10 células preenchidas, nenhuma em branco</li>
+          <li>Cada célula tem 1 frase ou 1 lista curta, não um parágrafo</li>
+          <li>Pelo menos 3 células têm link direto para README ou docs</li>
+          <li>Células "depende" listam explicitamente <em>de que</em> dependem</li>
+          <li>O gabarito cabe numa tela sem rolar</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Por que começar pelo DeerFlow</h3>
+        <p class="text-neutral-300">Porque é a plataforma que você <strong>já conhece</strong> depois das Trilhas 1-3. Preencher primeiro uma ferramenta conhecida calibra o tamanho de cada célula e mostra quais eixos são difíceis sem hands-on. Nos módulos 4.2-4.4, você reusa esta matriz para Claude Code e Antigravity.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
     <section class="mb-12">
       <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Régua antes do combate</strong><span class="text-neutral-400"> — matriz fixa de 10 eixos é a forma honesta de comparar plataformas agênticas, sem cair em "X é melhor que Y".</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Categoria determina tudo</strong><span class="text-neutral-400"> — IDE-agent, harness, framework, SaaS resolvem problemas diferentes. Não compare categorias como rivais.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Onde roda e sandbox</strong><span class="text-neutral-400"> — são os eixos que definem se a ferramenta entra na sua empresa ou só na sua máquina pessoal.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Memória e sub-agentes</strong><span class="text-neutral-400"> — separam "assistente de uma tarefa" de "plataforma que acumula projeto ao longo do tempo".</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Matriz preenchida para DeerFlow</strong><span class="text-neutral-400"> — é o gabarito que vai ser reusado nos módulos 4.2-4.4 para Claude Code e Antigravity.</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-amber-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">4.2 — 🎯 Posicionamento das 3 plataformas</p>
+          <p class="text-neutral-400 text-sm mt-1">O "esqueleto honesto" do curso: Claude Code, Antigravity e DeerFlow 2.0 em uma frase cada. Termina com um lab-relâmpago dizendo "oi" nas três.</p>
+        </div>
+
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="../trilha3/index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Trilha Anterior</a>
-          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Voltar para Trilha</a>
+          <a href="../trilha3/index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Trilha 3</a>
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Índice da Trilha</a>
           <a href="modulo-4-2.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Próximo Módulo →</a>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="border-t border-dark-600 py-8">
@@ -157,12 +456,14 @@
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const htmlEl = document.documentElement;
-    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); } else { darkIcon.classList.remove('hidden'); }
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
     themeToggle.addEventListener('click', () => {
       darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
       htmlEl.classList.toggle('dark');
       localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
+
 </body>
 </html>

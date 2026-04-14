@@ -7,11 +7,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
+
+    /* Light mode - base */
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -22,6 +27,7 @@
     html:not(.dark) .text-neutral-400 { color: #6b7280; }
     html:not(.dark) .text-neutral-500 { color: #9ca3af; }
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .text-yellow-400 { color: #a16207; }
@@ -30,28 +36,53 @@
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
     html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+
+    /* Light mode - T4 Amber (acento da trilha) */
     html:not(.dark) .text-amber-400 { color: #92400e; }
     html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217, 119, 6, 0.12); }
     html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217, 119, 6, 0.08); }
+    html:not(.dark) .bg-amber-900\/20 { background-color: rgba(217, 119, 6, 0.08); }
     html:not(.dark) .border-amber-500\/30 { border-color: rgba(217, 119, 6, 0.25); }
     html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217, 119, 6, 0.08); }
     html:not(.dark) .bg-amber-600 { background-color: #92400e; }
     html:not(.dark) .hover\:bg-amber-500:hover { background-color: #b45309; }
+
+    /* Light mode - nav hovers T1/T2/T3 */
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
     html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
     html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    /* Light mode - emerald (fazer) */
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+
+    /* Light mode - blue (dados) */
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+
+    /* Light mode - red (alertas / não fazer) */
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220, 38, 38, 0.08); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220, 38, 38, 0.25); }
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
+  <!-- NAVIGATION -->
   <nav class="sticky top-0 z-40 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🦌</span><span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
@@ -69,69 +100,282 @@
     </div>
   </nav>
 
+  <!-- BREADCRUMB -->
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-amber-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-amber-400">Trilha 4</a><span>/</span>
+      <a href="../../index.html" class="hover:text-amber-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-amber-400">Trilha 4</a>
+      <span>/</span>
       <span class="text-amber-400">Módulo 4.2</span>
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MÓDULO 4.2</span>
       <h1 class="text-3xl sm:text-4xl font-bold mb-4">🎯 Posicionamento das 3 plataformas</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">O "esqueleto honesto" do curso: Claude Code como par de programação, Antigravity como a IDE pensada em agentes e DeerFlow como o harness que você hospeda. Termina com um lab-relâmpago dizendo "oi" nas três plataformas para calibrar primeira impressão.</p>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        O "esqueleto honesto" do curso: Claude Code como par de programação, Antigravity como a IDE pensada em agentes e DeerFlow 2.0 como o harness que você hospeda. Termina com um lab-relâmpago dizendo "oi" nas três plataformas para calibrar primeira impressão.
+      </p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">5</div><div class="text-xs text-neutral-400">Tópicos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">45</div><div class="text-xs text-neutral-400">Minutos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Transversal</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Teoria + Lab</div><div class="text-xs text-neutral-400">Tipo</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Intermediário</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Teoria</div><div class="text-xs text-neutral-400">Tipo</div></div>
       </div>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Intro -->
     <div class="mb-12 bg-primary/10 rounded-xl border border-primary/30 p-6">
-      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚧</span> Módulo em produção</h3>
-      <p class="text-neutral-300">Este módulo está sendo escrito em detalhe. A estrutura abaixo já reflete o recorte final; o texto completo de cada tópico virá na próxima iteração do curso.</p>
+      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Regra de ouro deste módulo</h3>
+      <p class="text-neutral-300">Não existe "melhor plataforma". Existe <strong class="text-primary">plataforma forte em X</strong> e <strong class="text-primary">plataforma fraca em Y</strong>. Se durante a leitura você pensar "então X é o melhor", reescreva a frase: "X é o mais forte em [tarefa específica]". É a disciplina que o resto da Trilha 4 vai exigir.</p>
     </div>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6">Tópicos previstos</h2>
-      <div class="space-y-4">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">1</span>
-          <div><h3 class="font-semibold text-white mb-1">Claude Code — o par de programação</h3><p class="text-sm text-neutral-400">CLI/IDE-agent da Anthropic, single-vendor, skills + MCP e sandbox no host. Estado da arte de "par de programação" e benchmark honesto para tarefas de código.</p></div>
+    <!-- Callout de contexto -->
+    <div class="mb-12 bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+      <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> Contexto rápido</h3>
+      <p class="text-neutral-300">Em 2026, as três plataformas ocupam <strong>categorias diferentes</strong> (como o módulo 4.1 deixou explícito): Claude Code e Antigravity são IDE-agents com ênfases distintas, DeerFlow é harness genérico. Ler os três posicionamentos abaixo como se fossem do mesmo tipo de ferramenta é o atalho mais comum para concluir errado.</p>
+    </div>
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">💻 Claude Code — o par de programação</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-amber-400">Claude Code</strong> é o CLI/IDE-agent da Anthropic focado em engenharia de software. A descrição em uma frase é literal: foi desenhado para sentar <em>ao lado</em> do desenvolvedor, no terminal ou no plugin do editor, e participar do loop de código. Single-vendor em modelos (só Claude), skills oficiais, MCP como extensão, sandbox apoiado no host do desenvolvedor, fluxo git-aware.
+      </p>
+
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Conceito Central</h3>
+        <p class="text-neutral-300 mb-4">Claude Code é <strong class="text-amber-400">forte em code tasks</strong> com acesso ao working tree: ler um repositório inteiro, sugerir edições, rodar testes, abrir PRs. O loop de trabalho do dev é o centro de gravidade — tudo gira em torno do terminal e do git.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>CLI-first</strong> — terminal, não web; integra com IDE via plugin</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Anthropic-only</strong> — você depende do roadmap de modelos da Anthropic</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Skills oficiais</strong> — catálogo curado, boa trigger accuracy</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>MCP</strong> — integração padrão com serviços externos</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Sandbox no host</strong> — sem container por padrão; cabe ao dev</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Onde é fraco</h3>
+        <p class="text-neutral-300">Claude Code é <strong>fraco fora de código</strong>. Tarefas que envolvem mídia (PPT, podcast, vídeo), integração com canais IM, fluxos multi-step não-de-código, ou que exigem multi-modelo — não são o centro de gravidade dele. Usar Claude Code para "gerar uma apresentação pro cliente" funciona, mas é nadar contra a corrente.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🪐 Antigravity — a IDE pensada em agentes</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-amber-400">Antigravity</strong> é o IDE-agent recente do Google. Diferente de Claude Code (que é um agente <em>dentro</em> do editor), Antigravity foi desenhado desde o início como uma <em>IDE agêntica</em>: multi-agente nativo, Gemini no núcleo, integração profunda com o workspace Google. Em 2026 ainda é a plataforma mais nova das três — o que significa mais UX emergente, mas também menos comunidade.
+      </p>
+
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Conceito Central</h3>
+        <p class="text-neutral-300 mb-4">Antigravity é <strong class="text-amber-400">forte em autonomia dentro do editor</strong> e em orquestração multi-agente nativa. É a aposta mais recente de "IDE pensada em agentes desde o primeiro commit". O que você ganha é UX inovadora; o que você paga é catálogo menor e menor maturidade de extensões.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>IDE agêntica nativa</strong> — o editor foi redesenhado ao redor do agente</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Multi-agente</strong> — suporte a vários agentes cooperando no editor</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Gemini-centric</strong> — otimizada para o ecossistema Google</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Workspace Google</strong> — integração com Drive, Docs, etc.</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Cuidado com o efeito "uau"</h3>
+        <p class="text-neutral-300">Como Antigravity é a mais nova, a primeira demo dela tende a parecer a mais impressionante. O curso trata esse efeito explicitamente no módulo 4.3: <strong>descontar novidade antes de concluir</strong>. Uma feature nova que outras plataformas ainda não têm é um ponto real, mas "ter UX mais fresca" não é um eixo.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🦌 DeerFlow 2.0 — o harness que você hospeda e estende</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-amber-400">DeerFlow 2.0</strong> não é um IDE-agent. É um harness open-source, multi-model e multi-channel, desenhado para você <strong>hospedar e estender</strong>. Skills cobrem domínios muito além de código — research, podcast, PPT, video, análise, consultoria. Sandbox configurável até K8s, memória de longo prazo como primeira classe, canais IM (Telegram, Slack, Feishu, WeChat, WeCom).
+      </p>
+
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Conceito Central</h3>
+        <p class="text-neutral-300 mb-4">DeerFlow é <strong class="text-amber-400">forte quando a tarefa não cabe no editor</strong>. Research profundo, geração de mídia, fluxos long-running com memória, integração com canais IM, multi-skill encadeado. E é o único dos três que você hospeda inteiro — o que significa controle de dados, de custo e de roadmap.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Open-source</strong> — você lê, modifica, contribui</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Multi-model</strong> — OpenAI, Anthropic, OpenRouter, vLLM local</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Multi-channel</strong> — web, API, Telegram, Slack, Feishu, etc.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Skills além de código</strong> — deep-research, ppt, podcast, data-analysis</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Long-term memory</strong> — primeira classe, auditável</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Sandbox até K8s</strong> — suporta multi-tenant</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Onde é fraco</h3>
+        <p class="text-neutral-300">DeerFlow é <strong>mais fraco em code tasks curtas dentro do editor</strong>. Se você quer apenas "renomeia essa variável em 30 arquivos", um IDE-agent vence em fricção e velocidade. DeerFlow compensa em tarefas longas e multi-domínio, não em edit-loop rápido.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🎬 Por que demonstração ao vivo bate lista de features</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O resto da Trilha 4 vai rodar <strong class="text-amber-400">a mesma tarefa</strong> nas três plataformas. Não vai listar features num slide. A razão é prática: feature list envelhece em uma semana e premia quem tem equipe de marketing maior. Demo ao vivo premia o que funciona <em>hoje, na sua máquina, para a sua tarefa</em>.
+      </p>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Princípio didático</h3>
+        <p class="text-neutral-300">Demo-first, rubrica fixa (tempo, qualidade, fricção, custo), observação com caderno aberto. Se não deu pra rodar na sua máquina, não conta. Se a rubrica não está preenchida, é impressão — não conclusão.</p>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Por que listas de features mentem</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>Feature existe ≠ feature funciona:</strong> "suporta MCP" pode significar "em 2 servidores e com bugs" ou "padrão oficial com 50 servidores"</li>
+          <li><strong>Feature existe ≠ feature é acionada:</strong> skill no catálogo que o agente nunca dispara é um item de marketing, não de capacidade</li>
+          <li><strong>Feature existe ≠ feature cabe no seu fluxo:</strong> "gera PPT" é verdade, mas se o PPT sai no formato errado, não conta</li>
+          <li><strong>Feature aparece na página ≠ feature é estável:</strong> beta de 2 semanas e GA de 1 ano ocupam o mesmo bullet</li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ FAZER</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Rodar a mesma tarefa exata nas três</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Cronometrar tempo total até o entregável</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Anotar fricção (erros, re-prompts, UX ruim)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Calcular custo real em tokens / dinheiro</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Retestar daqui a 30 dias para descontar novidade</span></li>
+          </ul>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">2</span>
-          <div><h3 class="font-semibold text-white mb-1">Antigravity — a IDE pensada em agentes</h3><p class="text-sm text-neutral-400">IDE-agent do Google focada em agentes autônomos dentro do editor, com multi-agente nativo e integração ao ecossistema Google/Gemini.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">3</span>
-          <div><h3 class="font-semibold text-white mb-1">DeerFlow 2.0 — o harness que você hospeda</h3><p class="text-sm text-neutral-400">Harness open-source multi-model e multi-channel, com skills para além de código, sandbox até K8s e memória de longo prazo como primeira classe.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">4</span>
-          <div><h3 class="font-semibold text-white mb-1">Por que demonstração ao vivo bate lista de features</h3><p class="text-sm text-neutral-400">Princípio didático: resolver a mesma tarefa ao vivo nas três plataformas em vez de listar features num slide. Honestidade do método do curso.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">5</span>
-          <div><h3 class="font-semibold text-white mb-1">Lab: "diga oi" nas 3 plataformas</h3><p class="text-sm text-neutral-400">Rodar a mesma mensagem "oi, o que você consegue fazer?" em cada uma, anotar tempo, tom e fricção — baseline antes dos labs pesados.</p></div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ NÃO fazer</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Comparar pela feature list do site oficial</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Assumir que "a mais nova" é "a melhor"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Rodar tarefas diferentes em cada plataforma</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Ignorar custo porque "ainda tá de graça"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Confundir "onboarding ruim" com "ferramenta ruim"</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🧪 Lab: "diga oi" nas 3 plataformas</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Lab-relâmpago. Objetivo: calibrar a <strong class="text-amber-400">primeira impressão</strong> antes dos labs pesados dos módulos 4.3 e 4.4. Sem isso, o aluno tende a confundir "onboarding ruim" com "ferramenta ruim" quando as tarefas reais começarem.
+      </p>
+
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Passos do lab (≈15 min)</h3>
+        <ol class="space-y-3 text-neutral-300 text-sm list-decimal list-inside">
+          <li><strong>Prepare o caderno</strong> com três colunas: tempo-para-primeira-resposta, tom da resposta, fricção percebida.</li>
+          <li><strong>Claude Code:</strong> abra o terminal, rode o CLI (ou abra o plugin no editor), digite exatamente <code class="bg-dark-700 px-1 rounded">oi, o que você consegue fazer?</code>. Anote.</li>
+          <li><strong>Antigravity:</strong> abra a IDE agêntica, inicie uma sessão nova, mande o mesmo prompt. Anote.</li>
+          <li><strong>DeerFlow 2.0:</strong> abra o frontend web local (do módulo 1.2), sem plan mode, mande o mesmo prompt. Anote.</li>
+          <li><strong>Compare as três linhas</strong> e escreva uma frase por plataforma: "Primeira impressão: …". Guarde esta nota — ela vira baseline para os módulos 4.3 e 4.4.</li>
+        </ol>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> O que observar sem julgar</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>Tempo até 1º token:</strong> não é qualidade, é fricção de entrada</li>
+          <li><strong>Tom da resposta:</strong> formal, casual, técnico, resumido</li>
+          <li><strong>Prompts de permissão:</strong> quantas vezes a plataforma pede confirmação</li>
+          <li><strong>Erros de bootstrap:</strong> falha de auth, provider não configurado, UI quebrada</li>
+          <li><strong>"Feeling" geral:</strong> uma palavra só — rápida, travada, polida, promissora</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">O objetivo deste lab <strong>não é</strong> decidir qual plataforma é melhor. É reconhecer que as três têm personalidades diferentes e que isso é legítimo. Se alguma travar na instalação, documente o ponto onde travou — virou insumo para o módulo 4.3 sobre "fricção".</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ O que o lab quer</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Baseline calibrado das 3 plataformas</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Uma frase honesta por plataforma</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Notas específicas sobre fricção de setup</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>15 minutos de atenção, não mais</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ O que o lab NÃO quer</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Conclusão sobre "qual é a melhor"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Teste de capacidade (fica pros módulos 4.3 e 4.4)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Comparação direta dos outputs verbais</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Prompts extras para "dar chance" para alguma</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
     <section class="mb-12">
       <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Claude Code é forte em code tasks</strong><span class="text-neutral-400"> — par de programação Anthropic-only, CLI/IDE, sandbox no host, skills oficiais, MCP. Fraco fora de código.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Antigravity é forte em UX agêntica nativa</strong><span class="text-neutral-400"> — IDE pensada em agentes, multi-agente, Gemini. Por ser recente, cuidado com efeito "uau".</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">DeerFlow é forte fora do editor</strong><span class="text-neutral-400"> — research, mídia, multi-channel, long-term memory, self-host. Fraco em edit-loop rápido dentro do IDE.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Demo ao vivo bate lista de features</strong><span class="text-neutral-400"> — o resto da Trilha 4 roda a mesma tarefa nas três, com rubrica fixa. Sem demo, não conta.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Lab de "oi"</strong><span class="text-neutral-400"> — calibra primeira impressão, evita confundir onboarding com capacidade nos labs seguintes.</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-amber-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">4.3 — 🧪 Labs comparativos 1 e 2</p>
+          <p class="text-neutral-400 text-sm mt-1">Tarefa de código (refatorar + PR) e tarefa de research (relatório com 10 fontes). Rubrica de tempo, qualidade, fricção, custo.</p>
+        </div>
+
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="modulo-4-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a>
-          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Voltar para Trilha</a>
+          <a href="modulo-4-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 4.1</a>
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Índice da Trilha</a>
           <a href="modulo-4-3.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Próximo Módulo →</a>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="border-t border-dark-600 py-8">
@@ -145,12 +389,14 @@
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const htmlEl = document.documentElement;
-    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); } else { darkIcon.classList.remove('hidden'); }
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
     themeToggle.addEventListener('click', () => {
       darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
       htmlEl.classList.toggle('dark');
       localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
+
 </body>
 </html>

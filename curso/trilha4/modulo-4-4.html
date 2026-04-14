@@ -7,11 +7,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
+
+    /* Light mode - base */
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -22,6 +27,7 @@
     html:not(.dark) .text-neutral-400 { color: #6b7280; }
     html:not(.dark) .text-neutral-500 { color: #9ca3af; }
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .text-yellow-400 { color: #a16207; }
@@ -30,28 +36,53 @@
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
     html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+
+    /* Light mode - T4 Amber (acento da trilha) */
     html:not(.dark) .text-amber-400 { color: #92400e; }
     html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217, 119, 6, 0.12); }
     html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217, 119, 6, 0.08); }
+    html:not(.dark) .bg-amber-900\/20 { background-color: rgba(217, 119, 6, 0.08); }
     html:not(.dark) .border-amber-500\/30 { border-color: rgba(217, 119, 6, 0.25); }
     html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217, 119, 6, 0.08); }
     html:not(.dark) .bg-amber-600 { background-color: #92400e; }
     html:not(.dark) .hover\:bg-amber-500:hover { background-color: #b45309; }
+
+    /* Light mode - nav hovers T1/T2/T3 */
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
     html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
     html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+
+    /* Light mode - emerald (fazer) */
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+
+    /* Light mode - blue (dados) */
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+
+    /* Light mode - red (alertas / não fazer) */
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220, 38, 38, 0.08); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220, 38, 38, 0.25); }
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
+  <!-- NAVIGATION -->
   <nav class="sticky top-0 z-40 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🦌</span><span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
@@ -69,69 +100,304 @@
     </div>
   </nav>
 
+  <!-- BREADCRUMB -->
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-amber-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-amber-400">Trilha 4</a><span>/</span>
+      <a href="../../index.html" class="hover:text-amber-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-amber-400">Trilha 4</a>
+      <span>/</span>
       <span class="text-amber-400">Módulo 4.4</span>
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MÓDULO 4.4</span>
       <h1 class="text-3xl sm:text-4xl font-bold mb-4">🧭 Labs comparativos 3 e 4 + guia de escolha</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">A tarefa híbrida que mistura dados, apresentação e mensagem, e a tarefa de extensibilidade que força criar algo novo em cada plataforma. Fecha com a redação do guia de escolha pessoal: qual ferramenta usar para cada tipo de tarefa no dia a dia do aluno.</p>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Tarefa híbrida que mistura dados, apresentação e mensagem, e tarefa de extensibilidade que força criar algo novo em cada plataforma. Fecha com a redação do guia de escolha pessoal — o entregável final do curso.
+      </p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">5</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">75</div><div class="text-xs text-neutral-400">Minutos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Transversal</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Labs + entrega</div><div class="text-xs text-neutral-400">Tipo</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">90</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Intermediário</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
       </div>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Intro -->
     <div class="mb-12 bg-primary/10 rounded-xl border border-primary/30 p-6">
-      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚧</span> Módulo em produção</h3>
-      <p class="text-neutral-300">Este módulo está sendo escrito em detalhe. A estrutura abaixo já reflete o recorte final; o texto completo de cada tópico virá na próxima iteração do curso.</p>
+      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Este é o último módulo</h3>
+      <p class="text-neutral-300">Os dois primeiros labs (4.3) mediram os eixos em que cada plataforma tem centro de gravidade. Os dois últimos (este módulo) exploram <strong class="text-primary">fronteiras e tetos</strong>: fluxo ponta a ponta multi-skill e criação de capacidade nova. No final, o aluno redige o <strong class="text-primary">guia de escolha pessoal</strong> — entregável que encerra a Trilha 4 e o curso inteiro.</p>
     </div>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6">Tópicos previstos</h2>
-      <div class="space-y-4">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">1</span>
-          <div><h3 class="font-semibold text-white mb-1">Lab 3 — Tarefa híbrida</h3><p class="text-sm text-neutral-400">Analisar CSV, gerar PPT e postar resumo em canal Slack nas três plataformas. O caso em que DeerFlow ganha naturalmente por multi-skill e multi-channel.</p></div>
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🧬 Lab 3: Tarefa híbrida (CSV → PPT → Slack)</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Tarefa de ponta a ponta: <strong class="text-amber-400">analisar um CSV de vendas, gerar um PPT com as conclusões e postar um resumo num canal Slack</strong>. São três skills diferentes encadeadas num fluxo só — o tipo de tarefa em que DeerFlow ganha naturalmente, porque multi-skill + multi-channel está no posicionamento dele.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Setup: CSV comum + canal Slack</h4>
+            <p class="text-sm text-neutral-400 mb-3">Insumos idênticos nas 3 plataformas</p>
+            <p class="text-neutral-300 text-sm">Um CSV de vendas com ~5k linhas, colunas típicas (data, produto, região, valor). Um canal Slack de teste onde cada plataforma pode postar. Permissões prontas antes do cronômetro começar.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">2</span>
-          <div><h3 class="font-semibold text-white mb-1">Lab 4 — Tarefa de extensibilidade</h3><p class="text-sm text-neutral-400">Mesma capacidade nova implementada como skill/tool em cada plataforma, comparando DX, esforço, test loop e reversibilidade. Sente-se o teto de cada uma.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Prompt único</h4>
+            <p class="text-sm text-neutral-400 mb-3">Sem decompor manualmente</p>
+            <p class="text-neutral-300 text-sm">"Analise este CSV, identifique as 3 conclusões mais importantes, gere um PPT de 5 slides com elas e poste um resumo de 4 bullets no canal #lab-trilha4." <strong>Não</strong> explique como fazer — é parte do teste se a plataforma decompõe sozinha.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">3</span>
-          <div><h3 class="font-semibold text-white mb-1">Quando DeerFlow ganha naturalmente e quando empata</h3><p class="text-sm text-neutral-400">Mapeamento honesto: research profundo, multi-channel e fluxos longos ganham; edição rápida de código e UX no editor empatam ou perdem.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Execução</h4>
+            <p class="text-sm text-neutral-400 mb-3">Cronômetro do prompt ao post no Slack</p>
+            <p class="text-neutral-300 text-sm">Em DeerFlow: <code class="bg-dark-700 px-1 rounded">data-analysis</code> + <code class="bg-dark-700 px-1 rounded">ppt-generation</code> + canal Slack configurado (Trilha 1, módulo 1.6). Em Claude Code e Antigravity: observe como (e se) cada um lida com os três passos.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">4</span>
-          <div><h3 class="font-semibold text-white mb-1">Redigir a recomendação final por tipo de tarefa</h3><p class="text-sm text-neutral-400">Montar a tabela "tipo de tarefa → plataforma recomendada → justificativa em uma frase" consolidando os 4 labs e a matriz do módulo 4.1.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex-shrink-0">5</span>
-          <div><h3 class="font-semibold text-white mb-1">Entregável: guia de escolha pessoal</h3><p class="text-sm text-neutral-400">Documento curto em que o aluno registra, nas próprias palavras, para quais tarefas vai usar cada plataforma no dia a dia depois do curso. Fim honesto da Trilha 4.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Entregável: 3 PPTs + 3 posts</h4>
+            <p class="text-sm text-neutral-400 mb-3">Rubrica de 4 dimensões outra vez</p>
+            <p class="text-neutral-300 text-sm">Ao final, você tem três .pptx e três mensagens no Slack. Pode abrir os três PPTs lado a lado. É uma das comparações mais visuais do curso — o output fala por si.</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🧰 Lab 4: Tarefa de extensibilidade</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O teste que separa "plataforma confortável" de "plataforma que você consegue dobrar". A mesma capacidade nova implementada como <strong class="text-amber-400">skill/tool em cada uma das três</strong>: uma integração simples com uma API interna (ou API pública qualquer) que retorna dados e o agente consegue usar no loop.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Capacidade escolhida</h4>
+            <p class="text-sm text-neutral-400 mb-3">Pequena, específica, útil</p>
+            <p class="text-neutral-300 text-sm">Exemplo: "dada uma sigla de cidade brasileira, retornar indicadores do IBGE/portal de dados abertos." Simples o bastante para caber em 1h, útil o bastante para não ser brinquedo.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Em Claude Code</h4>
+            <p class="text-sm text-neutral-400 mb-3">Skill + MCP server</p>
+            <p class="text-neutral-300 text-sm">Use o padrão oficial: criar a skill com descrição + instruções, ou expor a API como MCP server. Anote quantos arquivos, quantas linhas, quanto tempo até o primeiro uso bem-sucedido.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Em Antigravity</h4>
+            <p class="text-sm text-neutral-400 mb-3">Extensão ou caminho oficial vigente em 2026</p>
+            <p class="text-neutral-300 text-sm">Siga a documentação oficial do Antigravity para extensões. Se não há caminho pronto, anote explicitamente "sem caminho oficial" — <strong>ausência é um dado</strong>, não um problema do lab.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Em DeerFlow</h4>
+            <p class="text-sm text-neutral-400 mb-3">Skill própria ou tool dentro de skill existente</p>
+            <p class="text-neutral-300 text-sm">Use a meta-skill <code class="bg-dark-700 px-1 rounded">skill-creator</code> (Trilha 2, módulo 2.3) ou escreva manualmente. Teste a trigger accuracy com 5 prompts diferentes: a skill foi acionada nas 5? Anote.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> O que medir</h3>
+        <p class="text-neutral-300">Linhas de código necessárias, número de arquivos tocados, tempo até o primeiro uso bem-sucedido, <strong>reversibilidade</strong> (fácil remover?), trigger accuracy em prompts variados. É uma comparação em que DeerFlow costuma ir bem por ser open-source e ter padrão de skill próprio — mas não antecipe conclusão: deixe a rubrica falar.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">⚖️ Quando DeerFlow ganha naturalmente — e quando empata</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Um curso honesto precisa dizer onde a <em>própria</em> ferramenta não é a mais forte. É o que faz o aluno confiar na recomendação quando ela chega. Abaixo o recorte que sai naturalmente dos 4 labs — válido para 2026 e que você deve reavaliar em 3 meses.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ DeerFlow é forte quando…</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>A tarefa não cabe dentro do editor</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Há três ou mais skills encadeadas</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>O entregável precisa sair num canal IM</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Research profundo com fontes citadas</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Geração de mídia (PPT, podcast, video)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Projeto longo com long-term memory</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Dados precisam ficar na sua infra</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ DeerFlow empata ou perde quando…</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Edit-loop rápido dentro do editor</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Refatorações interativas visuais</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>UX integrada com git e diff inline</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Dev só quer "uma resposta rápida em código"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Não há recursos pra hospedar infra</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Equipe pequena sem ninguém de Python</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Prazo de 1 hora para produzir resultado</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Dados agregados esperados (referência)</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>Lab 1 (código):</strong> Claude Code e Antigravity costumam vencer em tempo; DeerFlow empata em qualidade com mais fricção</li>
+          <li><strong>Lab 2 (research):</strong> DeerFlow costuma vencer em profundidade e quantidade de fontes verificáveis</li>
+          <li><strong>Lab 3 (híbrido):</strong> DeerFlow vence em volume de entregáveis; IDE-agents vencem em qualidade pontual de cada peça</li>
+          <li><strong>Lab 4 (extensibilidade):</strong> Claude Code com MCP e DeerFlow ficam próximos; Antigravity varia muito conforme maturidade do catálogo</li>
+          <li><strong>Importante:</strong> "vence" aqui é medido na rubrica — não é opinião nem marketing</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🗺️ Redigir a recomendação final por tipo de tarefa</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A recomendação final não é "use X". É uma <strong class="text-amber-400">tabela de decisão</strong> em que cada linha é um tipo de tarefa e a coluna aponta a plataforma recomendada + justificativa em uma frase. Tabela é a forma mais defensável: cada linha pode ser contestada separadamente sem reabrir o debate inteiro.
+      </p>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Template da tabela</h3>
+        <p class="text-neutral-300 mb-3">Colunas: <strong>Tipo de tarefa</strong> · <strong>Plataforma recomendada</strong> · <strong>Justificativa (1 frase)</strong> · <strong>Exceção</strong>. Exemplo de linhas:</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li>• Refatorar código em um repo → Claude Code → par de programação Anthropic com git-aware → exceto se precisar de multi-model</li>
+          <li>• Relatório de research com fontes → DeerFlow → skill <code class="bg-dark-700 px-1 rounded">deep-research</code> + multi-provider → exceto se o tema é extremamente de nicho</li>
+          <li>• Apresentação a partir de CSV → DeerFlow → <code class="bg-dark-700 px-1 rounded">data-analysis</code> + <code class="bg-dark-700 px-1 rounded">ppt-generation</code> encadeados → sem exceção clara</li>
+          <li>• Exploração rápida de código legado → IDE-agent → UX visual com diff inline → depende do editor preferido</li>
+          <li>• Integração com canal IM interno → DeerFlow → único dos três com IM nativo → sem exceção</li>
+        </ul>
+      </div>
+
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Regras da tabela</h3>
+        <ul class="space-y-3 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Cada linha tem data de validade</strong> — "válido em abril/2026, revisar em julho"</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Justificativa em 1 frase</strong> — se não cabe, o tipo de tarefa está mal definido</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Exceções declaradas</strong> — "exceto se..." é o que protege a tabela de ficar datada</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>Plano de reavaliação</strong> — uma data no calendário para refazer os 4 labs</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🎓 Entregável: guia de escolha pessoal</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O último entregável do curso inteiro é um documento curto, de uso próprio, em que o aluno registra — nas palavras dele — <strong class="text-amber-400">para quais tarefas vai usar cada uma das três plataformas no dia a dia</strong> depois do curso. É o que prova que o objetivo da Trilha 4 foi atingido: escolher a ferramenta certa por tipo de tarefa, não por moda.
+      </p>
+
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Conceito Central do entregável</h3>
+        <p class="text-neutral-300 mb-4">O guia não é um artigo de blog. É um <strong class="text-amber-400">memorando para você mesmo</strong>, com três seções curtas:</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">1.</span><span><strong>Minhas tarefas típicas</strong> — lista honesta do que você realmente faz</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">2.</span><span><strong>Tabela de decisão</strong> — do tópico 4, mas filtrada para <em>suas</em> tarefas</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">3.</span><span><strong>Compromissos</strong> — "vou reavaliar em 90 dias", "vou testar Antigravity de novo quando ela tiver MCP", etc.</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Por que "pessoal"</h3>
+        <p class="text-neutral-300">Porque a rubrica é minha, as tarefas são minhas, o contexto do meu time é meu. Uma recomendação genérica ("use X para tudo") não sobrevive à próxima semana. Uma recomendação que parte <em>do meu trabalho real</em> sobrevive — e é revisável quando o trabalho mudar.</p>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Critérios de pronto do guia</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li>Cabe em 1 página (não é relatório executivo)</li>
+          <li>Toda linha da tabela aponta a plataforma e a justificativa em 1 frase</li>
+          <li>Há pelo menos 1 exceção declarada por plataforma</li>
+          <li>Há uma data futura de reavaliação escrita explicitamente</li>
+          <li>Não contém a palavra "melhor" — só "forte em…" e "fraco em…"</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
     <section class="mb-12">
       <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">🎓</span> Fim do curso · Obrigado</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Lab 3 — híbrido</strong><span class="text-neutral-400"> — CSV → PPT → Slack nas três plataformas. Mostra quem encadeia skills sem fricção e quem trabalha contra a própria natureza.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Lab 4 — extensibilidade</strong><span class="text-neutral-400"> — criar a mesma capacidade nova em cada uma. Mede DX, linhas de código, reversibilidade e trigger accuracy.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Forte em X, fraco em Y</strong><span class="text-neutral-400"> — o curso nunca chamou uma plataforma de "melhor". É disciplina, não gentileza.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Tabela de decisão</strong><span class="text-neutral-400"> — formato defensável de recomendação. Cada linha contestável separadamente, exceções declaradas, data de validade.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Guia de escolha pessoal</strong><span class="text-neutral-400"> — o entregável final do curso. Uma página, filtrada para as suas tarefas reais, com data de reavaliação.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Você terminou a Trilha 4</strong><span class="text-neutral-400"> — e com ela, as quatro trilhas do curso DeerFlow 2.0. Do Big Picture à escolha de ferramenta, você tem o repertório inteiro.</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-amber-400 mb-2">Depois do curso</h3>
+          <p class="text-neutral-300">Revisite o guia de escolha pessoal a cada 90 dias. Refaça os 4 labs quando uma nova versão de qualquer plataforma sair. Contribua upstream (Trilha 2, módulo 2.10) — o DeerFlow cresce melhor com quem já entendeu o harness inteiro.</p>
+          <p class="text-neutral-400 text-sm mt-2">Obrigado por chegar até aqui. Boa prática.</p>
+        </div>
+
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="modulo-4-3.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a>
-          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Voltar para Trilha</a>
-          <a href="../../index.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Fim do curso →</a>
+          <a href="modulo-4-3.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 4.3</a>
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Índice da Trilha</a>
+          <a href="../../index.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Fim do curso ✓</a>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="border-t border-dark-600 py-8">
@@ -145,12 +411,14 @@
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const htmlEl = document.documentElement;
-    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); } else { darkIcon.classList.remove('hidden'); }
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
     themeToggle.addEventListener('click', () => {
       darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
       htmlEl.classList.toggle('dark');
       localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
+
 </body>
 </html>
