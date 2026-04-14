@@ -7,11 +7,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
+
+    /* Light mode - base */
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -22,6 +27,7 @@
     html:not(.dark) .text-neutral-400 { color: #6b7280; }
     html:not(.dark) .text-neutral-500 { color: #9ca3af; }
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .text-yellow-400 { color: #a16207; }
@@ -30,28 +36,48 @@
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
     html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+
+    /* Light mode - T1 Emerald */
     html:not(.dark) .text-emerald-400 { color: #059669; }
     html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
     html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .bg-emerald-600 { background-color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500:hover { background-color: #10b981; }
+
+    /* Light mode - outros (nav) */
     html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
     html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
     html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
     html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
     html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217, 119, 6, 0.08); }
+
+    /* Light mode - blue (dados) */
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+
+    /* Light mode - red (alertas) */
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220, 38, 38, 0.08); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220, 38, 38, 0.25); }
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
+  <!-- NAVIGATION -->
   <nav class="sticky top-0 z-40 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🦌</span><span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
@@ -69,19 +95,25 @@
     </div>
   </nav>
 
+  <!-- BREADCRUMB -->
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-emerald-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-emerald-400">Trilha 1</a><span>/</span>
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Trilha 1</a>
+      <span>/</span>
       <span class="text-emerald-400">Módulo 1.5</span>
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.5</span>
       <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔎 Web search, arquivos e sandbox</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Providers de busca, upload de arquivos e os três modos de sandbox — Local, Docker e Kubernetes. O que muda e quando escolher cada um.</p>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        A infra que sustenta qualquer skill não trivial. Providers de search, ciclo de vida de arquivos dentro da sessão e os três modos de sandbox — Local, Docker, Kubernetes — com os trade-offs que importam.
+      </p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">40</div><div class="text-xs text-neutral-400">Minutos</div></div>
@@ -92,43 +124,269 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Intro -->
     <div class="mb-12 bg-primary/10 rounded-xl border border-primary/30 p-6">
-      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚧</span> Módulo em produção</h3>
-      <p class="text-neutral-300">Este módulo está sendo escrito em detalhe. A estrutura abaixo já reflete o recorte final; o texto completo virá na próxima iteração.</p>
+      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Como ler este módulo</h3>
+      <p class="text-neutral-300">A escolha de sandbox é <strong class="text-primary">uma decisão de risco, não de performance</strong>. Os tópicos 3-5 são curtos de propósito — o objetivo é você entender quando <em>não</em> usar cada um. Depois o lab costura web search + upload + sandbox numa tarefa real.</p>
     </div>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6">Tópicos previstos</h2>
-      <div class="space-y-4">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">1</span>
-          <div><h3 class="font-semibold text-white mb-1">Providers de web search</h3><p class="text-sm text-neutral-400">Tavily e InfoQuest. Trade-offs de custo, qualidade e freshness. Como trocar via config.</p></div>
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🌐 Providers de web search</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Skills de pesquisa (deep-research, SLR, github-deep-research) não falam direto com Google ou Bing — passam por um <strong class="text-emerald-400">provider de search</strong> que devolve resultados estruturados, já rankeados e prontos para consumo por LLM. O DeerFlow suporta Tavily e InfoQuest de fábrica, e a escolha não é neutra: provider errado derruba a qualidade mesmo com a skill certa.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Os dois suportados</h3>
+        <ul class="space-y-3 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">Tavily</span><span>— API pensada para LLM, rápido, custo por query baixo, bom para queries curtas. Plano free decente para começar.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">InfoQuest</span><span>— foco em curadoria e fontes confiáveis, custa mais, devolve resultados mais densos. Bom para research onde qualidade > quantidade.</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Comparativo</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>Custo por query</strong> — Tavily ~5-10× mais barato que InfoQuest</li>
+          <li><strong>Latência</strong> — Tavily: ~1-2s, InfoQuest: ~3-5s</li>
+          <li><strong>Qualidade em nicho</strong> — InfoQuest vence, principalmente em fontes acadêmicas/regulatórias</li>
+          <li><strong>Freshness</strong> — Tavily atualiza mais rápido; InfoQuest tem indexação mais curada</li>
+          <li><strong>Cota</strong> — ambos têm limite, configure <code class="text-blue-400">max_queries_per_turn</code> no YAML</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">Comece com <strong class="text-primary">Tavily + free tier</strong>. Só migre para InfoQuest quando você notar que deep-research está citando blogs de qualidade duvidosa em um tema que deveria ter fontes acadêmicas. A migração é trocar duas linhas no config.yaml.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">📁 Upload de arquivos</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Upload no DeerFlow não é "enviar um PDF para o contexto do modelo". É <strong class="text-emerald-400">colocar o arquivo no sandbox</strong> — o mesmo sistema de arquivos onde as skills executam código. Isso muda tudo: data-analysis pode abrir o CSV com pandas, code-documentation pode listar o diretório, chart-visualization pode salvar PNG no mesmo lugar. O modelo nunca vê o arquivo inteiro; vê o código que o manipula e o resultado do código.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Ciclo de vida do arquivo</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Upload via UI</strong> → arquivo vai para o diretório de trabalho do sandbox daquela sessão</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Referência por nome</strong> — skills acessam pelo nome do arquivo diretamente no prompt</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Vida útil</strong> — enquanto a sessão existir, o arquivo persiste. Sessão encerrada = sandbox limpo</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Artefatos gerados</strong> — gráficos, PPTs, relatórios criados pelas skills também viram download na UI</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Limite</strong> — tamanho de upload configurável, default conservador (~50MB por arquivo)</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">🚨</span> Alerta: vazamento entre sessões</h3>
+        <p class="text-neutral-300 mb-3">No sandbox <strong>Local</strong>, o diretório de trabalho pode ser compartilhado entre sessões se você não configurar isolamento. Isso significa que um arquivo que você subiu numa sessão "pesquisa A" pode ficar visível numa sessão "pesquisa B" — e pior, pode ser lido acidentalmente por uma skill.</p>
+        <p class="text-neutral-300"><strong>Fix:</strong> use Docker ou K8s (já isolam por sessão), ou configure <code class="text-red-400">sandbox.workdir_per_session: true</code> se precisar ficar no Local.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">💻 Sandbox Local</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O modo mais simples e mais perigoso. Sandbox Local roda o código gerado <strong class="text-emerald-400">no próprio host</strong>, sob o usuário que iniciou o DeerFlow, sem nenhuma camada de isolamento. Zero overhead. Zero proteção. É útil em <em>uma</em> situação: máquina de desenvolvimento dedicada, sem credenciais importantes, sem rede crítica.
+      </p>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">🚨</span> Alerta vermelho</h3>
+        <p class="text-neutral-300 mb-3">Rodar Local na sua máquina de trabalho significa que <strong>qualquer código gerado pelo LLM</strong> tem acesso ao seu home directory, às suas SSH keys, aos seus tokens de cloud, ao seu banco do navegador. Não importa quão benigno seja o prompt — prompt injection é real, alucinação é real, erro do modelo é real.</p>
+        <p class="text-neutral-300"><strong>Casos aceitáveis de Local:</strong> máquina descartável de dev, CI sem secrets, laptop usado apenas para demos.</p>
+      </div>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> O que Local oferece em troca</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Latência zero</strong> — sem container, sem Pod, sem rede entre processos</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Acesso ao ambiente</strong> — bibliotecas que você já instalou localmente, GPUs locais</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Debug direto</strong> — stack trace roda no mesmo Python que você monitora</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Zero setup</strong> — funciona sem Docker daemon, sem kubeconfig</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🐳 Sandbox Docker</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O <strong class="text-emerald-400">default recomendado</strong> para uso pessoal e equipes pequenas. Cada execução de código vive num container descartável baseado na imagem oficial do DeerFlow sandbox, com filesystem isolado, rede controlada e tempo de vida definido. Resolve 90% dos problemas de Local sem complexidade operacional.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Por que Docker é o default</h3>
+        <p class="text-neutral-300 mb-4">Porque é o <strong>menor overhead aceitável</strong> para rodar código de terceiros — e o código gerado por LLM é, em todo sentido prático, código de terceiros. O container pode ser reciclado a cada sessão, os mounts são explícitos, a rede pode ser restrita, e nada disso exige kubernetes.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Imagem base</strong> — python + uv + bibliotecas comuns, mantida pelo DeerFlow</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Mounts explícitos</strong> — só o workdir da sessão, nada do host além disso</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Tempo de vida</strong> — container dura enquanto a sessão existe, é reciclado no reset</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Rede</strong> — configurável. Por default permite saída para APIs; pode ser restringida.</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Imagem custom</h3>
+        <p class="text-neutral-300">Se seu fluxo precisa de uma biblioteca específica toda hora (exemplo: polars, scikit-learn completo, uma lib interna), é mais rápido <strong class="text-primary">estender a imagem base</strong> do que mandar o agente instalar dinamicamente a cada execução. Um Dockerfile de 5 linhas + <code class="text-primary">sandbox.image: myorg/deerflow-sandbox:custom</code> no YAML.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">☸️ Sandbox Kubernetes</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Para <strong class="text-emerald-400">multi-tenant em produção</strong>, Docker não escala. Você precisa de quotas por sessão, isolamento de rede real, limpeza garantida, observabilidade integrada. Kubernetes vira a única resposta sensata. Cada sessão do DeerFlow instancia um Pod com ServiceAccount próprio, NetworkPolicy, limites de CPU/RAM/tempo e teardown automático.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Configurar provisioner</h4>
+            <p class="text-neutral-300 text-sm">No config.yaml, apontar para o cluster (kubeconfig ou in-cluster), definir namespace dedicado, imagem base e imagePullSecrets se for registry privado.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">2</span>
-          <div><h3 class="font-semibold text-white mb-1">Upload de arquivos</h3><p class="text-sm text-neutral-400">CSV, PDF, código. Ciclo de vida do arquivo no sandbox e como evitar vazamento entre sessões.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Definir quotas padrão</h4>
+            <p class="text-neutral-300 text-sm">CPU request/limit, memória, ephemeral-storage, tempo máximo de vida. Valores sensatos: 500m-2 CPU, 1-4 GiB RAM, 30min de timeout. Ajuste pelo seu workload.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">3</span>
-          <div><h3 class="font-semibold text-white mb-1">Sandbox Local</h3><p class="text-sm text-neutral-400">Rápido e sem isolamento. Quando usar, quando jamais usar.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">NetworkPolicy</h4>
+            <p class="text-neutral-300 text-sm">Restringir saída do Pod apenas para os endpoints necessários (providers de LLM, providers de search, APIs internas permitidas). Nega tudo o mais. É a camada mais importante.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">4</span>
-          <div><h3 class="font-semibold text-white mb-1">Sandbox Docker</h3><p class="text-sm text-neutral-400">Container por execução. Imagem customizável, volumes e reset.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">5</span>
-          <div><h3 class="font-semibold text-white mb-1">Sandbox Kubernetes</h3><p class="text-sm text-neutral-400">Pod por sessão com quotas e isolamento de rede. Necessário para multi-tenant.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">6</span>
-          <div><h3 class="font-semibold text-white mb-1">Lab: CSV → análise + gráficos</h3><p class="text-sm text-neutral-400">Upload, data-analysis, chart-visualization em composição automática. Download dos artefatos.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Observabilidade</h4>
+            <p class="text-neutral-300 text-sm">Integrar com o stack do cluster — Prometheus, Loki, Grafana. O DeerFlow exporta métricas por Pod (tokens consumidos, tempo por skill, falhas). Dashboard pronto em minutos.</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- TOPICO 6 - LAB -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🧪 Lab: CSV → análise + gráficos</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O exemplo mais honesto do que o DeerFlow faz bem: você sobe um CSV, pede análise, recebe resumo textual <strong class="text-emerald-400">e</strong> gráficos salvos como artefatos. Tudo em um único turno. É <code class="text-emerald-400">data-analysis</code> + <code class="text-emerald-400">chart-visualization</code> compostos automaticamente.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> O que você vai fazer</h3>
+        <p class="text-neutral-300">Subir um CSV real de tamanho moderado, pedir análise exploratória com visualizações, baixar os artefatos gerados e conferir no trace que a composição de skills aconteceu.</p>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Por que esse lab</h3>
+        <p class="text-neutral-300">Ele toca três coisas em uma tarefa: <strong>upload</strong> (fluxo de arquivo), <strong>sandbox</strong> (execução de pandas/matplotlib real), e <strong>composição automática</strong> (data-analysis chama chart-visualization sem você pedir). Você vê que o harness faz mais do que rotear prompt.</p>
+      </div>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Arranjar o CSV</h4>
+            <p class="text-neutral-300 text-sm">Algo com 1k-50k linhas, pelo menos 5 colunas, misture numérico e categórico. Um dataset público de Kaggle serve. Evite dados pessoais reais.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Upload + prompt</h4>
+            <p class="text-neutral-300 text-sm">Suba pelo botão de upload da UI. Prompt sugerido: <em>"Faça uma análise exploratória deste CSV, destaque 3 padrões interessantes e gere visualizações correspondentes."</em> Deixe a auto-seleção de skill rodar.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Observar o trace</h4>
+            <p class="text-neutral-300 text-sm">Confirme: data-analysis acionada → código pandas executado no sandbox → chart-visualization acionada com referência aos dados → PNGs salvos. Anote quantos turnos internos aconteceram.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Baixar os artefatos</h4>
+            <p class="text-neutral-300 text-sm">A UI lista os arquivos gerados no sandbox. Baixe os PNGs, confira que são gráficos de verdade (não descrições textuais), compare com o texto da análise. Se não bate, o prompt precisa ser mais específico.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Variação: forçar o sandbox</h4>
+            <p class="text-neutral-300 text-sm">Se você estiver em Local, troque para Docker temporariamente e refaça. Sinta na pele o que muda (latência, isolamento, onde o PNG mora). O trade-off fica concreto.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
     <section class="mb-12">
       <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Provider de search importa</strong><span class="text-neutral-400"> — Tavily para custo e velocidade, InfoQuest para curadoria. Comece com Tavily, migre quando a qualidade exigir.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Upload é inserção no sandbox</strong><span class="text-neutral-400"> — não é contexto do modelo. Skills manipulam o arquivo via código, modelo vê apenas o código e os resultados.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Sandbox Local = risco, não performance</strong><span class="text-neutral-400"> — só em máquina descartável. Prompt injection, alucinação e erro do modelo são reais.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Docker é o default razoável</strong><span class="text-neutral-400"> — container por sessão, imagem custom quando precisa, mounts explícitos, rede configurável.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Kubernetes para multi-tenant</strong><span class="text-neutral-400"> — Pod por sessão, quotas, NetworkPolicy e observability integrada. Único caminho sensato em produção.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Composição automática é real</strong><span class="text-neutral-400"> — data-analysis → chart-visualization acontece sem orquestração explícita. É o shape certo do DeerFlow.</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">1.6 — 🧠 Memória de longo prazo</p>
+          <p class="text-neutral-400 text-sm mt-1">O que o DeerFlow lembra entre sessões, como revisar, e quando a memória ajuda ou atrapalha.</p>
+        </div>
+
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="modulo-1-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a>
           <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Voltar para Trilha</a>
@@ -136,6 +394,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="border-t border-dark-600 py-8">
@@ -149,12 +408,14 @@
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const htmlEl = document.documentElement;
-    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); } else { darkIcon.classList.remove('hidden'); }
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
     themeToggle.addEventListener('click', () => {
       darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
       htmlEl.classList.toggle('dark');
       localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
+
 </body>
 </html>

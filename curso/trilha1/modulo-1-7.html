@@ -7,11 +7,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
+
+    /* Light mode - base */
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -22,6 +27,7 @@
     html:not(.dark) .text-neutral-400 { color: #6b7280; }
     html:not(.dark) .text-neutral-500 { color: #9ca3af; }
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .text-yellow-400 { color: #a16207; }
@@ -30,30 +36,50 @@
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
     html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+
+    /* Light mode - T1 Emerald */
     html:not(.dark) .text-emerald-400 { color: #059669; }
     html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
     html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .bg-emerald-600 { background-color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500:hover { background-color: #10b981; }
-    html:not(.dark) .bg-blue-600 { background-color: #2563eb; }
-    html:not(.dark) .hover\:bg-blue-500:hover { background-color: #3b82f6; }
+
+    /* Light mode - outros (nav) */
     html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
     html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
     html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
     html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
     html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217, 119, 6, 0.08); }
+
+    /* Light mode - blue (dados + botão próxima trilha) */
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .bg-blue-600 { background-color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500:hover { background-color: #3b82f6; }
+
+    /* Light mode - red (alertas) */
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220, 38, 38, 0.08); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220, 38, 38, 0.25); }
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
+  <!-- NAVIGATION -->
   <nav class="sticky top-0 z-40 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🦌</span><span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
@@ -71,19 +97,25 @@
     </div>
   </nav>
 
+  <!-- BREADCRUMB -->
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-emerald-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-emerald-400">Trilha 1</a><span>/</span>
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Trilha 1</a>
+      <span>/</span>
       <span class="text-emerald-400">Módulo 1.7</span>
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.7</span>
       <h1 class="text-3xl sm:text-4xl font-bold mb-4">📲 Integrações de bolso</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Telegram, Slack, Feishu/WeChat/WeCom para falar com o agente fora do navegador, e LangSmith/Langfuse para ver o que ele fez.</p>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Telegram, Slack, Feishu/WeChat/WeCom para falar com o agente fora do navegador — e LangSmith/Langfuse para saber o que ele fez. Ao final, seu DeerFlow responde pelo celular e cada execução fica auditável.
+      </p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">40</div><div class="text-xs text-neutral-400">Minutos</div></div>
@@ -94,43 +126,280 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Intro -->
     <div class="mb-12 bg-primary/10 rounded-xl border border-primary/30 p-6">
-      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚧</span> Módulo em produção</h3>
-      <p class="text-neutral-300">Este módulo está sendo escrito em detalhe. A estrutura abaixo já reflete o recorte final; o texto completo virá na próxima iteração.</p>
+      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Como ler este módulo</h3>
+      <p class="text-neutral-300">Este é o <strong class="text-primary">módulo final da Trilha 1</strong>. Os três primeiros tópicos cobrem canais IM (Telegram, Slack, família asiática), os dois seguintes cobrem tracing (LangSmith, Langfuse), e o lab costura os dois mundos — bot + trace em tempo real. Depois desta página, você segue para a Trilha 2 e começa o DeerFlow avançado.</p>
     </div>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6">Tópicos previstos</h2>
-      <div class="space-y-4">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">1</span>
-          <div><h3 class="font-semibold text-white mb-1">Telegram</h3><p class="text-sm text-neutral-400">Bot pessoal no celular. BotFather, token em .env, sessão por chat e arquivos.</p></div>
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">✈️ Telegram — bot pessoal no celular</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Telegram é o canal IM mais rápido de ligar. O DeerFlow tem suporte nativo: você cria um bot via BotFather, cola o token no <code class="text-emerald-400">.env</code>, habilita no config.yaml e reinicia. A partir daí, qualquer mensagem privada para o bot chega no lead_agent, preservando <strong class="text-emerald-400">sessão por usuário e memória por usuário</strong>. Fotos, áudios e documentos funcionam nativamente.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Criar o bot via BotFather</h4>
+            <p class="text-neutral-300 text-sm">Abra o Telegram, fale com <code class="text-emerald-400">@BotFather</code>, use <code class="text-emerald-400">/newbot</code>, escolha nome e username. O BotFather devolve um token — copie, guarde, nunca commite.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">2</span>
-          <div><h3 class="font-semibold text-white mb-1">Slack</h3><p class="text-sm text-neutral-400">App do Slack, socket mode, sessão por thread, custom agents por canal.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Token no .env</h4>
+            <p class="text-neutral-300 text-sm">Adicione <code class="text-emerald-400">TELEGRAM_BOT_TOKEN=...</code>. Habilite <code class="text-emerald-400">channels.telegram.enabled: true</code> no config.yaml apontando para <code class="text-emerald-400">${TELEGRAM_BOT_TOKEN}</code>.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">3</span>
-          <div><h3 class="font-semibold text-white mb-1">Feishu, WeChat, WeCom</h3><p class="text-sm text-neutral-400">Canais do ecossistema asiático. Abstração comum de canal IM no DeerFlow.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Reiniciar e testar</h4>
+            <p class="text-neutral-300 text-sm"><code class="text-emerald-400">make doctor</code> para confirmar que o provider do Telegram está saudável. Depois <code class="text-emerald-400">make docker-start</code> (ou equivalente) e mande "oi" para o bot. O DeerFlow responde.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">4</span>
-          <div><h3 class="font-semibold text-white mb-1">Tracing com LangSmith</h3><p class="text-sm text-neutral-400">Traces hierárquicos, custo por execução, filtros por skill, datasets para avaliação.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Sessão por chat</h4>
+            <p class="text-neutral-300 text-sm">Cada chat Telegram vira uma sessão DeerFlow distinta. Isso significa memória por usuário, histórico por usuário, e a possibilidade de plugar outras pessoas no mesmo bot com contextos isolados.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">5</span>
-          <div><h3 class="font-semibold text-white mb-1">Tracing com Langfuse</h3><p class="text-sm text-neutral-400">Alternativa open-source e self-hosted. Quando preferir Langfuse ao LangSmith.</p></div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">Para demos rápidas, deixe o bot <strong class="text-primary">privado</strong> (no BotFather, <code class="text-primary">/setjoingroups</code> desabilitado) e só envie o link para quem deve testar. Abrir o bot em grupos públicos sem rate limit é pedido de conta queimada.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">💬 Slack — onde o time trabalha</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Slack é onde a maioria dos times corporativos já vive. Plugar bem o DeerFlow ali é a diferença entre <em>"interessante"</em> e <em>"adotado"</em>. O DeerFlow cria um Slack App com scopes mínimos, escuta via socket mode (sem precisar expor porta pública) e <strong class="text-emerald-400">cada thread vira uma sessão</strong> — permitindo múltiplas conversas paralelas sem confundir histórico.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Setup mínimo</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Criar o App</strong> — api.slack.com/apps, From scratch, nome, workspace</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Scopes OAuth</strong> — <code>chat:write</code>, <code>im:history</code>, <code>app_mentions:read</code>, <code>files:write</code></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Socket mode</strong> — habilitar (evita precisar de ngrok/endpoint público)</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Event subscriptions</strong> — <code>message.im</code>, <code>app_mention</code></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Install no workspace</strong> — o admin aprova o escopo</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Token + App-Level Token</strong> — dois tokens no <code>.env</code>: <code>SLACK_BOT_TOKEN</code> e <code>SLACK_APP_TOKEN</code></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Sessão por thread</h3>
+        <p class="text-neutral-300">Quando alguém abre uma thread em qualquer canal mencionando o bot, o DeerFlow trata aquela thread como uma sessão própria. O contexto dentro da thread é isolado — o agente não mistura com outras conversas. É o padrão certo para Slack: evita a bagunça de uma única sessão por canal.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🟣 Feishu, WeChat, WeCom</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A família IM asiática suportada nativamente. Faz sentido se você trabalha num time com presença na China ou no ecossistema ByteDance — <strong class="text-emerald-400">Feishu</strong> (Lark fora da China) é o "Slack deles", <strong class="text-emerald-400">WeCom</strong> é o "Slack corporativo da Tencent", e <strong class="text-emerald-400">WeChat</strong> oficial accounts cobrem o lado consumer. Mesmo fora dessas empresas, vale entender a abstração: é um <strong>ótimo estudo de caso de plugabilidade</strong>.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Abstração comum de canal IM</h3>
+        <p class="text-neutral-300 mb-4">Todos os canais IM suportados implementam o mesmo <strong class="text-emerald-400">contrato interno</strong>: recebem mensagem → rotearam para lead_agent com metadados de usuário/sessão → devolvem resposta. Isso significa que features novas (arquivos, streaming, botões de aprovação) ganhas num canal costumam chegar nos outros.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Feishu/Lark</strong> — app via Open Platform, <code>APP_ID</code> + <code>APP_SECRET</code>, event subscription via webhook</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>WeCom</strong> — App empresarial, token + encoding AES, callback URL</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>WeChat</strong> — conta oficial, token, modelo de reply ativo/passivo</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Custom agents por canal</strong> — mesma feature do Slack, diferentes personas dependendo de onde o bot mora</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">📊 Tracing com LangSmith</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Debug sem tracing é adivinhação. <strong class="text-emerald-400">LangSmith</strong> é o serviço de tracing da LangChain — o DeerFlow, como roda sobre LangGraph, exporta cada execução como uma árvore hierárquica de chamadas para lá automaticamente quando habilitado. Você enxerga planejamento, skills, sub-agents, tool calls, tokens consumidos, erros, latência, tudo com timeline.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> O que fica visível no LangSmith</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Árvore de chamadas</strong> — cada nó do grafo vira um span; cliques abrem o payload de entrada/saída</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Tokens e custo</strong> — contabilizado por execução, filtrable por skill ou provider</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Erros</strong> — stack traces dentro do nó que falhou, sem precisar bater log no container</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Datasets e evals</strong> — salvar prompts reais como base de regressão para mudanças futuras</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Anotações</strong> — time pode marcar traces como "bom", "ruim", "regressão" para depois analisar padrão</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Setup é trivial</h3>
+        <p class="text-neutral-300"><code class="text-primary">LANGCHAIN_TRACING_V2=true</code>, <code class="text-primary">LANGCHAIN_API_KEY=...</code>, <code class="text-primary">LANGCHAIN_PROJECT=deerflow-meu-nome</code> no <code class="text-primary">.env</code>. Reinicie. A partir da próxima execução, tudo flui para o painel. É a integração com melhor retorno sobre o esforço do DeerFlow inteiro.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🔭 Tracing com Langfuse</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Se enviar dados para um SaaS é problema — compliance, dados regulados, política corporativa — <strong class="text-emerald-400">Langfuse</strong> é a alternativa. É open-source, self-hosted em minutos (Docker Compose oficial), com conceito de trace hierárquico semelhante. O DeerFlow trata os dois como intercambiáveis: você escolhe no config.yaml, muda duas linhas, os traces passam a fluir para Langfuse em vez de LangSmith.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">LangSmith</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Hosted, zero operação</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Setup em 3 variáveis</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Datasets e evals integrados</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Grátis para volume baixo</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Dados saem da sua infra</span></li>
+          </ul>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">6</span>
-          <div><h3 class="font-semibold text-white mb-1">Lab: bot de Telegram + trace em tempo real</h3><p class="text-sm text-neutral-400">Conversar pelo celular e observar traces no laptop. Mesma execução, auditável em qualquer canal.</p></div>
+        <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+          <h4 class="font-bold text-blue-400 mb-4">Langfuse</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Self-hosted, dados ficam com você</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Open-source (Apache 2.0)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Dashboards customizáveis</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Bom para compliance/LGPD</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Você mantém o Postgres e o Clickhouse</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Regra simples</h3>
+        <p class="text-neutral-300">Uso pessoal ou equipe pequena sem compliance estrito: <strong class="text-primary">LangSmith</strong>, sem pensar. Empresa com dados regulados, cliente que proíbe envio para SaaS, ou você simplesmente quer controle total: <strong class="text-primary">Langfuse self-hosted</strong>. Nos dois casos, o DeerFlow cria os traces do mesmo jeito — o destino é uma config.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 - LAB -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🧪 Lab: bot de Telegram + trace em tempo real</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O lab final da Trilha 1 costura duas peças que parecem separadas — canal IM e observabilidade — em uma única tarefa. Você vai <strong class="text-emerald-400">conversar pelo celular enquanto observa os traces pipocarem no laptop</strong>. É satisfatório e educativo ao mesmo tempo: mostra que a mesma execução é auditável independentemente de onde o prompt entrou.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> O que você vai fazer</h3>
+        <p class="text-neutral-300">Ligar um bot do Telegram ao seu DeerFlow, habilitar LangSmith (ou Langfuse), enviar 3 prompts pelo celular, e observar o trace aparecer em tempo real no navegador do laptop.</p>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Por que esse lab</h3>
+        <p class="text-neutral-300">Dois motivos. Primeiro, o lado prático: é a forma mais rápida de provar que o DeerFlow deixa de ser uma app local e vira um <em>agente de verdade</em> que você acessa pelo bolso. Segundo, o lado didático: quando o trace flui no laptop enquanto você digita no celular, <strong>a distância entre canal e execução</strong> se dissolve. O mesmo lead_agent, a mesma pilha de skills, o mesmo sandbox — só mudou a boca de entrada.</p>
+      </div>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Criar o bot</h4>
+            <p class="text-neutral-300 text-sm">Siga o passo-a-passo do tópico 1: BotFather, <code class="text-emerald-400">/newbot</code>, token. Salve o token no <code class="text-emerald-400">.env</code> como <code class="text-emerald-400">TELEGRAM_BOT_TOKEN</code>. Confirme que <code class="text-emerald-400">channels.telegram.enabled: true</code> está no YAML.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Habilitar LangSmith</h4>
+            <p class="text-neutral-300 text-sm">Crie uma conta em smith.langchain.com (grátis), crie um projeto <code class="text-emerald-400">deerflow-trilha1</code>, copie a API key. Adicione <code class="text-emerald-400">LANGCHAIN_TRACING_V2=true</code>, <code class="text-emerald-400">LANGCHAIN_API_KEY=...</code>, <code class="text-emerald-400">LANGCHAIN_PROJECT=deerflow-trilha1</code> no <code class="text-emerald-400">.env</code>.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Validar e subir</h4>
+            <p class="text-neutral-300 text-sm"><code class="text-emerald-400">make doctor</code> — deve mostrar Telegram e LangSmith em verde. Se algum aparecer em amarelo/vermelho, conserte antes de prosseguir. Depois <code class="text-emerald-400">make docker-start</code>.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Abrir o painel do LangSmith</h4>
+            <p class="text-neutral-300 text-sm">No navegador do laptop, deixe o projeto <code class="text-emerald-400">deerflow-trilha1</code> aberto. A view "Runs" fica atualizando ao vivo. Deixe essa aba visível.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Três prompts pelo celular</h4>
+            <p class="text-neutral-300 text-sm">Abra o bot no Telegram. Envie: (1) "oi" (fact trivial), (2) "me resuma em 3 pontos as diferenças entre RAG e fine-tuning", (3) "use deep-research para comparar 3 frameworks de agentes em 2026". Observe os três traces aparecendo no LangSmith com complexidade crescente.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">6</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Explorar um trace</h4>
+            <p class="text-neutral-300 text-sm">Clique no trace do prompt 3 (deep-research). Abra a árvore de spans. Veja a chamada ao planner, a skill acionada, as chamadas a Tavily/InfoQuest, as chamadas ao LLM, o custo total. Esse trace é a <strong>prova visual</strong> de tudo que você aprendeu na Trilha 1.</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- RESUMO -->
     <section class="mb-12">
       <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Telegram é o canal mais rápido</strong><span class="text-neutral-400"> — BotFather, token, reinício. Sessão por chat, memória por usuário, arquivos nativos.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Slack é onde o time está</strong><span class="text-neutral-400"> — App com scopes, socket mode, sessão por thread. É a diferença entre "interessante" e "adotado".</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Feishu/WeChat/WeCom compartilham abstração</strong><span class="text-neutral-400"> — mesmo contrato interno, features chegam em paralelo. Estudo de caso de plugabilidade.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">LangSmith tem o melhor ROI</strong><span class="text-neutral-400"> — três variáveis no .env, árvore de chamadas, custo, erros, datasets. Uso pessoal = sem pensar.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Langfuse é a alternativa self-hosted</strong><span class="text-neutral-400"> — dados ficam com você, Apache 2.0, compliance-friendly. Intercambiável com LangSmith via config.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Canal e execução são independentes</strong><span class="text-neutral-400"> — o mesmo lead_agent atende UI, Telegram, Slack. Trace revela isso instantaneamente.</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Próxima Trilha:</h3>
+          <p class="text-neutral-300">Trilha 2 — 🧭 DeerFlow Avançado I</p>
+          <p class="text-neutral-400 text-sm mt-1">Sub-agents, context engineering, composição de skills, custom agents e monitoramento. Você sai do fundamentalismo e começa a montar agentes que parecem o seu time.</p>
+        </div>
+
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="modulo-1-6.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a>
           <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Voltar para Trilha</a>
@@ -138,6 +407,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="border-t border-dark-600 py-8">
@@ -151,12 +421,14 @@
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const htmlEl = document.documentElement;
-    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); } else { darkIcon.classList.remove('hidden'); }
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
     themeToggle.addEventListener('click', () => {
       darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
       htmlEl.classList.toggle('dark');
       localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
+
 </body>
 </html>

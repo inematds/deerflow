@@ -7,11 +7,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
+
+    /* Light mode - base */
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -22,6 +27,7 @@
     html:not(.dark) .text-neutral-400 { color: #6b7280; }
     html:not(.dark) .text-neutral-500 { color: #9ca3af; }
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .text-yellow-400 { color: #a16207; }
@@ -30,28 +36,48 @@
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
     html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+
+    /* Light mode - T1 Emerald */
     html:not(.dark) .text-emerald-400 { color: #059669; }
     html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
     html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .bg-emerald-600 { background-color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500:hover { background-color: #10b981; }
+
+    /* Light mode - outros (nav) */
     html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
     html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
     html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
     html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
     html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217, 119, 6, 0.08); }
+
+    /* Light mode - blue (dados) */
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+
+    /* Light mode - red (alertas) */
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220, 38, 38, 0.08); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220, 38, 38, 0.25); }
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
+  <!-- NAVIGATION -->
   <nav class="sticky top-0 z-40 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🦌</span><span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
@@ -69,19 +95,25 @@
     </div>
   </nav>
 
+  <!-- BREADCRUMB -->
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-emerald-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-emerald-400">Trilha 1</a><span>/</span>
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Trilha 1</a>
+      <span>/</span>
       <span class="text-emerald-400">Módulo 1.3</span>
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.3</span>
       <h1 class="text-3xl sm:text-4xl font-bold mb-4">🖥️ A interface e o loop básico</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Frontend Next.js, anatomia de uma conversa e os dois modos que mais mudam o resultado: plan mode e thinking mode.</p>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Frontend Next.js, anatomia de uma conversa do início ao fim, e os dois modos que mais mudam o resultado: plan e thinking. Ao final, você sabe onde intervir quando o agente "erra bonito".
+      </p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">35</div><div class="text-xs text-neutral-400">Minutos</div></div>
@@ -92,43 +124,282 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Intro -->
     <div class="mb-12 bg-primary/10 rounded-xl border border-primary/30 p-6">
-      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚧</span> Módulo em produção</h3>
-      <p class="text-neutral-300">Este módulo está sendo escrito em detalhe. A estrutura abaixo já reflete o recorte final; o texto completo virá na próxima iteração.</p>
+      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Como ler este módulo</h3>
+      <p class="text-neutral-300">Abra o frontend do DeerFlow em outra aba enquanto lê. Cada tópico aponta um elemento concreto da UI — é infinitamente mais rápido achar se você fizer o tour <strong class="text-primary">com a tela ligada</strong> do que tentar decorar nomes de painéis.</p>
     </div>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6">Tópicos previstos</h2>
-      <div class="space-y-4">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">1</span>
-          <div><h3 class="font-semibold text-white mb-1">Tour pelo frontend Next.js</h3><p class="text-sm text-neutral-400">Onde mora cada coisa: painel de conversa, traces, configurações de sessão, histórico.</p></div>
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🗺️ Tour pelo frontend Next.js</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O frontend é uma aplicação <strong class="text-emerald-400">Next.js</strong> que roda no container Docker junto do backend. É uma UI enxuta: barra lateral de sessões, painel principal de conversa, painel de traces e barra superior com os controles de modo. Nada exótico — mas <strong>saber onde cada coisa mora</strong> elimina metade das perguntas operacionais que surgem na semana 1.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Os quatro painéis que importam</h3>
+        <ul class="space-y-3 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">Sessões</span><span>— lateral esquerda. Lista persistente. Cada sessão guarda histórico completo e tem configuração independente.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">Conversa</span><span>— centro. Messages streaming, upload, botão de cancelar. É 80% do tempo de tela.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">Traces</span><span>— lateral direita, expansível. Cada passo do agente com tokens e tempo. Abra quando quiser entender o porquê.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">Controles</span><span>— barra superior. Toggles de plan mode, thinking, skill forçada, provider por sessão.</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Config por sessão</h3>
+        <p class="text-neutral-300">Cada sessão tem <strong class="text-primary">seu próprio provider, skills ativas e toggles</strong>. Isso significa que você pode ter uma sessão "barata" com gpt-4o-mini para rascunho e outra "premium" com Claude Sonnet + thinking para revisão final — lado a lado, sem conflito.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🔁 Anatomia de uma conversa</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Cada turno do DeerFlow segue o mesmo ciclo canônico. Saber enxergá-lo no trace é a diferença entre "o agente está falhando" e "o agente está falhando <em>nesta etapa específica</em>". Com o segundo, você sabe onde intervir.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Prompt do usuário</h4>
+            <p class="text-neutral-300 text-sm">A mensagem entra pelo frontend, é anexada ao histórico da sessão e passa por um pré-processamento leve (deduplicar system prompt, resolver variáveis). Ainda não chegou no modelo.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">2</span>
-          <div><h3 class="font-semibold text-white mb-1">Anatomia de uma conversa</h3><p class="text-sm text-neutral-400">O ciclo canônico: prompt → lead_agent planeja → executa passos → resultado. Onde intervir em cada etapa.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Lead agent planeja</h4>
+            <p class="text-neutral-300 text-sm">O lead_agent recebe o prompt + as descrições de todas as skills ativas e decide: é pergunta direta? precisa de skill? qual? em que ordem? Se plan mode está ligado, ele emite um plano escrito antes de executar.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">3</span>
-          <div><h3 class="font-semibold text-white mb-1">Plan mode</h3><p class="text-sm text-neutral-400">Aprovar o plano antes de executar. Controle essencial para tarefas caras ou com efeito colateral.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Execução</h4>
+            <p class="text-neutral-300 text-sm">Skills são acionadas, sub-agents são invocados, tools são chamadas (search, sandbox, memória). Cada passo vira um nó no grafo LangGraph. O trace registra tudo.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">4</span>
-          <div><h3 class="font-semibold text-white mb-1">Thinking mode: quando ligar</h3><p class="text-sm text-neutral-400">Quando vale o custo extra de tokens e quando é desperdício. Heurística prática.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Síntese</h4>
+            <p class="text-neutral-300 text-sm">O lead_agent recebe os resultados dos passos, escreve a resposta final e inicia o streaming para o frontend. O usuário começa a ler enquanto o texto ainda está sendo gerado.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">5</span>
-          <div><h3 class="font-semibold text-white mb-1">Streaming de respostas</h3><p class="text-sm text-neutral-400">Ler enquanto gera e interromper quando o caminho está errado — economia real de tempo e tokens.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">6</span>
-          <div><h3 class="font-semibold text-white mb-1">Lab: plan + thinking lado a lado</h3><p class="text-sm text-neutral-400">Mesma pergunta em 4 combinações; comparar tempo, custo e qualidade; derivar regra pessoal.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Persistência</h4>
+            <p class="text-neutral-300 text-sm">Histórico é salvo. Fatos novos podem ir para a memória de longo prazo. Trace é guardado. Se LangSmith/Langfuse está ativo, é exportado.</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">📋 Plan mode — aprovar antes de executar</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-emerald-400">Plan mode</strong> insere um passo de revisão entre planejamento e execução. O agente escreve o plano em português, você lê, aprova, edita ou rejeita. Só depois ele executa. É o controle mais importante para tarefas caras ou irreversíveis — e é o melhor jeito didático de ver como o agente está pensando.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> O que plan mode entrega</h3>
+        <p class="text-neutral-300 mb-4">Um <strong class="text-emerald-400">plano estruturado</strong> (3–8 passos em texto) que você pode editar inline antes de dar "ok". Edição inline é literal: apague um passo, adicione instrução, reordene, mude um parâmetro. A versão editada é o que o lead_agent executa.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Controle <strong>por turno</strong>, não por sessão — você liga e desliga no botão</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Adiciona <strong>~10-30 segundos</strong> ao turno (um round-trip a mais)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Ótimo para <strong>research longa</strong>, <strong>ações com efeito colateral</strong>, debug de comportamento</span></li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Ligar quando</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Pesquisa vai custar muitos tokens</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Ação tem efeito colateral (escrever arquivo, fazer deploy)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Você está debugando por que a última resposta veio errada</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Quer ensinar/mostrar como o agente raciocina</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Desligar quando</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Perguntas rápidas que cabem em um único turno</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Fluxo de conversa rápida onde latência mata</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Você não tem intenção de ler o plano</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Uso em demo com audiência impaciente</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">💭 Thinking mode — quando vale o custo</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-emerald-400">Thinking mode</strong> libera o modelo para raciocinar antes de responder — mais tokens, mais tempo, geralmente respostas <strong>muito</strong> melhores em tarefas complexas. É o mesmo princípio por trás de o1, Claude Sonnet extended thinking, Gemini 2.5 Thinking. O que muda é que no DeerFlow você escolhe turno a turno, não precisa trocar de modelo.
+      </p>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Tokens vs qualidade</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>~3-8×</strong> — aumento típico de tokens consumidos por turno com thinking ligado</li>
+          <li><strong>~30-200%</strong> — melhoria de qualidade em tarefas de raciocínio, análise, debug, matemática</li>
+          <li><strong>~0%</strong> — melhoria em fatos diretos, reformulações, sumarizações simples</li>
+          <li><strong>Regra</strong> — se a pergunta cabe numa única frase de resposta, thinking é desperdício</li>
+        </ul>
+      </div>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Casos onde thinking brilha</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Debug</strong> — "por que este código retorna None quando deveria retornar 5"</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Matemática aplicada</strong> — modelagem, dimensionamento, otimização</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Análise crítica</strong> — comparar abordagens, encontrar a falha num argumento</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Planejamento multi-passo</strong> — onde cada passo afeta os próximos</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">Thinking <strong class="text-primary">não é retry</strong>. Se a primeira resposta veio errada, ligar thinking e reenviar pode ajudar — mas pode também dar a mesma resposta com mais confiança. Se o problema é de contexto faltante (memória, arquivo, prompt ambíguo), thinking não corrige. <strong>Primeiro conserte a entrada, depois considere ligar thinking.</strong></p>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🌊 Streaming de respostas</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O DeerFlow <strong class="text-emerald-400">stream-a tudo</strong>: tokens da resposta, entradas do trace, sub-steps de skills. Você lê enquanto o agente gera. Isso não é só confort visual — é uma <strong>ferramenta ativa</strong>: se você vê que a resposta está indo para o lado errado nas primeiras frases, aperta o botão de cancelar e economiza tempo e tokens.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> O que flui em streaming</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Tokens da resposta</strong> — o texto principal, chunk por chunk</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Eventos do trace</strong> — "skill X acionada", "sub-agent Y iniciado"</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Status de tool calls</strong> — pending, running, done, error</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Contadores</strong> — tokens consumidos, tempo decorrido</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Interromper economiza 30-40%</h3>
+        <p class="text-neutral-300">Nas tarefas longas, uma fração significativa termina com você percebendo nas primeiras frases que <strong>o agente entendeu errado</strong>. Cancelar cedo, refinar o prompt e reenviar é sempre mais barato do que esperar o final e pedir correção. Treine o reflexo de ler os primeiros chunks com atenção.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 - LAB -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🧪 Lab: plan + thinking lado a lado</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Teoria sobre modos é insuficiente. Sentir na pele a diferença entre as quatro combinações (plan on/off × thinking on/off) numa pergunta <em>média</em> é a única forma de construir a regra pessoal que vai te guiar depois.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> O que você vai fazer</h3>
+        <p class="text-neutral-300">Escolher uma pergunta de dificuldade média, rodar as quatro combinações, anotar tempo + tokens + qualidade subjetiva, e escrever a sua heurística para quando ligar cada modo.</p>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Por que esse lab</h3>
+        <p class="text-neutral-300">Os modos são os controles mais impactantes do DeerFlow e os mais subutilizados. A maioria liga plan mode "por segurança" e thinking "porque parece bom" — desperdiçando minutos e tokens. Outros não ligam nunca e acham que o agente é mediano. Um único lab comparativo resolve os dois extremos.</p>
+      </div>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Escolha a pergunta</h4>
+            <p class="text-neutral-300 text-sm">Evite perguntas triviais ("capital do Brasil") e perguntas gigantes ("pesquise tudo sobre LLMs"). Alvo: algo que precise de 2-4 passos de raciocínio. Exemplo: <em>"Compare 3 abordagens de RAG híbrido considerando custo de indexação e latência de inferência."</em></p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Rode as 4 variantes</h4>
+            <p class="text-neutral-300 text-sm">Use 4 sessões separadas (para não poluir histórico). Em cada uma, configure: (A) plan off / thinking off, (B) plan on / thinking off, (C) plan off / thinking on, (D) plan on / thinking on. Mesma pergunta nas quatro.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Anote as métricas</h4>
+            <p class="text-neutral-300 text-sm">Para cada variante: tempo total, tokens totais (o trace mostra), e uma nota subjetiva de 1–5 para qualidade. Seja honesto — é comum a variante A já ser suficiente.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Escreva sua regra</h4>
+            <p class="text-neutral-300 text-sm">Uma frase, máximo duas: "Eu ligo plan quando X. Eu ligo thinking quando Y." Essa regra pessoal, baseada no que <em>você viu</em>, vale mais que qualquer recomendação genérica.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
     <section class="mb-12">
       <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Quatro painéis</strong><span class="text-neutral-400"> — sessões, conversa, traces, controles. Config por sessão permite trabalhar barato e premium em paralelo.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Ciclo canônico</strong><span class="text-neutral-400"> — prompt → lead planeja → executa → sintetiza → persiste. Ver onde está falhando é saber onde intervir.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Plan mode</strong><span class="text-neutral-400"> — aprovar antes de executar. Ligue para research caro, ações com efeito colateral ou debug. Desligue para chat rápido.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Thinking mode</strong><span class="text-neutral-400"> — 3-8× tokens, 30-200% qualidade em raciocínio. Desperdício em fatos diretos. Não é retry.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Streaming é ativo</strong><span class="text-neutral-400"> — cancelar cedo economiza 30-40% em tarefas longas. Treine o reflexo de ler os primeiros chunks.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Sua regra pessoal vence recomendação genérica</strong><span class="text-neutral-400"> — rode o lab, anote as 4 variantes, escreva duas frases. Use elas pelo resto do curso.</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">1.4 — 🎯 Skills — a capacidade principal</p>
+          <p class="text-neutral-400 text-sm mt-1">Catálogo público, como invocar manualmente e como o agente decide sozinho qual usar.</p>
+        </div>
+
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="modulo-1-2.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a>
           <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Voltar para Trilha</a>
@@ -136,6 +407,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="border-t border-dark-600 py-8">
@@ -149,12 +421,14 @@
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const htmlEl = document.documentElement;
-    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); } else { darkIcon.classList.remove('hidden'); }
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
     themeToggle.addEventListener('click', () => {
       darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
       htmlEl.classList.toggle('dark');
       localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
+
 </body>
 </html>

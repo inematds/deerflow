@@ -7,11 +7,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
+
+    /* Light mode - base */
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -22,6 +27,7 @@
     html:not(.dark) .text-neutral-400 { color: #6b7280; }
     html:not(.dark) .text-neutral-500 { color: #9ca3af; }
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .text-yellow-400 { color: #a16207; }
@@ -30,28 +36,48 @@
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
     html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+
+    /* Light mode - T1 Emerald */
     html:not(.dark) .text-emerald-400 { color: #059669; }
     html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
     html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .bg-emerald-600 { background-color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500:hover { background-color: #10b981; }
+
+    /* Light mode - outros (nav) */
     html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
     html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
     html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
     html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
     html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217, 119, 6, 0.08); }
+
+    /* Light mode - blue (dados) */
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+
+    /* Light mode - red (alertas) */
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220, 38, 38, 0.08); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220, 38, 38, 0.25); }
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
+  <!-- NAVIGATION -->
   <nav class="sticky top-0 z-40 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🦌</span><span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
@@ -69,19 +95,25 @@
     </div>
   </nav>
 
+  <!-- BREADCRUMB -->
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-emerald-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-emerald-400">Trilha 1</a><span>/</span>
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Trilha 1</a>
+      <span>/</span>
       <span class="text-emerald-400">Módulo 1.2</span>
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.2</span>
       <h1 class="text-3xl sm:text-4xl font-bold mb-4">🚀 Instalação e primeiro "olá mundo"</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Do clone do repositório ao primeiro prompt rodando no navegador, passando por config, providers e Docker.</p>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Do clone ao primeiro prompt rodando no navegador. Você vai aprender onde cada arquivo mora, como escolher um provider de LLM sem se enforcar em custo, e terminar o módulo com uma pergunta real respondida pelo DeerFlow.
+      </p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">40</div><div class="text-xs text-neutral-400">Minutos</div></div>
@@ -92,43 +124,310 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Intro -->
     <div class="mb-12 bg-primary/10 rounded-xl border border-primary/30 p-6">
-      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚧</span> Módulo em produção</h3>
-      <p class="text-neutral-300">Este módulo está sendo escrito em detalhe. A estrutura abaixo já reflete o recorte final; o texto completo de cada tópico virá na próxima iteração do curso.</p>
+      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Como ler este módulo</h3>
+      <p class="text-neutral-300">Leia os cinco primeiros tópicos <strong class="text-primary">antes</strong> de começar o lab. Instalar sem entender onde cada coisa mora é o atalho mais rápido para travar na primeira hora. Reserve 40 minutos inteiros — a última seção é hands-on e paga todo o resto.</p>
     </div>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6">Tópicos previstos</h2>
-      <div class="space-y-4">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">1</span>
-          <div><h3 class="font-semibold text-white mb-1">make setup vs. make config</h3><p class="text-sm text-neutral-400">Wizard interativo vs. edição manual dos arquivos. Quando usar cada um e por que conhecer os dois.</p></div>
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🧙 make setup vs. make config</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O DeerFlow oferece <strong class="text-emerald-400">dois caminhos</strong> para sair do zero: <code class="text-emerald-400">make setup</code> é um wizard interativo no terminal que pergunta provider, chave, sandbox preferido e gera os arquivos por você. <code class="text-emerald-400">make config</code> assume que você quer editar na mão e só copia os templates de <code class="text-emerald-400">config.example.yaml</code> e <code class="text-emerald-400">.env.example</code> para os lugares certos. Os dois chegam no mesmo lugar — só o conforto inicial muda.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Quando escolher cada um</h3>
+        <ul class="space-y-3 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">setup</span><span>— primeira instalação, alguém novo no time, workshop, demonstração. Você responde 4–6 perguntas e sai com algo funcional.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">config</span><span>— segunda máquina, re-deploy, CI/CD, migração de ambiente. Você abre os arquivos, altera três linhas, roda o doctor.</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">Use <code class="text-primary">make setup</code> na sua máquina de dev hoje, <strong class="text-primary">depois abra config.yaml e .env e leia</strong>. Você vai reconhecer o que o wizard fez e nunca mais vai precisar dele. É o melhor tour guiado do repositório.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">📄 config.yaml e .env — o que mora onde</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A separação é deliberada e segue o princípio de <strong class="text-emerald-400">12-factor</strong>: <code class="text-emerald-400">config.yaml</code> contém decisões estruturais (que providers estão ativos, qual sandbox, quais skills carregar, limites de tokens), <code class="text-emerald-400">.env</code> contém <strong>apenas segredos</strong> (API keys, tokens, URLs com credencial embutida). O YAML entra no git; o .env <em>nunca</em>.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> A regra mental</h3>
+        <p class="text-neutral-300 mb-4">Se o valor muda entre ambientes (dev, staging, prod) <strong>e é público</strong>, vai no YAML. Se muda entre ambientes <strong>e é secreto</strong>, vai no .env. Se é o mesmo em todo lugar, vai no YAML hardcoded. Substituição com <code class="text-emerald-400">${VAR}</code> no YAML puxa do .env em tempo de leitura.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>config.yaml</strong> — providers, skills ativas, sandbox mode, memory paths, limites</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>.env</strong> — OPENAI_API_KEY, ANTHROPIC_API_KEY, TAVILY_API_KEY, TELEGRAM_BOT_TOKEN</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>.gitignore</strong> — o .env já está listado no template. Confira antes do primeiro commit.</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">🚨</span> Alerta: chave vazada em git</h3>
+        <p class="text-neutral-300 mb-3">Se você commitar uma API key por engano, <strong>rotacione imediatamente</strong>. Não adianta fazer <code>git rm</code>; a chave fica no histórico e scanners automáticos acham em minutos. GitHub, GitLab e providers de LLM têm programas de detecção que avisam — e alguns revogam a chave sozinhos.</p>
+        <p class="text-neutral-300"><strong>Profilaxia:</strong> instale <code class="text-red-400">gitleaks</code> ou <code class="text-red-400">pre-commit</code> no repo. Custa 2 minutos e evita o desastre.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Fazer</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Manter .env fora do git, sempre</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Versionar config.example.yaml e .env.example</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Usar <code>${VAR}</code> no YAML para puxar segredos</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Rodar <code>make doctor</code> após editar qualquer um</span></li>
+          </ul>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">2</span>
-          <div><h3 class="font-semibold text-white mb-1">config.yaml e .env: o que mora onde</h3><p class="text-sm text-neutral-400">Decisões estruturais vs. segredos. A divisão correta evita vazar chaves no git.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">3</span>
-          <div><h3 class="font-semibold text-white mb-1">Escolher um provider</h3><p class="text-sm text-neutral-400">OpenAI, OpenRouter, Claude Code OAuth, Codex CLI, vLLM local, Doubao, DeepSeek, Kimi. Trade-offs de custo, latência, privacidade.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">4</span>
-          <div><h3 class="font-semibold text-white mb-1">make doctor — o amigo que ninguém usa</h3><p class="text-sm text-neutral-400">Diagnóstico que valida config, pinga providers e reporta erros com fix sugerido.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">5</span>
-          <div><h3 class="font-semibold text-white mb-1">Subir via Docker</h3><p class="text-sm text-neutral-400">make docker-init e make docker-start. Imagem base, volumes e como resetar quando algo quebra.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">6</span>
-          <div><h3 class="font-semibold text-white mb-1">Lab: primeira pergunta real</h3><p class="text-sm text-neutral-400">Prompt que exercita uma skill, inspeção do trace, comparação com/sem skill acionada.</p></div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Evitar</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Colar chave direto no config.yaml</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Compartilhar .env por Slack/WhatsApp</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Editar YAML com aspas trocadas (quebra parsing)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Ignorar warnings do doctor "por enquanto"</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🔌 Escolher um provider</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O DeerFlow trata <strong class="text-emerald-400">multi-provider como cidadão de primeira classe</strong>. Não há um "provider default" — você escolhe conscientemente. Cada skill pode inclusive fixar um modelo preferido, o que permite usar Claude Sonnet para deep-research e GPT-4o-mini para classificação barata, no mesmo fluxo. A decisão não é religiosa; é de custo, latência, qualidade e privacidade.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">OpenAI direto</h4>
+            <p class="text-sm text-neutral-400 mb-3">gpt-4o, gpt-4o-mini, o1</p>
+            <p class="text-neutral-300 text-sm">Baseline estável, documentação grande, latência boa. Bom default se você já tem conta. Caro para uso pesado.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">OpenRouter</h4>
+            <p class="text-sm text-neutral-400 mb-3">Proxy para 100+ modelos</p>
+            <p class="text-neutral-300 text-sm">Uma chave, muitos modelos, incluindo Claude, Gemini, Llama hosted. Ótimo para experimentar. Cobra spread pequeno sobre o preço original.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Claude Code OAuth</h4>
+            <p class="text-sm text-neutral-400 mb-3">Reaproveita assinatura Claude Max</p>
+            <p class="text-neutral-300 text-sm">Se você já paga Claude Max, o DeerFlow fala com Claude via OAuth local sem consumir crédito de API separado. Limite diário aplica.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Codex CLI</h4>
+            <p class="text-sm text-neutral-400 mb-3">CLI-backed para assinantes</p>
+            <p class="text-neutral-300 text-sm">Mesmo padrão do Claude OAuth, mas via Codex. Útil para quem tem ChatGPT Pro e quer usar o Codex sem pagar API à parte.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">vLLM local</h4>
+            <p class="text-sm text-neutral-400 mb-3">Modelos open-weights em GPU própria</p>
+            <p class="text-neutral-300 text-sm">Llama, Qwen, Mistral rodando em GPU local via vLLM. Latência depende do hardware; privacidade total. Bom para dados sensíveis.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">6</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Doubao, DeepSeek, Kimi</h4>
+            <p class="text-sm text-neutral-400 mb-3">Providers asiáticos suportados de fábrica</p>
+            <p class="text-neutral-300 text-sm">Preço agressivo, qualidade competitiva em chinês e razoável em inglês. DeepSeek-V3 é destaque em custo-benefício. Doubao vem da ByteDance (mesma casa do DeerFlow).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Comparativo rápido</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>Menor custo por token</strong> — DeepSeek, Kimi, Llama local (amortizado)</li>
+          <li><strong>Menor latência hosted</strong> — Groq, gpt-4o-mini, Gemini Flash</li>
+          <li><strong>Melhor raciocínio</strong> — o1, Claude Sonnet (thinking), Gemini 2.5 Pro</li>
+          <li><strong>Melhor privacidade</strong> — vLLM local (dados nunca saem)</li>
+          <li><strong>Mais fácil de começar</strong> — OpenRouter com uma única chave</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🩺 make doctor — o amigo que ninguém usa</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <code class="text-emerald-400">make doctor</code> é o comando de diagnóstico do DeerFlow. Ele valida o YAML, pinga cada provider com uma requisição mínima, confere que o sandbox escolhido está disponível (Docker daemon rodando, kubeconfig lendo cluster, etc.), checa versões de dependências e <strong class="text-emerald-400">reporta cada problema com uma sugestão de fix acionável</strong>. É o comando mais subutilizado do repositório.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> O que o doctor testa</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Parsing do YAML</strong> — indentação errada, aspas quebradas, chaves duplicadas</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Substituição de variáveis</strong> — <code>${FOO}</code> referenciado no YAML e ausente no .env</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Ping de providers</strong> — cada chave responde a uma requisição de teste</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Sandbox availability</strong> — Docker rodando, K8s acessível, Local com permissões</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Versões</strong> — Python, Node, npm, docker, kubectl dentro do esperado</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Skills carregáveis</strong> — descrições presentes, dependências instaladas</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Regra de ouro</h3>
+        <p class="text-neutral-300"><strong class="text-primary">Rode o doctor após qualquer mudança de config.</strong> Não depois de notar que "algo está estranho" — imediatamente depois de salvar. Também é seu primeiro comando ao pedir ajuda: 90% dos tickets que chegam nos canais do DeerFlow já têm resposta pronta na saída do doctor. Leia antes de perguntar.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🐳 Subir via Docker</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O DeerFlow oferece dois alvos make para o caminho Docker: <code class="text-emerald-400">make docker-init</code> baixa a imagem base, monta volumes de memória e skills e prepara o frontend; <code class="text-emerald-400">make docker-start</code> sobe os serviços (backend + frontend + sandbox) e expõe a UI em <code class="text-emerald-400">http://localhost:3000</code>. Tudo que você precisa fazer é abrir o navegador e conversar.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Por que Docker é o default</h3>
+        <p class="text-neutral-300 mb-4">Equilibra conveniência e segurança. <strong class="text-emerald-400">Nem tão cru quanto rodar no host</strong> (evita poluir seu Python, evita acidente do sandbox escrever onde não deve) <strong>nem tão complexo quanto K8s</strong> (não precisa de cluster, ingress, secrets manager).</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Imagem base estável</strong> — Python + Node + uv já preparados</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Volumes persistentes</strong> — memória e skills sobrevivem a restart</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Reset fácil</strong> — <code>make docker-clean</code> volta tudo ao zero em segundos</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Portas conhecidas</strong> — 3000 (UI), 8000 (API), 8001 (sandbox bridge)</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Quando o reset é a resposta</h3>
+        <p class="text-neutral-300">Se algo parou de funcionar depois que você mexeu em várias configs, <strong class="text-primary">não tente debugar cada camada</strong>. Rode <code class="text-primary">make docker-clean && make docker-init && make docker-start</code>. Leva 2 minutos e elimina 70% dos estados ruins. Debug vale a pena quando você sabe o que mudou — não quando está procurando o que quebrou.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 - LAB -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🧪 Lab: primeira pergunta real</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Chegou a hora. Em vez de "diga oi", você vai rodar uma pergunta que <strong class="text-emerald-400">exercita uma skill de verdade</strong> e observar o loop plan → execute → resultado ao vivo no frontend. O objetivo não é a resposta bonita; é entender a mecânica.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> O que você vai fazer</h3>
+        <p class="text-neutral-300">Subir o DeerFlow via Docker, abrir o frontend, pedir uma pesquisa curta (não um fato) e inspecionar o trace da execução. Depois rodar a mesma pergunta forçando a skill <code class="text-emerald-400">deep-research</code> e comparar.</p>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Por que esse lab</h3>
+        <p class="text-neutral-300">Sair do "hello world" já na primeira execução <strong>quebra a tentação de achar que o agente é mágica</strong>. Você vê a divisão planejamento → execução → resposta, vê o custo em tokens, vê qual skill foi acionada (ou não). A partir daqui o resto do curso faz sentido.</p>
+      </div>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Preparar</h4>
+            <p class="text-neutral-300 text-sm"><code class="text-emerald-400">git clone</code> do repo, rodar <code class="text-emerald-400">make setup</code>, escolher um provider (OpenRouter é o mais fácil para começar), colar a chave, finalizar o wizard. Rodar <code class="text-emerald-400">make doctor</code> e <strong>confirmar que está tudo verde</strong> antes de seguir.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Subir</h4>
+            <p class="text-neutral-300 text-sm">Rodar <code class="text-emerald-400">make docker-init</code> (a primeira vez demora alguns minutos — é download de imagem). Depois <code class="text-emerald-400">make docker-start</code>. Abrir <code class="text-emerald-400">http://localhost:3000</code> no navegador e confirmar que a UI carrega.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Primeira pergunta</h4>
+            <p class="text-neutral-300 text-sm">Peça algo do tipo <em>"quais são as três maiores diferenças entre LangGraph e AutoGen em 2026, com fontes"</em>. Não é um fato direto — força o agente a planejar. Observe o painel de traces abrindo a sequência de passos.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Inspecionar o trace</h4>
+            <p class="text-neutral-300 text-sm">Veja qual skill foi acionada, quantas chamadas a providers de search aconteceram, quantos tokens foram consumidos. Anote o tempo total e o custo estimado.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Forçar a skill</h4>
+            <p class="text-neutral-300 text-sm">Repita a mesma pergunta agora pedindo explicitamente <code class="text-emerald-400">deep-research</code>. Compare: mudou a estrutura da saída? mudou o custo? A comparação treina sua intuição para o próximo módulo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
     <section class="mb-12">
       <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">setup vs. config são o mesmo destino</strong><span class="text-neutral-400"> — wizard para começar, edição manual para reproduzir. Use setup uma vez, leia os arquivos, migre para config.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">config.yaml é estrutura, .env é segredo</strong><span class="text-neutral-400"> — nunca misture. .env fora do git, sempre. Use <code>${VAR}</code> para puxar segredos no YAML.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Multi-provider é cidadão de primeira classe</strong><span class="text-neutral-400"> — OpenAI, OpenRouter, Claude OAuth, Codex CLI, vLLM, DeepSeek, Kimi, Doubao. A escolha é de custo, latência, qualidade e privacidade.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">make doctor é obrigatório</strong><span class="text-neutral-400"> — rode após qualquer mudança. 90% dos problemas já têm detecção pronta.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Docker é o default razoável</strong><span class="text-neutral-400"> — equilibra conveniência e segurança. docker-clean resolve a maioria dos estados ruins.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Primeira pergunta real revela o loop</strong><span class="text-neutral-400"> — planejamento, execução, trace, custo. A partir daqui não é mais mágica.</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">1.3 — 🖥️ A interface e o loop básico</p>
+          <p class="text-neutral-400 text-sm mt-1">Tour pelo frontend Next.js, anatomia de uma conversa e os modos plan/thinking que mais mudam o resultado.</p>
+        </div>
+
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="modulo-1-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a>
           <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Voltar para Trilha</a>
@@ -136,6 +435,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="border-t border-dark-600 py-8">
@@ -149,12 +449,14 @@
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const htmlEl = document.documentElement;
-    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); } else { darkIcon.classList.remove('hidden'); }
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
     themeToggle.addEventListener('click', () => {
       darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
       htmlEl.classList.toggle('dark');
       localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
+
 </body>
 </html>

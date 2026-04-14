@@ -7,11 +7,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
+
+    /* Light mode - base */
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -22,6 +27,7 @@
     html:not(.dark) .text-neutral-400 { color: #6b7280; }
     html:not(.dark) .text-neutral-500 { color: #9ca3af; }
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .text-yellow-400 { color: #a16207; }
@@ -30,28 +36,48 @@
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
     html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+
+    /* Light mode - T1 Emerald */
     html:not(.dark) .text-emerald-400 { color: #059669; }
     html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
     html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .bg-emerald-600 { background-color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500:hover { background-color: #10b981; }
+
+    /* Light mode - outros (nav) */
     html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
     html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
     html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
     html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
     html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217, 119, 6, 0.08); }
+
+    /* Light mode - blue (dados) */
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+
+    /* Light mode - red (alertas) */
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220, 38, 38, 0.08); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220, 38, 38, 0.25); }
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
+  <!-- NAVIGATION -->
   <nav class="sticky top-0 z-40 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🦌</span><span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
@@ -69,19 +95,25 @@
     </div>
   </nav>
 
+  <!-- BREADCRUMB -->
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-emerald-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-emerald-400">Trilha 1</a><span>/</span>
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Trilha 1</a>
+      <span>/</span>
       <span class="text-emerald-400">Módulo 1.4</span>
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.4</span>
       <h1 class="text-3xl sm:text-4xl font-bold mb-4">🎯 Skills — a capacidade principal</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Tour pelo catálogo público, como o agente escolhe a skill certa e como forçar uma invocação manual quando necessário.</p>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Skills são a unidade de extensão do DeerFlow. Neste módulo, você conhece o catálogo público dividido em famílias, entende como o lead_agent escolhe sozinho e aprende a forçar a escolha quando precisa.
+      </p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">7</div><div class="text-xs text-neutral-400">Tópicos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">45</div><div class="text-xs text-neutral-400">Minutos</div></div>
@@ -92,47 +124,339 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Intro -->
     <div class="mb-12 bg-primary/10 rounded-xl border border-primary/30 p-6">
-      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚧</span> Módulo em produção</h3>
-      <p class="text-neutral-300">Este módulo está sendo escrito em detalhe. A estrutura abaixo já reflete o recorte final; o texto completo virá na próxima iteração.</p>
+      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Como ler este módulo</h3>
+      <p class="text-neutral-300">As quatro seções de catálogo (tópicos 2-5) são <strong class="text-primary">densas de propósito</strong>. Não tente decorar. Use como mapa — leia rápido, volte quando uma tarefa nova aparecer. O que importa é ter visto os nomes uma vez para reconhecê-los depois.</p>
     </div>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6">Tópicos previstos</h2>
-      <div class="space-y-4">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">1</span>
-          <div><h3 class="font-semibold text-white mb-1">O que é uma skill</h3><p class="text-sm text-neutral-400">Unidade de capacidade: descrição + instruções + tools. O contrato mínimo que o agente reconhece.</p></div>
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🧬 O que é uma skill</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Uma skill tem <strong class="text-emerald-400">três partes e nada mais</strong>: uma <strong>descrição</strong> que diz ao lead_agent <em>quando</em> ela se aplica, um bloco de <strong>instruções</strong> que diz <em>como</em> executar, e um conjunto opcional de <strong>tools</strong> próprias. É o contrato mais simples possível. Toda a riqueza do DeerFlow — deep-research, ppt-generation, data-analysis — é composta a partir desse molde.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Anatomia mínima</h3>
+        <ul class="space-y-3 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">Descrição</span><span>— 2-5 frases que respondem "quando devo usar esta skill?". É o <strong>contrato de trigger</strong> com o lead_agent.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">Instruções</span><span>— prompt estruturado que guia a execução. Pode incluir templates, formato de saída, guardrails.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">Tools</span><span>— funções específicas que só esta skill usa. Pode estar vazio se a skill se apoia apenas nas tools globais.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">Arquivo</span><span>— tudo vive em texto (Markdown + YAML). <strong>Versionável, diff-ável, revisável.</strong></span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> A descrição é o contrato</h3>
+        <p class="text-neutral-300">Se a descrição está vaga ou genérica demais, o lead_agent <strong>nunca</strong> vai acionar a skill — não importa quão bom seja o bloco de instruções. Skill que não é triggerada é skill inexistente. Antes de culpar o agente, releia a descrição com olho de fora.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🔬 Catálogo: research e análise</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A família mais forte do DeerFlow. É onde a herança da v1 ainda se vê — mas agora tratada como um conjunto de skills independentes, cada uma com um caso de uso próprio.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">deep-research</h4>
+            <p class="text-sm text-neutral-400 mb-3">Pesquisa ampla com síntese multi-fonte</p>
+            <p class="text-neutral-300 text-sm">A skill mais pedida. Varre web, agrega, compara, cita. Saída textual estruturada com fontes numeradas. Default quando o prompt começa com "pesquise", "compare", "o que é".</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">2</span>
-          <div><h3 class="font-semibold text-white mb-1">Catálogo: research e análise</h3><p class="text-sm text-neutral-400">deep-research, github-deep-research, systematic-literature-review, data-analysis, academic-paper-review.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">github-deep-research</h4>
+            <p class="text-sm text-neutral-400 mb-3">Research específica para código e repositórios</p>
+            <p class="text-neutral-300 text-sm">Usa a API do GitHub para achar repos, comparar atividade, ler READMEs, cross-referenciar issues. Melhor que deep-research para <em>"qual biblioteca Python resolve X"</em>.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">3</span>
-          <div><h3 class="font-semibold text-white mb-1">Catálogo: mídia e conteúdo</h3><p class="text-sm text-neutral-400">ppt-generation, podcast-generation, newsletter-generation, video-generation, image-generation.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">systematic-literature-review (SLR)</h4>
+            <p class="text-sm text-neutral-400 mb-3">Revisão bibliográfica sistemática</p>
+            <p class="text-neutral-300 text-sm">Protocolos mais rigorosos que deep-research: critérios de inclusão/exclusão, tabela de artigos lidos, análise de qualidade. Formato de saída segue convenções acadêmicas.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">4</span>
-          <div><h3 class="font-semibold text-white mb-1">Catálogo: engenharia e negócio</h3><p class="text-sm text-neutral-400">frontend-design, vercel-deploy-claimable, code-documentation, consulting-analysis, surprise-me.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">data-analysis</h4>
+            <p class="text-sm text-neutral-400 mb-3">Análise exploratória de dados estruturados</p>
+            <p class="text-neutral-300 text-sm">Lê CSV/Excel/Parquet do sandbox, gera estatísticas, identifica padrões, sugere próximos passos. <strong>Dispara chart-visualization automaticamente</strong> quando faz sentido.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">5</span>
-          <div><h3 class="font-semibold text-white mb-1">Como o agente escolhe skill</h3><p class="text-sm text-neutral-400">Trigger accuracy: a descrição é o contrato. Por que skills "quase certas" às vezes não são acionadas.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">6</span>
-          <div><h3 class="font-semibold text-white mb-1">Invocar skill manualmente</h3><p class="text-sm text-neutral-400">Sintaxe de invocação explícita. Quando forçar e por que o agente ainda pode combinar com outras.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex-shrink-0">7</span>
-          <div><h3 class="font-semibold text-white mb-1">Lab: deep-research vs. systematic-literature-review</h3><p class="text-sm text-neutral-400">Mesma pergunta nas duas skills; comparar estrutura, citações e profundidade; escrever heurística de escolha.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">academic-paper-review</h4>
+            <p class="text-sm text-neutral-400 mb-3">Revisão crítica de um paper específico</p>
+            <p class="text-neutral-300 text-sm">Lê o PDF, extrai contribuição, método, resultados, limitações. Saída em formato de peer review: pontos fortes, pontos fracos, perguntas em aberto.</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🎞️ Catálogo: mídia e conteúdo</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        As skills que <strong class="text-emerald-400">entregam artefato</strong>, não só texto. É onde o DeerFlow sai do "chat" e vira gerador de output consumível por terceiros.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> As cinco principais</h3>
+        <ul class="space-y-3 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">ppt-generation</span><span>— gera arquivo .pptx de verdade, com slides, layout, cores. Aceita briefing estruturado ou livre.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">podcast-generation</span><span>— script + síntese de voz + mixagem. Saída é .mp3. Bom para digest semanal de um tema.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">newsletter-generation</span><span>— artigo estilo email/Substack, com seções, destaques, call-to-action. Saída em Markdown.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">video-generation</span><span>— script + frames + voiceover + mux. Saída .mp4. Qualidade depende muito do modelo.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">image-generation</span><span>— imagens via DALL-E, Midjourney-like ou Flux dependendo do provider configurado. .png ou .webp.</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Composição research → mídia</h3>
+        <p class="text-neutral-300">Um dos padrões mais produtivos: acione <code class="text-primary">deep-research</code>, depois <code class="text-primary">ppt-generation</code> com "use o resultado anterior". O lead_agent passa o texto como briefing sem você precisar copiar e colar. <strong class="text-primary">Research vira slide em 1 turno.</strong></p>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">💼 Catálogo: engenharia e negócio</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A família que mostra o DeerFlow saindo do script "só research". Não é o caso de uso mais forte dele — Claude Code e IDE-agents são melhores em refatoração pesada — mas cobre fluxos reais de entrega que um único chat nunca cobre.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">frontend-design</h4>
+            <p class="text-sm text-neutral-400 mb-3">Geração de UI completa</p>
+            <p class="text-neutral-300 text-sm">Cria componentes ou páginas inteiras em React/Next/Tailwind com qualidade visual acima da média. Não é refatoração — é prototipagem de alta fidelidade a partir de briefing.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">vercel-deploy-claimable</h4>
+            <p class="text-sm text-neutral-400 mb-3">Deploy descartável → URL pronta</p>
+            <p class="text-neutral-300 text-sm">Faz deploy do resultado de frontend-design em uma URL pública da Vercel e devolve o link. A URL é <em>claimable</em>: quem recebe pode absorver para a própria conta se quiser.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">code-documentation</h4>
+            <p class="text-sm text-neutral-400 mb-3">Docstrings, READMEs, tutoriais</p>
+            <p class="text-neutral-300 text-sm">Lê o repo no sandbox, gera documentação estruturada, respeitando convenções (Google docstrings, reStructuredText, JSDoc). Bom para projetos herdados.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">consulting-analysis</h4>
+            <p class="text-sm text-neutral-400 mb-3">Relatórios em formato McKinsey-ish</p>
+            <p class="text-neutral-300 text-sm">Executive summary, situação, complicação, análise, recomendações. Útil quando você quer a estrutura antes do conteúdo — em vez de texto corrido sobre um problema.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">surprise-me</h4>
+            <p class="text-sm text-neutral-400 mb-3">Meta-skill que escolhe por você</p>
+            <p class="text-neutral-300 text-sm">Recebe um contexto frouxo e decide qual skill combinar. Útil para demos e para quando você nem sabe exatamente o que quer. Não use em produção — é deliberadamente experimental.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🧭 Como o agente escolhe skill</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O lead_agent recebe, junto do prompt do usuário, <strong class="text-emerald-400">a lista de descrições de todas as skills ativas</strong>. Ele decide, num único passo de planejamento, qual (ou quais) se aplicam. Não há embedding, não há busca vetorial — é decisão direta do modelo lendo as descrições. Isso tem uma consequência forte: <strong>descrição ambígua derruba a trigger accuracy imediatamente</strong>.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Descrição que acerta</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Começa com verbo ativo ("Gera um PPT...", "Analisa dados tabulares...")</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Diz a entrada esperada e a saída produzida</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Lista exemplos de prompts de trigger</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Diferencia-se explicitamente de skills próximas</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Descrição que falha</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Genérica ("ajuda com análise")</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Só lista as tools internas sem dizer o propósito</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Assume conhecimento prévio do lead_agent</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Sobrepõe outra skill sem deixar claro o recorte</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Sinais de baixa trigger accuracy</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>Skill ignorada</strong> em prompts que claramente se encaixam — descrição não bate</li>
+          <li><strong>Skill errada acionada</strong> consistentemente — overlap com vizinha, ambas sem recorte</li>
+          <li><strong>Duas skills juntas</strong> onde uma bastaria — descrições que se complementam em vez de escolherem</li>
+          <li><strong>Nenhuma skill acionada</strong> — agente responde direto sem trigger. Geralmente é o fim do mundo da descrição.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">✍️ Invocar skill manualmente</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Quando você sabe exatamente qual skill quer, <strong class="text-emerald-400">force a escolha</strong>. A invocação manual é uma sintaxe explícita — no prompt (<code class="text-emerald-400">/skill deep-research</code>) ou via seletor da UI — que diz ao lead_agent: "use esta, ponto". É útil para testes, comparativos, reprodução de resultados e quando a heurística automática está errando.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> O que a invocação manual garante (e o que não garante)</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Garante</strong> — que a skill X vai ser acionada</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Garante</strong> — que fica registrada no trace como chamada explícita</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Não garante</strong> — que o agente <em>só</em> vai usar ela (composição ainda é natural)</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Não garante</strong> — que o resultado vai ser melhor do que a escolha automática</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">Use invocação manual para <strong class="text-primary">comparativos A/B</strong>. Rodar a mesma pergunta com <code class="text-primary">/skill A</code> e <code class="text-primary">/skill B</code> é o jeito mais rápido de sentir a diferença entre duas skills vizinhas. É também como você treina a intuição para quando desligar a automática e forçar.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 7 - LAB -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">7</span>
+        <h2 class="text-2xl font-bold">🧪 Lab: deep-research vs. SLR</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <code class="text-emerald-400">deep-research</code> e <code class="text-emerald-400">systematic-literature-review</code> parecem a mesma coisa vistas de fora. São duas das skills mais próximas do catálogo. A única forma honesta de aprender a diferença é rodar as duas na mesma pergunta e <strong>comparar o shape da saída</strong>.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> O que você vai fazer</h3>
+        <p class="text-neutral-300">Escolher um tema com literatura publicada, rodar as duas skills via invocação manual, e escrever sua heurística pessoal de escolha entre elas.</p>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Por que esse lab</h3>
+        <p class="text-neutral-300">As descrições das duas são próximas. O lead_agent dificilmente erra a escolha, mas <em>você</em> vai errar sua própria escolha quando for instruir a equipe. O lab te dá a bagagem para decidir sozinho em vez de jogar moedinha.</p>
+      </div>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Escolha o tema</h4>
+            <p class="text-neutral-300 text-sm">Procure algo com literatura acadêmica real. Exemplo: <em>"métodos de avaliação de hallucination em LLMs multimodais"</em>, <em>"impacto de knowledge distillation em inference cost"</em>, <em>"técnicas de RAG híbrido com reranking"</em>.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Rode deep-research</h4>
+            <p class="text-neutral-300 text-sm">Em uma sessão nova, <code class="text-emerald-400">/skill deep-research</code> + o tema. Deixe rodar inteiro. Salve a saída e anote tempo + tokens.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Rode SLR</h4>
+            <p class="text-neutral-300 text-sm">Outra sessão nova, <code class="text-emerald-400">/skill systematic-literature-review</code> + o mesmo tema. Deixe rodar inteiro. Salve a saída.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Compare</h4>
+            <p class="text-neutral-300 text-sm">Foque em quatro dimensões: <strong>estrutura da saída</strong>, <strong>quantidade e qualidade de citações</strong>, <strong>profundidade de análise por fonte</strong>, e <strong>quão específico é o recorte</strong>. Anote um por um.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Escreva a heurística</h4>
+            <p class="text-neutral-300 text-sm">"Eu uso deep-research quando X. Eu uso SLR quando Y. Eu uso as duas quando Z." Essa frase vale mais que qualquer documentação — é sua ferramenta de decisão daqui pra frente.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
     <section class="mb-12">
       <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Skill = descrição + instruções + tools</strong><span class="text-neutral-400"> — arquivo de texto, versionável. Descrição é o contrato de trigger com o lead_agent.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Catálogo research/análise</strong><span class="text-neutral-400"> — deep-research, github-deep-research, SLR, data-analysis, academic-paper-review. A família mais madura do DeerFlow.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Catálogo mídia</strong><span class="text-neutral-400"> — PPT, podcast, newsletter, vídeo, imagem. Entregam artefato final, não só texto. Compõem com research em um único turno.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Catálogo engenharia/negócio</strong><span class="text-neutral-400"> — frontend-design, vercel-deploy-claimable, code-documentation, consulting-analysis, surprise-me.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Trigger accuracy é ditada pela descrição</strong><span class="text-neutral-400"> — descrição vaga = skill inexistente. Verbo ativo + entrada + saída + exemplo + diferencial.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Invocação manual para comparativos</strong><span class="text-neutral-400"> — força a skill, não garante resultado melhor, mas é o caminho para construir intuição.</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">1.5 — 🔎 Web search, arquivos e sandbox</p>
+          <p class="text-neutral-400 text-sm mt-1">Providers de search, upload de arquivos e os três modos de sandbox — o que muda e quando escolher cada um.</p>
+        </div>
+
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="modulo-1-3.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a>
           <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Voltar para Trilha</a>
@@ -140,6 +464,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="border-t border-dark-600 py-8">
@@ -153,12 +478,14 @@
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const htmlEl = document.documentElement;
-    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); } else { darkIcon.classList.remove('hidden'); }
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
     themeToggle.addEventListener('click', () => {
       darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
       htmlEl.classList.toggle('dark');
       localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
+
 </body>
 </html>
