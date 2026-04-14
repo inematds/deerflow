@@ -7,11 +7,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
+
+    /* Light mode - base */
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -22,6 +27,7 @@
     html:not(.dark) .text-neutral-400 { color: #6b7280; }
     html:not(.dark) .text-neutral-500 { color: #9ca3af; }
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .text-yellow-400 { color: #a16207; }
@@ -30,28 +36,48 @@
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
     html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+
+    /* Light mode - T3 Purple (acento da trilha) */
     html:not(.dark) .text-purple-400 { color: #7c3aed; }
     html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
     html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .bg-purple-900\/20 { background-color: rgba(124, 58, 237, 0.08); }
     html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
     html:not(.dark) .bg-purple-600 { background-color: #7c3aed; }
     html:not(.dark) .hover\:bg-purple-500:hover { background-color: #8b5cf6; }
+
+    /* Light mode - nav hovers T1/T2/T4 */
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
     html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
     html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
     html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217, 119, 6, 0.08); }
+
+    /* Light mode - blue (dados) */
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+
+    /* Light mode - red (alertas) */
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220, 38, 38, 0.08); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220, 38, 38, 0.25); }
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
+  <!-- NAVIGATION -->
   <nav class="sticky top-0 z-40 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🦌</span><span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
@@ -69,69 +95,310 @@
     </div>
   </nav>
 
+  <!-- BREADCRUMB -->
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-purple-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span>
+      <a href="../../index.html" class="hover:text-purple-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-purple-400">Trilha 3</a>
+      <span>/</span>
       <span class="text-purple-400">Módulo 3.4</span>
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.4</span>
       <h1 class="text-3xl sm:text-4xl font-bold mb-4">🧩 Embutindo o DeerFlow em outro app</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">O harness como biblioteca: Embedded Python Client, API gateway e documentação de API, auto title generation e streaming server-side. Lab: embutir o DeerFlow em outra aplicação e rodar skill programaticamente.</p>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Do "agente que roda no meu terminal" para "harness que vive dentro do meu produto". Embedded Python Client, API gateway, auto title generation, streaming server-side e um lab que resulta num script Python funcional rodando uma skill existente.
+      </p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">5</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">60</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">55</div><div class="text-xs text-neutral-400">Minutos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Teoria + Lab</div><div class="text-xs text-neutral-400">Tipo</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
       </div>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Intro -->
     <div class="mb-12 bg-primary/10 rounded-xl border border-primary/30 p-6">
-      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚧</span> Módulo em produção</h3>
-      <p class="text-neutral-300">Este módulo está sendo escrito em detalhe. A estrutura abaixo já reflete o recorte final; o texto completo de cada tópico virá na próxima iteração do curso.</p>
+      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Como ler este módulo</h3>
+      <p class="text-neutral-300">Duas portas de entrada, dois casos de uso: <strong class="text-primary">Embedded Client</strong> é para quando você quer rodar DeerFlow <em>dentro</em> do seu processo Python (notebook, job, backend); o <strong class="text-primary">API gateway</strong> é para quando você prefere isolar o harness num serviço e consumir via HTTP. Escolhas de arquitetura diferentes, mesmas capacidades. Este módulo cobre as duas e termina com um lab usando a primeira.</p>
     </div>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6">Tópicos previstos</h2>
-      <div class="space-y-4">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">1</span>
-          <div><h3 class="font-semibold text-white mb-1">Embedded Python Client</h3><p class="text-sm text-neutral-400">O harness rodando dentro do seu processo Python, sem servidor. Ideal para notebooks, jobs e backends próprios — configuração, lifecycle e encerramento.</p></div>
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">📦 Embedded Python Client — harness como biblioteca</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O <strong class="text-purple-400">Embedded Python Client</strong> é o modo "import deerflow" do harness. Em vez de subir servidor, você instancia o harness no seu próprio processo Python, passa config via dict, e chama métodos síncronos ou assíncronos. É o caminho mais curto entre "tenho um script" e "tenho um script com um agente dentro".
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Conceito Central</h3>
+        <p class="text-neutral-300 mb-4">O Embedded Client resolve dois problemas que o servidor HTTP não resolve bem:</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>Latência zero</strong> — nada de loopback TCP, serialização JSON, ou processo extra</li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>Contexto do processo</strong> — variáveis locais, conexões abertas, objetos Python podem ser passados direto</li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>Ciclo de vida explícito</strong> — você controla quando o harness nasce e morre, sem cron restart</li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>Uso em notebook</strong> — Jupyter chama <code>await harness.chat(...)</code> e a resposta vira célula</li>
+        </ul>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 mb-6">
+        <h4 class="font-semibold text-white mb-3">Snippet mínimo</h4>
+        <pre class="text-xs text-neutral-300 overflow-x-auto leading-relaxed"><code>from deerflow import Harness
+
+h = Harness.from_config({
+    "basic_model": {
+        "base_url": "https://openrouter.ai/api/v1",
+        "model": "anthropic/claude-sonnet-4.5",
+        "api_key": os.environ["OPENROUTER_API_KEY"],
+    },
+    "sandbox": {"mode": "docker"},
+    "skills": ["deep-research", "data-analysis"],
+})
+
+result = h.run_skill(
+    "data-analysis",
+    prompt="Analise este CSV e me diga a coluna mais correlacionada com churn",
+    files=["/tmp/users.csv"],
+)
+print(result.text)
+for chart in result.artifacts:
+    print(f"- {chart.path}")
+
+h.close()</code></pre>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">Use <code>Harness</code> como context manager (<code>with Harness.from_config(...) as h:</code>) em scripts. Ele fecha o sandbox Docker, escreve o trace final e libera conexões mesmo se o script falhar. É a diferença entre "um container órfão a cada run" e "ambiente limpo".</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🌐 API gateway e documentação de API</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Quando embutir direto não faz sentido (app poliglota, infra segrega tudo em serviços, time que não quer mexer em Python), o DeerFlow expõe um <strong class="text-purple-400">API gateway HTTP</strong> com endpoints versionados, documentação OpenAPI e autenticação por token. Do ponto de vista do seu app, é "mais um serviço REST" — separação limpa entre frontend e harness.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Endpoints core</h4>
+            <p class="text-sm text-neutral-400 mb-3">O essencial: mensagem, stream, histórico, title</p>
+            <p class="text-neutral-300 text-sm"><code>POST /v1/chat</code> envia mensagem síncrona; <code>POST /v1/chat/stream</code> retorna SSE; <code>GET /v1/conversations/{id}</code> lê histórico; <code>POST /v1/conversations/{id}/title</code> dispara auto-title. Cada um tem schema JSON explícito no OpenAPI.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">2</span>
-          <div><h3 class="font-semibold text-white mb-1">API gateway e documentação de API</h3><p class="text-sm text-neutral-400">Endpoints HTTP oficiais expostos pelo DeerFlow, schema, auth e versão. O contrato que isola sua app da evolução do harness.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Autenticação</h4>
+            <p class="text-sm text-neutral-400 mb-3">API key por aplicação, tokens JWT por usuário</p>
+            <p class="text-neutral-300 text-sm">Duas camadas: a <em>aplicação</em> se autentica no gateway via header <code>X-DeerFlow-Key</code>; o <em>usuário final</em> vem num JWT opcional que o gateway valida e usa para isolar memória. Ambas precisam estar ligadas em prod.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">3</span>
-          <div><h3 class="font-semibold text-white mb-1">Auto title generation</h3><p class="text-sm text-neutral-400">Como o DeerFlow gera automaticamente um título curto a partir das primeiras mensagens da conversa — endpoint, modelo cheap e quando regenerar.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Versionamento</h4>
+            <p class="text-sm text-neutral-400 mb-3">/v1 estável, /v2 em beta com breaking changes</p>
+            <p class="text-neutral-300 text-sm">O DeerFlow segue semver no gateway: /v1 é contrato estável, /v2-beta pode mudar. Upgrade do core do harness não quebra /v1. Se seu app depende de evento novo, pode optar por /v2-beta e aceitar instabilidade.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">4</span>
-          <div><h3 class="font-semibold text-white mb-1">Streaming server-side</h3><p class="text-sm text-neutral-400">SSE com eventos ricos: tokens, tool calls, resultados e erros. Como plugar em UIs reativas, lidar com reconexão e encerramento gracioso.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">5</span>
-          <div><h3 class="font-semibold text-white mb-1">Lab: DeerFlow como biblioteca</h3><p class="text-sm text-neutral-400">Script ou FastAPI pequeno que importa o Embedded Client, roda uma skill existente e consome o resultado — do "CLI" para o "produto".</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">OpenAPI e clients gerados</h4>
+            <p class="text-sm text-neutral-400 mb-3">/docs serve Swagger UI e schema bruto</p>
+            <p class="text-neutral-300 text-sm">O gateway publica <code>/openapi.json</code> e <code>/docs</code> (Swagger UI). Use <code>openapi-generator</code> para gerar clients em TypeScript, Go, Rust, Java. O contrato vira source of truth — se o schema mudou, o client quebra no build, não em runtime.</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🏷️ Auto title generation</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Parece detalhe de UI, é detalhe caro. <strong class="text-purple-400">Auto title</strong> gera um nome curto para a conversa a partir das primeiras mensagens — o que aparece na sidebar como "Análise de churn Q1" em vez de "New chat (42)". Sem isso, qualquer app com histórico vira sopa de letras.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Como o DeerFlow faz</h3>
+        <p class="text-neutral-300 mb-4">Após o segundo turno (usuário + agente), um job assíncrono pega as 2 mensagens iniciais e passa para um modelo barato com o prompt "gere um título de 3 a 6 palavras". O resultado vira campo na conversa e pode ser regenerado sob demanda se o tópico mudar muito.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>Modelo</strong> — sempre o mais barato (gpt-5-mini, gemini-2.5-flash); nunca o lead_agent</li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>Assincronia</strong> — não bloqueia o primeiro turno; o título aparece segundos depois</li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>Cache</strong> — gerado 1 vez, não regerado a cada turno</li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>Regeneração manual</strong> — <code>POST /v1/conversations/{id}/title?regenerate=true</code></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Quando desligar</h3>
+        <p class="text-neutral-300">Se seu app tem domínio muito específico (ex.: tickets de suporte numerados), auto title atrapalha — você quer "Ticket #1234" no lugar de "Usuário perdeu acesso ao painel". Desligue com <code>auto_title: false</code> na config e preencha o título você via API. Também vale desligar em contextos sensíveis (saúde, jurídico) onde o título não deveria existir em clear text.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">📡 Streaming server-side — SSE e eventos ricos</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Streaming não é só "resposta aparece digitando". É a forma correta de mostrar o agente <em>pensando</em> — tool sendo chamada, sub-agent sendo iniciado, resultado parcial chegando. O DeerFlow usa <strong class="text-purple-400">Server-Sent Events (SSE)</strong> com eventos tipados por default, e expõe WebSocket para casos em que o cliente precisa enviar dados bidirecionalmente durante o stream.
+      </p>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Tipos de evento no stream</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-neutral-300">
+            <thead>
+              <tr class="border-b border-dark-600 text-left">
+                <th class="py-2 pr-4 text-blue-400">Evento</th>
+                <th class="py-2 pr-4 text-blue-400">Quando</th>
+                <th class="py-2 text-blue-400">Payload</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-dark-600">
+              <tr><td class="py-2 pr-4"><code>conversation.started</code></td><td class="py-2 pr-4">Início do turno</td><td class="py-2">conversation_id, turn_id</td></tr>
+              <tr><td class="py-2 pr-4"><code>plan.created</code></td><td class="py-2 pr-4">Lead_agent fez plano</td><td class="py-2">steps[], estimated_cost</td></tr>
+              <tr><td class="py-2 pr-4"><code>tool.call</code></td><td class="py-2 pr-4">Tool invocada</td><td class="py-2">tool, args</td></tr>
+              <tr><td class="py-2 pr-4"><code>tool.result</code></td><td class="py-2 pr-4">Tool terminou</td><td class="py-2">output, error?</td></tr>
+              <tr><td class="py-2 pr-4"><code>subagent.spawned</code></td><td class="py-2 pr-4">Sub-agent iniciado</td><td class="py-2">role, scope</td></tr>
+              <tr><td class="py-2 pr-4"><code>message.delta</code></td><td class="py-2 pr-4">Token streaming</td><td class="py-2">text chunk</td></tr>
+              <tr><td class="py-2 pr-4"><code>artifact.created</code></td><td class="py-2 pr-4">Arquivo produzido</td><td class="py-2">path, mime, size</td></tr>
+              <tr><td class="py-2 pr-4"><code>conversation.completed</code></td><td class="py-2 pr-4">Fim do turno</td><td class="py-2">usage, wall_time</td></tr>
+              <tr><td class="py-2 pr-4"><code>error</code></td><td class="py-2 pr-4">Qualquer falha</td><td class="py-2">code, message, recoverable</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Backpressure</h3>
+        <p class="text-neutral-300">Se seu cliente é lento (ex.: browser atrás de proxy corporativo), o buffer do SSE enche. O DeerFlow tem estratégia default: drop de eventos <code>message.delta</code> (o modelo continua gerando) mas preserva <code>tool.*</code> e <code>error</code>. Se seu cliente precisa de todo token, use WebSocket com ack, não SSE.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🧪 Lab: embutir como biblioteca + rodar skill programaticamente</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Hora de sair do conceito. Você vai escrever um script Python de ~40 linhas que (1) importa o DeerFlow, (2) configura um harness com Docker sandbox e OpenRouter, (3) roda a skill <code>data-analysis</code> num CSV local, (4) lê o resultado e imprime insights + caminho dos artefatos, (5) fecha limpamente. Se isso funcionar, você consegue embutir o DeerFlow em qualquer app Python.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Instale como dependência</h4>
+            <p class="text-neutral-300 text-sm"><code>pip install deerflow</code> num venv limpo. Verifique que Docker está rodando (sandbox default) e que você tem API key de algum provider. Gere um CSV pequeno de teste — <code>pandas.DataFrame({"age": ..., "churn": ...}).to_csv("/tmp/users.csv")</code>.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Escreva o script</h4>
+            <p class="text-neutral-300 text-sm">Use o snippet do tópico 1 como base. Adicione <code>logging.basicConfig(level="INFO")</code> para ver o que o harness está fazendo durante o run. Salve como <code>run_analysis.py</code>.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Rode e observe</h4>
+            <p class="text-neutral-300 text-sm"><code>python run_analysis.py</code>. O harness vai subir sandbox Docker, carregar a skill, pedir ao modelo um plano, executar código Python no sandbox, produzir gráfico(s) PNG e texto de resumo. Cada passo vai aparecer no log.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Inspecione os artefatos</h4>
+            <p class="text-neutral-300 text-sm">O script imprime paths dos PNGs gerados. Abra-os. Confirme que o gráfico faz sentido para seu CSV. Se o gráfico está errado, a causa é prompt ou modelo — não o harness.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Adicione streaming</h4>
+            <p class="text-neutral-300 text-sm">Troque <code>h.run_skill(...)</code> por <code>async for event in h.run_skill_stream(...)</code> e imprima cada evento. Você verá <code>plan.created</code>, <code>tool.call</code>, <code>message.delta</code> e <code>conversation.completed</code> passando pelo loop. Isso é a base para um frontend reativo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Próximo passo natural</h3>
+        <p class="text-neutral-300">Se o script funcionou, transforme-o em uma função chamável de um endpoint FastAPI. Você acabou de construir, em ~100 linhas, um serviço próprio com um agente rodando dentro. A única diferença para o API gateway oficial é que esse é <em>seu</em> — você escolhe o schema e só expõe o que precisa.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
     <section class="mb-12">
-      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
-        <div class="flex flex-col sm:flex-row gap-4">
+      <div class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Embedded Client = harness in-process</strong><span class="text-neutral-400"> — import, config por dict, métodos síncronos/async. Ideal para notebook, job, backend próprio.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">API gateway = isolamento por HTTP</strong><span class="text-neutral-400"> — /v1/chat, /v1/chat/stream, /v1/conversations, auth em 2 camadas, OpenAPI e clients gerados.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Auto title usa modelo barato, assíncrono</strong><span class="text-neutral-400"> — feature que parece pequena evita sidebar inútil; desligue em contextos sensíveis ou com taxonomia própria.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">SSE com eventos tipados é o default</strong><span class="text-neutral-400"> — conversation.started, plan.created, tool.*, message.delta, artifact.created, conversation.completed, error.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Backpressure é decisão de design</strong><span class="text-neutral-400"> — SSE droppa deltas em cliente lento, preserva tool e error. WebSocket com ack se você precisa de todo token.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Lab prova o ciclo completo</strong><span class="text-neutral-400"> — 40 linhas Python rodam skill, produzem artefatos, retornam insights. Base de qualquer app que embuta DeerFlow.</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">3.5 — 🤝 Contribuindo upstream</p>
+          <p class="text-neutral-400 text-sm mt-1">Último módulo da trilha: como devolver valor para o projeto via PRs que passam na primeira revisão.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-start">
           <a href="modulo-3-3.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a>
           <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Voltar para Trilha</a>
           <a href="modulo-3-5.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Próximo Módulo →</a>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="border-t border-dark-600 py-8">
@@ -145,12 +412,14 @@
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const htmlEl = document.documentElement;
-    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); } else { darkIcon.classList.remove('hidden'); }
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
     themeToggle.addEventListener('click', () => {
       darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
       htmlEl.classList.toggle('dark');
       localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
+
 </body>
 </html>

@@ -7,11 +7,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
+
+    /* Light mode - base */
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -22,6 +27,7 @@
     html:not(.dark) .text-neutral-400 { color: #6b7280; }
     html:not(.dark) .text-neutral-500 { color: #9ca3af; }
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .text-yellow-400 { color: #a16207; }
@@ -30,28 +36,52 @@
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
     html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+
+    /* Light mode - T3 Purple (acento da trilha) */
     html:not(.dark) .text-purple-400 { color: #7c3aed; }
     html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
     html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .bg-purple-900\/20 { background-color: rgba(124, 58, 237, 0.08); }
     html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
     html:not(.dark) .bg-purple-600 { background-color: #7c3aed; }
     html:not(.dark) .hover\:bg-purple-500:hover { background-color: #8b5cf6; }
+
+    /* Light mode - T4 Amber (CTA próxima trilha) */
+    html:not(.dark) .bg-amber-600 { background-color: #d97706; }
+    html:not(.dark) .hover\:bg-amber-500:hover { background-color: #f59e0b; }
+
+    /* Light mode - nav hovers T1/T2/T4 */
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
     html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
     html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
     html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217, 119, 6, 0.08); }
+
+    /* Light mode - blue (dados) */
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+
+    /* Light mode - red (alertas) */
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220, 38, 38, 0.08); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220, 38, 38, 0.25); }
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
+  <!-- NAVIGATION -->
   <nav class="sticky top-0 z-40 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🦌</span><span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
@@ -69,69 +99,337 @@
     </div>
   </nav>
 
+  <!-- BREADCRUMB -->
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-purple-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span>
+      <a href="../../index.html" class="hover:text-purple-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-purple-400">Trilha 3</a>
+      <span>/</span>
       <span class="text-purple-400">Módulo 3.5</span>
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.5</span>
       <h1 class="text-3xl sm:text-4xl font-bold mb-4">🤝 Contribuindo upstream</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Como contribuir para o DeerFlow: CONTRIBUTING.md, AGENTS.md (backend e frontend), RFCs, docs/plans e padrões de PR recentes. Lab: pegar um item do TODO.md e abrir um draft PR no repositório oficial.</p>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Último módulo da Trilha 3. CONTRIBUTING.md, AGENTS.md (backend e frontend), RFCs, docs/plans, padrões de PR recentes e um lab que termina com um draft PR aberto no repositório oficial a partir de um item do TODO.md.
+      </p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">5</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">55</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">45</div><div class="text-xs text-neutral-400">Minutos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Teoria + Lab</div><div class="text-xs text-neutral-400">Tipo</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
       </div>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Intro -->
     <div class="mb-12 bg-primary/10 rounded-xl border border-primary/30 p-6">
-      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚧</span> Módulo em produção</h3>
-      <p class="text-neutral-300">Este módulo está sendo escrito em detalhe. A estrutura abaixo já reflete o recorte final; o texto completo de cada tópico virá na próxima iteração do curso.</p>
+      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Como ler este módulo</h3>
+      <p class="text-neutral-300">Contribuir para DeerFlow é mais sobre <em>ler</em> do que sobre <em>escrever</em>. Quem lê CONTRIBUTING.md, AGENTS.md e os PRs recentes escreve código que combina com o projeto — e passa na revisão. Quem só escreve, acumula rejeições. <strong class="text-primary">Faça a leitura inteira antes de abrir qualquer branch</strong>. O lab final é a prova de que você entendeu.</p>
     </div>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6">Tópicos previstos</h2>
-      <div class="space-y-4">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">1</span>
-          <div><h3 class="font-semibold text-white mb-1">CONTRIBUTING.md e AGENTS.md</h3><p class="text-sm text-neutral-400">Processo oficial de contribuição, setup do ambiente, estilo de código e convenções de backend e frontend que todo PR precisa respeitar.</p></div>
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">📜 CONTRIBUTING.md e AGENTS.md (backend + frontend)</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Três documentos cobrem as regras do jogo: <strong class="text-purple-400">CONTRIBUTING.md</strong> na raiz do repo (processo geral), <strong class="text-purple-400">AGENTS.md</strong> em <code>src/</code> (convenções de backend Python) e um segundo <strong class="text-purple-400">AGENTS.md</strong> em <code>web/</code> (convenções de frontend TypeScript/React). Cada PR precisa obedecer ao do escopo que toca. Desrespeitar é caminho curto para "please read the AGENTS.md before resubmitting".
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">CONTRIBUTING.md</h4>
+            <p class="text-sm text-neutral-400 mb-3">Setup, CLA, fluxo de PR, política de review</p>
+            <p class="text-neutral-300 text-sm">Instruções para clonar, instalar (<code>uv sync</code> no backend, <code>pnpm install</code> no web), rodar testes (<code>pytest</code>, <code>vitest</code>). Descreve branch strategy (trunk-based, sem long-lived feature branches), política de squash merge e o que precisa passar antes do review (lint + testes + type-check).</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">2</span>
-          <div><h3 class="font-semibold text-white mb-1">RFCs e docs/plans</h3><p class="text-sm text-neutral-400">Template de RFC, status, relação com docs/plans e linkagem com PRs. Por que discussões de design moram lá e não em issues soltas.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">AGENTS.md do backend</h4>
+            <p class="text-sm text-neutral-400 mb-3">Convenções Python: tipos, testes, middleware, async</p>
+            <p class="text-neutral-300 text-sm">Tipagem estrita (<code>mypy --strict</code>), testes com pytest e markers por categoria, padrões de middleware para passar pelo pipeline de mensagens, uso obrigatório de <code>async</code> em I/O, proibição de <code>print()</code> (usar <code>structlog</code>). Todo novo módulo precisa de docstring no topo descrevendo propósito.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">3</span>
-          <div><h3 class="font-semibold text-white mb-1">Padrões de PR recentes</h3><p class="text-sm text-neutral-400">Leitura de PRs mergeados em middleware, guardrails, async e canais IM. Tamanho esperado, descrição rica, testes novos e checklist de self-review.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">AGENTS.md do frontend</h4>
+            <p class="text-sm text-neutral-400 mb-3">Convenções TS/React: server components, state, styling</p>
+            <p class="text-neutral-300 text-sm">Next.js 15 App Router, React Server Components como default, Zustand ou Jotai para state client-side (nunca Redux novo), Tailwind com design tokens definidos em <code>tokens.css</code>, TypeScript strict + eslint com regra de ordenação de imports. Componentes shadcn/ui são alterados localmente, não via prop drilling.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">4</span>
-          <div><h3 class="font-semibold text-white mb-1">Good first issue</h3><p class="text-sm text-neutral-400">Como garimpar no tracker: labels oficiais, TODO.md, idade da issue, atividade no thread e a etiqueta de sinalizar intenção de pegar.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">5</span>
-          <div><h3 class="font-semibold text-white mb-1">Lab: item do TODO.md em draft PR</h3><p class="text-sm text-neutral-400">Escolher item, fork, branch por feature, testes locais passando e abrir um draft PR no repositório oficial como comprovante final da trilha.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Commits e PR template</h4>
+            <p class="text-sm text-neutral-400 mb-3">Conventional Commits, descrição rica</p>
+            <p class="text-neutral-300 text-sm">Conventional Commits obrigatório (<code>feat:</code>, <code>fix:</code>, <code>docs:</code>, <code>refactor:</code>, <code>test:</code>). Descrição do PR segue template com seções Summary, Motivation, Changes, Testing, Screenshots (se UI). PRs sem testes são rejeitados automaticamente por bot, salvo marcação especial.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="mb-12">
-      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="modulo-3-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a>
-          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Voltar para Trilha</a>
-          <a href="../trilha4/index.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Próxima Trilha →</a>
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">📝 RFCs e docs/plans — onde moram as decisões</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Mudança não-trivial no DeerFlow passa por <strong class="text-purple-400">RFC</strong> (proposta técnica formal) ou <strong class="text-purple-400">doc/plan</strong> (plano de execução sequencial). Os dois vivem em <code>docs/rfcs/</code> e <code>docs/plans/</code> no repo. Ler RFCs antigos evita reabrir discussões já encerradas; ler doc/plans em progresso evita duplicar trabalho.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Conceito Central</h3>
+        <p class="text-neutral-300 mb-4">RFC e plan servem propósitos diferentes:</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>RFC (rfc-NNNN-titulo.md)</strong> — proposta aberta, discute trade-offs, menciona alternativas, status (draft/accepted/rejected/superseded). Pode durar semanas antes de aprovar.</li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>Plan (plan-NNNN-titulo.md)</strong> — plano de execução de um RFC aprovado ou feature bem definida. Lista milestones, PRs esperados, owner e data. Quase um mini-projeto.</li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>Link entre eles</strong> — todo plan cita o RFC que aprovou; todo RFC aprovado cita o plan que executa.</li>
+        </ul>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 mb-6">
+        <h4 class="font-semibold text-white mb-3">Template de RFC do DeerFlow (resumido)</h4>
+        <pre class="text-xs text-neutral-300 overflow-x-auto leading-relaxed"><code># RFC-0042: Título conciso
+Status: draft | accepted | rejected | superseded-by-rfc-NNNN
+Author: @handle
+Date: YYYY-MM-DD
+
+## Summary
+Uma frase. Duas no máximo.
+
+## Motivation
+Por que isso importa. Qual problema resolve.
+
+## Design
+Proposta técnica detalhada. Snippets, diagramas.
+
+## Alternatives
+O que foi considerado e rejeitado.
+
+## Open Questions
+Perguntas explícitas para a discussão.
+
+## Migration
+O que quebra, como mitigar.</code></pre>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">Antes de propor mudança grande via issue/PR, confira os RFCs existentes. Já houve um <code>rfc-0017</code> sobre isolamento de sub-agents que foi rejeitado — abrir o assunto de novo sem citar por que a rejeição anterior não se aplica queima sua credibilidade. Reference RFCs antigos como parte do seu novo RFC.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🔁 Padrões de PR recentes — leituras obrigatórias</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A melhor forma de entender "o que passa na revisão" é ler os PRs que passaram recentemente. O DeerFlow tem quatro linhas de trabalho ativas onde o volume é maior: <strong>middleware</strong>, <strong>guardrails</strong>, <strong>async wrapping</strong> e <strong>canais IM</strong>. Ler 2-3 PRs de cada uma calibra seu senso de tamanho, descrição e qualidade de teste esperada.
+      </p>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Anatomia média de um PR aprovado</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>Tamanho</strong> — 200-600 linhas de diff, 3-8 arquivos tocados. PRs maiores quase sempre voltam para dividir.</li>
+          <li><strong>Commits</strong> — 1 a 5, squashed no merge. Cada commit roda CI individualmente sem quebrar.</li>
+          <li><strong>Testes</strong> — 30-50% das linhas adicionadas são de teste. PR sem teste = PR rejeitado.</li>
+          <li><strong>Descrição</strong> — Summary, Motivation, Changes, Testing sections preenchidas. Screenshots em mudanças de UI.</li>
+          <li><strong>Tempo até merge</strong> — mediana de 2 dias, com 1-2 rounds de review. PRs limpos e focados mergem em &lt;24h.</li>
+          <li><strong>Referência a issue</strong> — link para issue, TODO.md ou RFC que motivou o trabalho.</li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-semibold text-white mb-3">Middleware</h4>
+          <p class="text-neutral-300 text-sm">Novos middlewares entram na pipeline de mensagens entre lead_agent e sub-agents. Padrão: classe herdando de <code>MessageMiddleware</code>, método <code>process</code> async, teste unitário isolado + teste de integração na pipeline.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-semibold text-white mb-3">Guardrails</h4>
+          <p class="text-neutral-300 text-sm">Regras que barram outputs problemáticos (PII, prompt injection detectado, output vazio). Sempre com modo "log only" primeiro antes de "block" — a transição é um PR separado, com métrica de false positive anexada.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-semibold text-white mb-3">Async wrapping</h4>
+          <p class="text-neutral-300 text-sm">Conversão de código síncrono legado para async. Padrão: criar versão async que o código existente passa a delegar, manter facade síncrona para compatibilidade, deprecar a sync em 1-2 releases.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-semibold text-white mb-3">Canais IM</h4>
+          <p class="text-neutral-300 text-sm">Slack, Discord, Telegram como channels de entrada. Implementam <code>IMChannel</code> protocol, trazem webhook handler, tratamento de reply threads, e sempre um arquivo de doc em <code>docs/channels/</code> explicando setup do lado do serviço.</p>
         </div>
       </div>
     </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🎯 Como achar um "good first issue"</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Primeira contribuição vale pela <em>entrega</em>, não pela grandeza. Escolher a issue do tamanho certo é metade do trabalho — issue muito grande você não termina, muito pequena não ensina. O DeerFlow tem label oficial <code>good first issue</code>, mas também existem "boas primeiras" não etiquetadas no <code>TODO.md</code>.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Heurística de seleção</h3>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>Escopo fechado</strong> — título que descreve a mudança sem "e X, e Y, e Z"</li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>Sem dependências abertas</strong> — não depende de RFC que ainda não foi aprovado</li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>Mais de 7 dias, menos de 90</strong> — velha demais pode ter sido esquecida ou resolvida noutro lugar; nova demais tem dono silencioso</li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>Thread quieto</strong> — ninguém disse "I'll pick this" nos últimos 14 dias</li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>Toca 1 arquivo ou 1 módulo</strong> — primeiro PR não é refactor global</li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6">
+          <h4 class="font-bold text-purple-400 mb-4">✓ Fazer</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Comentar "working on this" na issue antes de começar</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Preferir <code>docs:</code> e <code>test:</code> como primeiro PR</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Ler os últimos 5 PRs do módulo que você vai tocar</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Rodar <code>pytest</code>, <code>mypy</code> e <code>ruff</code> antes de abrir PR</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Evitar</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Refactor global "só para limpar" — raramente é well-received</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>PR que toca &gt;10 arquivos sem issue/RFC ancorando</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Sumir depois de "I'll pick this" — libere a issue se desistir</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Questionar convenções de AGENTS.md no seu primeiro PR</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">O <code>TODO.md</code> do DeerFlow tem itens menores e mais óbvios que as issues formais. Muitos são <em>"wanted, não agendado"</em>. Pegar um item marcado "TODO: handler para canal IM XYZ" é mais fácil de vender do que propor mudança do zero — já foi aprovado em algum momento, só precisa de alguém que faça.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🧪 Lab: abrir draft PR a partir do TODO.md</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Entregável final da trilha: um <strong class="text-purple-400">draft PR</strong> aberto no repositório oficial, a partir de um item do TODO.md, com testes, descrição no template e CI verde. Draft porque você não precisa mergear — precisa <em>ter aberto</em>. A prova de que o ciclo todo funciona é o link do PR no seu próprio registro.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Fork e clone</h4>
+            <p class="text-neutral-300 text-sm">Fork o repositório no GitHub, clone o fork, adicione o upstream como remote extra (<code>git remote add upstream ...</code>). Crie branch a partir de <code>main</code> atualizado com nome descritivo: <code>feat/im-channel-mattermost</code>, <code>docs/security-md-threat-model</code>, etc.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Escolha o item do TODO.md</h4>
+            <p class="text-neutral-300 text-sm">Abra <code>TODO.md</code> na raiz. Procure bullets com escopo claro e tamanho baixo — idealmente um item que toque 1-2 arquivos. Se algum está marcado com owner, pule. Comente na issue correspondente (se existir) "picking this for my onboarding PR".</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Implemente respeitando AGENTS.md</h4>
+            <p class="text-neutral-300 text-sm">Siga o padrão do módulo que está tocando. Se é backend, <code>mypy --strict</code>, testes pytest no diretório <code>tests/</code> espelhando a estrutura. Se é frontend, TypeScript strict, componentes em <code>web/src/components/</code>, teste com vitest. Rode <code>uv run pytest</code> / <code>pnpm test</code> / <code>pnpm lint</code> antes de commitar.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Commits Conventional</h4>
+            <p class="text-neutral-300 text-sm">1 a 5 commits, cada um passando CI sozinho. Nomes tipo <code>feat(channels): add mattermost webhook handler</code>, <code>test(channels): cover mattermost thread replies</code>, <code>docs(channels): setup guide for mattermost</code>.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Abra draft PR com template preenchido</h4>
+            <p class="text-neutral-300 text-sm">Push para o fork, abra PR contra <code>upstream/main</code>, marque <strong>Draft</strong>. Preencha o template todo: Summary, Motivation (linkando TODO.md), Changes (bullets), Testing (o que rodou e passou). Anexe screenshot se mudou UI. Confirme CI verde antes de mudar para "ready for review".</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">6</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Registre o link do PR</h4>
+            <p class="text-neutral-300 text-sm">Salve a URL do draft PR no seu documento de progresso do curso. É o entregável. Opcionalmente, mude para "ready for review" quando estiver confortável; o projeto vai conduzir a revisão normalmente.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Parabéns</h3>
+        <p class="text-neutral-300">Se você chegou aqui com um draft PR vivo, você concluiu a Trilha 3. Você configura providers, protege sandbox, debuga memória, embute DeerFlow em outro app <em>e</em> consegue devolver valor para o projeto. É tudo que define um engenheiro de IA sênior nesse harness. A <strong>Trilha 4</strong> é comparativa — você vai colocar DeerFlow contra outros super agent harnesses e decidir quando é certo escolher ele e quando não é.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">CONTRIBUTING.md + 2 AGENTS.md</strong><span class="text-neutral-400"> — regras do jogo: processo, convenções de backend Python e convenções de frontend TypeScript. Leia antes do primeiro commit.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">RFCs discutem, plans executam</strong><span class="text-neutral-400"> — mudança grande passa por RFC; execução vira plan linkado. Sempre cite RFC antigo ao reabrir discussão.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">PRs que passam têm 200-600 linhas e testes</strong><span class="text-neutral-400"> — middleware, guardrails, async wrapping, canais IM são as linhas ativas. Leia 2-3 PRs antes de abrir o seu.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Good first issue = escopo fechado, sem dependências</strong><span class="text-neutral-400"> — 1-2 arquivos, thread quieto, 7 a 90 dias. Prefira <code>docs:</code> e <code>test:</code> como primeiro PR.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">TODO.md é mina de ouro</strong><span class="text-neutral-400"> — itens menores e pré-aprovados, muitas vezes esquecidos. Mais fáceis de vender que proposta nova.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Draft PR é o entregável da trilha</strong><span class="text-neutral-400"> — prova que você lê, escreve, testa, segue convenções e conversa com o projeto.</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-purple-400 mb-2">Próxima Trilha:</h3>
+          <p class="text-neutral-300">Trilha 4 — 🔍 Comparativo com outros super agent harnesses</p>
+          <p class="text-neutral-400 text-sm mt-1">Claude Code, Manus, GenSpark, smolagents e outros. Quando escolher DeerFlow, quando escolher o competidor, e como decidir sem religião.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-start">
+          <a href="modulo-3-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a>
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Voltar para Trilha</a>
+          <a href="../trilha4/index.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Próxima Trilha →</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="border-t border-dark-600 py-8">
@@ -145,12 +443,14 @@
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const htmlEl = document.documentElement;
-    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); } else { darkIcon.classList.remove('hidden'); }
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
     themeToggle.addEventListener('click', () => {
       darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
       htmlEl.classList.toggle('dark');
       localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
+
 </body>
 </html>

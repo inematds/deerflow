@@ -7,11 +7,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
+
+    /* Light mode - base */
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -22,6 +27,7 @@
     html:not(.dark) .text-neutral-400 { color: #6b7280; }
     html:not(.dark) .text-neutral-500 { color: #9ca3af; }
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .text-yellow-400 { color: #a16207; }
@@ -30,28 +36,48 @@
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
     html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+
+    /* Light mode - T3 Purple (acento da trilha) */
     html:not(.dark) .text-purple-400 { color: #7c3aed; }
     html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
     html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .bg-purple-900\/20 { background-color: rgba(124, 58, 237, 0.08); }
     html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
     html:not(.dark) .bg-purple-600 { background-color: #7c3aed; }
     html:not(.dark) .hover\:bg-purple-500:hover { background-color: #8b5cf6; }
+
+    /* Light mode - nav hovers T1/T2/T4 */
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
     html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
     html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
     html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217, 119, 6, 0.08); }
+
+    /* Light mode - blue (dados) */
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+
+    /* Light mode - red (alertas) */
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220, 38, 38, 0.08); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220, 38, 38, 0.25); }
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
+  <!-- NAVIGATION -->
   <nav class="sticky top-0 z-40 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🦌</span><span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
@@ -69,69 +95,331 @@
     </div>
   </nav>
 
+  <!-- BREADCRUMB -->
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-purple-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span>
+      <a href="../../index.html" class="hover:text-purple-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-purple-400">Trilha 3</a>
+      <span>/</span>
       <span class="text-purple-400">Módulo 3.3</span>
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.3</span>
-      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🧬 Memória avançada e context engineering</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Leitura do MEMORY_IMPROVEMENTS.md e docs relacionados. Compactação de histórico, seleção e recall semântico, como evitar memory poisoning e como garantir que memória antiga seja sobrescrita corretamente.</p>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">💾 Memória avançada e context engineering</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Do "existe memória" visto na Trilha 1 para o mecanismo real: compactação rolling de histórico, recall semântico via embeddings, poisoning defensivo e um teste que prova que sobrescrita funciona.
+      </p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">5</div><div class="text-xs text-neutral-400">Tópicos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">55</div><div class="text-xs text-neutral-400">Minutos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Teoria + Lab</div><div class="text-xs text-neutral-400">Tipo</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
       </div>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Intro -->
     <div class="mb-12 bg-primary/10 rounded-xl border border-primary/30 p-6">
-      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚧</span> Módulo em produção</h3>
-      <p class="text-neutral-300">Este módulo está sendo escrito em detalhe. A estrutura abaixo já reflete o recorte final; o texto completo de cada tópico virá na próxima iteração do curso.</p>
+      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Como ler este módulo</h3>
+      <p class="text-neutral-300">Memória é onde os bugs estranhos nascem. "Por que o agente ainda acha que moro em São Paulo se eu disse 3 vezes que mudei?", "Por que o lead_agent repetiu a mesma pergunta?". Respostas honestas estão em compactação ruim, recall ruim, poisoning, sobrescrita que falha silenciosamente. <strong class="text-primary">Este módulo é 80% diagnóstico e 20% prevenção.</strong></p>
     </div>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6">Tópicos previstos</h2>
-      <div class="space-y-4">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">1</span>
-          <div><h3 class="font-semibold text-white mb-1">MEMORY_IMPROVEMENTS.md e correlatos</h3><p class="text-sm text-neutral-400">Leitura guiada do documento oficial e dos docs vizinhos que descrevem como a memória do DeerFlow evoluiu e se comporta hoje em produção.</p></div>
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">📄 MEMORY_IMPROVEMENTS.md e documentos correlatos</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O repositório do DeerFlow mantém <strong class="text-purple-400">MEMORY_IMPROVEMENTS.md</strong> como diário vivo das decisões arquiteturais sobre memória. Não é README — é um documento de <em>evolução</em>: "fizemos X, deu ruim em Y, trocamos por Z". Ler na ordem é entender o porquê do sistema atual ter a forma que tem. Há documentos vizinhos (<code>docs/memory/*</code>, RFCs sobre store backend) que completam o quadro.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Camadas distintas</h4>
+            <p class="text-sm text-neutral-400 mb-3">Histórico de turno, cache de curta duração, memória persistente</p>
+            <p class="text-neutral-300 text-sm">O doc distingue três coisas que usuários confundem: <strong>histórico</strong> (mensagens cruas da conversa), <strong>cache</strong> (resumos e resultados reusáveis dentro da sessão) e <strong>memória</strong> (fatos persistentes entre sessões). Bugs acontecem quando alguém escreve numa camada esperando efeito em outra.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">2</span>
-          <div><h3 class="font-semibold text-white mb-1">Compactação e resumo de histórico</h3><p class="text-sm text-neutral-400">Thresholds, summarization rolling, pinning de mensagens críticas e verificação de perda de informação. Como a janela nunca estoura.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Store backend plugável</h4>
+            <p class="text-sm text-neutral-400 mb-3">SQLite default, Postgres/Redis opcionais</p>
+            <p class="text-neutral-300 text-sm">A memória persiste em um <code>MemoryStore</code> abstrato. SQLite é default por simplicidade; Postgres entra quando há multi-processo; Redis quando latência de recall importa. O doc lista trade-offs e casos em que cada um vira o certo.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">3</span>
-          <div><h3 class="font-semibold text-white mb-1">Seleção e recall semântico</h3><p class="text-sm text-neutral-400">Embeddings, similarity threshold, re-ranking e filtros por tag/agent. Recall certeiro em vez de "toda memória" no prompt.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Políticas de TTL e expiração</h4>
+            <p class="text-sm text-neutral-400 mb-3">Memória não é acúmulo infinito</p>
+            <p class="text-neutral-300 text-sm">Cada categoria de memória tem TTL default diferente. "Feedback" é semi-permanente, "project" expira quando o projeto fecha, "reference" é só enquanto o link existe. A regra: <strong>memória sem TTL é passivo</strong>.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">4</span>
-          <div><h3 class="font-semibold text-white mb-1">Evitar memory poisoning</h3><p class="text-sm text-neutral-400">Validação antes de gravar, marcas de origem, TTL forçado, sobrescrita idempotente e auditoria periódica. Ataques e bugs cobertos juntos.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">5</span>
-          <div><h3 class="font-semibold text-white mb-1">Lab: sobrescrita correta</h3><p class="text-sm text-neutral-400">Teste end-to-end que cria, atualiza e consulta memória, provando que o valor antigo não reaparece no prompt em nenhum turno seguinte.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Métricas e hit rate</h4>
+            <p class="text-sm text-neutral-400 mb-3">Como saber se a memória está ajudando</p>
+            <p class="text-neutral-300 text-sm">O doc define métricas: <em>recall hit rate</em> (% de turns em que memória relevante foi encontrada), <em>memory staleness</em> (idade média do que é lido), <em>poisoning flag rate</em> (auto-detecção de entradas suspeitas). Use como dashboard fixo.</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🗜️ Compactação e resumo de histórico</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O histórico cresce a cada turno. A janela do modelo é finita. <strong class="text-purple-400">Compactação</strong> é o mecanismo que resume trechos antigos preservando o essencial e mantém a janela abaixo do limite sem derrubar a conversa. O DeerFlow implementa via <em>rolling summarization</em> — parecido com um scroll infinito que guarda só headlines.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Conceito Central</h3>
+        <p class="text-neutral-300 mb-4">Compactação acontece em 3 fases, acionada quando o histórico passa de um threshold (tipicamente 60-70% da janela do modelo):</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">1.</span><span><strong>Segmentação</strong> — separa histórico em blocos coerentes (turno-a-turno ou por tópico)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">2.</span><span><strong>Summarização</strong> — cada bloco vira um resumo curto; blocos recentes são preservados literalmente</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">3.</span><span><strong>Pinning</strong> — mensagens marcadas como críticas (instruções de sistema, decisões do usuário) nunca são compactadas</span></li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6">
+          <h4 class="font-bold text-purple-400 mb-4">✓ Algoritmos bons</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Rolling summary com janela deslizante (últimos N turnos intactos)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Summarizer rodando em modelo barato (gpt-5-mini basta)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Pinning explícito de decisões e correções</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Teste de regressão comparando antes/depois do resumo</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Algoritmos ruins</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Trim FIFO cego (perde a instrução de sistema)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Summarizar tudo em um bloco só (perde cronologia)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Usar modelo forte no resumo (caro e lento, sem ganho claro)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Silêncio — nunca mostrar ao usuário que houve compactação</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Sinalização é obrigatória</h3>
+        <p class="text-neutral-300">Quando o DeerFlow compacta, a UI mostra um marcador inline no histórico ("150 mensagens antigas resumidas"). Isso serve para duas coisas: o usuário entende por que o agente "esqueceu" o detalhe, e quem debuga consegue apontar o ponto exato em que a informação foi para o resumo.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🔍 Seleção e recall semântico</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Memória só vira útil quando o agente <strong class="text-purple-400">encontra</strong> a entrada certa na hora certa. Jogar toda a memória no contexto é caro e degrada a atenção. O DeerFlow usa <strong class="text-purple-400">recall semântico</strong>: cada entrada é indexada por embedding, cada turno gera uma query-embedding, e só os top-k mais similares entram.
+      </p>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Dados: o pipeline de recall</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>Embedding model</strong> — text-embedding-3-small ou e5-mistral; escolha importa menos que a consistência (mesma família para index e query)</li>
+          <li><strong>Index</strong> — FAISS ou hnswlib in-process para pequenos stores; pgvector/Qdrant para multi-processo</li>
+          <li><strong>Top-k</strong> — tipicamente k=5 a k=10; mais que isso satura o contexto sem ganho</li>
+          <li><strong>Threshold de similaridade</strong> — corte em ~0.75 de cosine; abaixo disso é ruído que atrapalha</li>
+          <li><strong>Re-ranking</strong> — segunda passada com cross-encoder melhora precisão em 15-25% para stores &gt;10k entradas</li>
+          <li><strong>Filtros duros</strong> — antes do vector search, filtre por user_id, tag, freshness — sempre</li>
+        </ul>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 mb-6">
+        <h4 class="font-semibold text-white mb-3">Pseudo-código do recall</h4>
+        <pre class="text-xs text-neutral-300 overflow-x-auto leading-relaxed"><code>def recall(query: str, user_id: str, k: int = 5) -&gt; list[Memory]:
+    q_vec = embed(query)
+    # 1. filtros duros
+    candidates = store.filter(user_id=user_id, ttl_valid=True)
+    # 2. vector search
+    hits = index.search(q_vec, candidates, top=k*3)
+    # 3. threshold
+    hits = [h for h in hits if h.score &gt;= 0.75]
+    # 4. re-rank (opcional)
+    if len(hits) &gt; k:
+        hits = rerank(query, hits)[:k]
+    return hits</code></pre>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">Antes de trocar o embedding model, verifique se filtros duros estão certos. 90% dos problemas de "recall errado" é vector search puxando memória de outro user, outro tenant, ou sem TTL respeitado. O vetor é inocente.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">☠️ Memory poisoning e entradas obsoletas</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-purple-400">Memory poisoning</strong> é quando conteúdo errado ou hostil entra na memória e passa a influenciar todas as respostas seguintes. É o bug mais difícil de detectar porque o agente continua "funcionando" — só funcionando errado. Pode ser ataque (prompt injection instrui o agente a memorizar algo falso) ou acidente (bug de parsing grava uma string estranha).
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6">
+          <h4 class="font-bold text-purple-400 mb-4">✓ Fazer</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Validar schema de cada entrada antes de persistir</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Marcar origem (tool vs. user vs. agente) em cada registro</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>TTL curto default, estender só com justificativa</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Audit trail — quem escreveu, quando, por quê</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Revisão humana amostrada semanalmente</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Evitar</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Gravar direto o output do modelo sem validação</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Memória eterna (TTL=None) como default</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Deixar tool escrever memória sem passar pelo store central</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Confiar em "ele não ia mentir para si mesmo" — ele vai</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Ignorar entradas com caracteres suspeitos (markers, SQL, HTML)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">🚨</span> Sinal clássico de poisoning</h3>
+        <p class="text-neutral-300">O agente começa a repetir a mesma frase estranha em contextos diferentes — uma "preferência" do usuário que ninguém lembra de ter dito, ou uma "decisão de projeto" que não aparece em nenhuma conversa. Abra a memória na UI, procure entradas recentes, veja a origem. 8 em 10 vezes é uma entrada que entrou via prompt injection num documento que o agente leu.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🧪 Lab: teste que prova sobrescrita correta</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        "Atualizei a memória mas o agente ainda usa o valor velho." Você já ouviu essa queixa. Quase sempre é um bug sutil: a nova entrada foi gravada mas a velha continua no índice, ou o filtro por TTL não está fechando a anterior, ou o recall puxa ambas e o modelo escolhe a errada. A única cura é um <strong class="text-purple-400">teste automatizado</strong> que simula sobrescrita e verifica o prompt final.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Suba um harness em memória</h4>
+            <p class="text-neutral-300 text-sm">Use o Embedded Client (módulo 3.4) com <code>MemoryStore</code> in-memory. Assim o teste é rápido e não deixa lixo em SQLite real.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Escreva memória inicial</h4>
+            <p class="text-neutral-300 text-sm">Turno 1: "meu projeto é o Alpha, stack TypeScript". Confirme que a memória foi criada com categoria <code>project</code> e key <code>current_project</code>.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Sobrescreva</h4>
+            <p class="text-neutral-300 text-sm">Turno 2: "na verdade mudei para o projeto Beta, stack Python". Espera-se que o agente atualize <code>current_project</code>. Assert: o store contém <em>apenas</em> a entrada Beta para essa key — a entrada Alpha deve estar expirada ou removida.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Verifique o prompt final</h4>
+            <p class="text-neutral-300 text-sm">Turno 3: "qual meu projeto atual?". Intercepte o prompt do modelo (hook de debug). Assert: <code>"Alpha" not in prompt</code> e <code>"Beta" in prompt</code>. Não confie na resposta do modelo — ela pode acertar por sorte.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Teste de regressão permanente</h4>
+            <p class="text-neutral-300 text-sm">Adicione o teste ao CI. Qualquer mudança futura que reintroduza a entrada Alpha quebra o build. É barato e cobre o bug mais caro que memória consegue produzir.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 mb-6">
+        <h4 class="font-semibold text-white mb-3">Esqueleto do teste (pytest)</h4>
+        <pre class="text-xs text-neutral-300 overflow-x-auto leading-relaxed"><code>def test_memory_overwrite():
+    h = Harness(memory_store=InMemoryStore())
+    h.chat("meu projeto é Alpha, stack TypeScript")
+    h.chat("na verdade mudei para Beta, stack Python")
+
+    mems = h.memory.filter(key="current_project", ttl_valid=True)
+    assert len(mems) == 1
+    assert "Beta" in mems[0].value
+    assert "Alpha" not in mems[0].value
+
+    prompt = h.capture_next_prompt()
+    h.chat("qual meu projeto atual?")
+    assert "Alpha" not in prompt.text
+    assert "Beta" in prompt.text</code></pre>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
     <section class="mb-12">
-      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
-        <div class="flex flex-col sm:flex-row gap-4">
+      <div class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Histórico, cache, memória são 3 coisas</strong><span class="text-neutral-400"> — escrever em uma esperando efeito em outra é fonte clássica de bug.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Compactação precisa preservar o pin</strong><span class="text-neutral-400"> — rolling summary só funciona se decisões críticas ficam intactas; resumo cego perde o que importa.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Recall é filtro duro + vetor + rerank</strong><span class="text-neutral-400"> — filtro por user/tag/TTL vem antes do vector search. 90% dos bugs de recall moram nos filtros, não no embedding.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Poisoning é o bug mais difícil de achar</strong><span class="text-neutral-400"> — valide schema, marque origem, mantenha TTL curto, audite amostras semanalmente.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Sobrescrita só é sobrescrita se existe teste</strong><span class="text-neutral-400"> — inspecione o prompt final, não a resposta do modelo. Coloque no CI para sempre.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Memória sem TTL é passivo</strong><span class="text-neutral-400"> — cresce sem limite, degrada o recall, vira superfície de poisoning. Default curto, extensão justificada.</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">3.4 — 🧩 Embutindo o DeerFlow em outro app</p>
+          <p class="text-neutral-400 text-sm mt-1">Usar o harness como biblioteca Python, via gateway HTTP ou via streaming server-side.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-start">
           <a href="modulo-3-2.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a>
           <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Voltar para Trilha</a>
           <a href="modulo-3-4.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Próximo Módulo →</a>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="border-t border-dark-600 py-8">
@@ -145,12 +433,14 @@
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const htmlEl = document.documentElement;
-    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); } else { darkIcon.classList.remove('hidden'); }
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
     themeToggle.addEventListener('click', () => {
       darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
       htmlEl.classList.toggle('dark');
       localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
+
 </body>
 </html>

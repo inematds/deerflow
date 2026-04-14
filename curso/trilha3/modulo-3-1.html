@@ -7,11 +7,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
+
+    /* Light mode - base */
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -22,6 +27,7 @@
     html:not(.dark) .text-neutral-400 { color: #6b7280; }
     html:not(.dark) .text-neutral-500 { color: #9ca3af; }
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .text-yellow-400 { color: #a16207; }
@@ -30,28 +36,48 @@
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
     html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+
+    /* Light mode - T3 Purple (acento da trilha) */
     html:not(.dark) .text-purple-400 { color: #7c3aed; }
     html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
     html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .bg-purple-900\/20 { background-color: rgba(124, 58, 237, 0.08); }
     html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
     html:not(.dark) .bg-purple-600 { background-color: #7c3aed; }
     html:not(.dark) .hover\:bg-purple-500:hover { background-color: #8b5cf6; }
+
+    /* Light mode - nav hovers T1/T2/T4 */
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
     html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
     html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
     html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217, 119, 6, 0.08); }
+
+    /* Light mode - blue (dados) */
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+
+    /* Light mode - red (alertas) */
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220, 38, 38, 0.08); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220, 38, 38, 0.25); }
   </style>
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
+  <!-- NAVIGATION -->
   <nav class="sticky top-0 z-40 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🦌</span><span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
@@ -69,73 +95,371 @@
     </div>
   </nav>
 
+  <!-- BREADCRUMB -->
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-purple-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span>
+      <a href="../../index.html" class="hover:text-purple-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-purple-400">Trilha 3</a>
+      <span>/</span>
       <span class="text-purple-400">Módulo 3.1</span>
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.1</span>
       <h1 class="text-3xl sm:text-4xl font-bold mb-4">🧠 Providers de modelo e roteamento</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Como o DeerFlow fala com LLMs: ChatOpenAI com base_url customizado, Responses API, vLLM local para self-hosting e provedores CLI-backed. Quando usar cada um e como decidir entre custo, latência e qualidade.</p>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        O DeerFlow fala com LLMs através de uma camada fina de providers. Aqui você aprende a plugar OpenRouter, LiteLLM, vLLM local e CLIs como Codex e Claude Code — e a decidir entre eles sem apelar para intuição.
+      </p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">60</div><div class="text-xs text-neutral-400">Minutos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Teoria + Lab</div><div class="text-xs text-neutral-400">Tipo</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
       </div>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Intro -->
     <div class="mb-12 bg-primary/10 rounded-xl border border-primary/30 p-6">
-      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚧</span> Módulo em produção</h3>
-      <p class="text-neutral-300">Este módulo está sendo escrito em detalhe. A estrutura abaixo já reflete o recorte final; o texto completo de cada tópico virá na próxima iteração do curso.</p>
+      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Como ler este módulo</h3>
+      <p class="text-neutral-300">A camada de providers é o ponto em que DeerFlow vira agnóstico de LLM — ou não. Escolhas feitas aqui ecoam em custo de billing, latência percebida e qualidade de output. Leia os 5 primeiros tópicos antes de ir para o lab: <strong class="text-primary">o lab só faz sentido depois de você entender por que está comparando três modelos, não só como</strong>.</p>
     </div>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6">Tópicos previstos</h2>
-      <div class="space-y-4">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">1</span>
-          <div><h3 class="font-semibold text-white mb-1">ChatOpenAI com base_url</h3><p class="text-sm text-neutral-400">OpenRouter, LiteLLM e qualquer servidor OpenAI-compatible. Como apontar o base_url e reaproveitar o provider padrão do harness sem código novo.</p></div>
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🔌 ChatOpenAI com base_url — OpenRouter, LiteLLM e gateways</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O provider padrão do DeerFlow é uma camada fina em volta do <strong class="text-purple-400">langchain_openai.ChatOpenAI</strong>. Ele aceita um <code class="text-purple-400">base_url</code> arbitrário, o que significa que qualquer servidor OpenAI-compatible vira provider sem uma linha de código novo. É essa propriedade que transforma um harness single-vendor em um router multi-provider — sem reescrever nada.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Conceito Central</h3>
+        <p class="text-neutral-300 mb-4">Qualquer endpoint que fale o contrato <strong class="text-purple-400">/v1/chat/completions</strong> da OpenAI pode ser apontado pelo DeerFlow via <code>base_url</code>. Isso inclui:</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>OpenRouter</strong> — catálogo de ~200 modelos com billing unificado, roteamento por preço ou disponibilidade</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>LiteLLM proxy</strong> — self-hosted, deduplica chamadas, aplica rate limit e guardrails por equipe</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Gateways internos</strong> — Portkey, Helicone, Azure OpenAI, qualquer middle-layer com interface OpenAI</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Ollama / LM Studio</strong> — inference local pessoal, útil para testes offline</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl p-6 border border-dark-600 mb-6">
+        <h4 class="font-semibold text-white mb-3">Config típica em <code class="text-purple-400">conf.yaml</code></h4>
+        <pre class="text-xs text-neutral-300 overflow-x-auto leading-relaxed"><code>BASIC_MODEL:
+  base_url: https://openrouter.ai/api/v1
+  model: anthropic/claude-sonnet-4.5
+  api_key: $OPENROUTER_API_KEY
+  extra_headers:
+    HTTP-Referer: https://inema.club
+    X-Title: DeerFlow
+
+REASONING_MODEL:
+  base_url: http://litellm.internal:4000
+  model: gpt-5-high
+  api_key: $LITELLM_KEY</code></pre>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">Não use OpenRouter direto em produção sem um proxy LiteLLM no meio. OpenRouter é excelente para descobrir modelos e consolidar billing, mas você ainda quer rate-limit por equipe, caching de completions idênticas e um único lugar para matar um provider quando ele pifar. LiteLLM cobre isso e aceita OpenRouter como backend — é a combinação padrão.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🆕 use_responses_api — o novo /v1/responses da OpenAI</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A OpenAI introduziu <strong class="text-purple-400">/v1/responses</strong> como substituto modernizado de <code>/v1/chat/completions</code>. DeerFlow expõe isso via a flag <code class="text-purple-400">use_responses_api: true</code> no bloco do modelo. Não é cosmético: a Responses API muda como tools são declaradas, como streams emitem eventos, e como state persiste entre chamadas.
+      </p>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Dados: diferenças práticas</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>Tools</strong> — Responses API aceita built-in tools (web_search, file_search, code_interpreter) sem você implementar; Chat Completions não</li>
+          <li><strong>State</strong> — Responses API pode manter <code>previous_response_id</code>, reduzindo tokens enviados em turnos subsequentes</li>
+          <li><strong>Streaming</strong> — eventos tipados (response.created, response.output_text.delta, response.tool_call.delta) em vez de deltas opacos</li>
+          <li><strong>Reasoning</strong> — modelos o1/o3/gpt-5 expõem <code>reasoning.effort</code> nativamente apenas na Responses API</li>
+          <li><strong>Compatibilidade</strong> — só funciona em endpoint oficial da OpenAI ou gateways que implementam o contrato (Azure ainda não, em abril/2026)</li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6">
+          <h4 class="font-bold text-purple-400 mb-4">✓ Quando ligar</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Usando modelo reasoning (o3, gpt-5-high) direto da OpenAI</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Quer built-in web_search sem acoplar Tavily/Serper</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Precisa passar arquivos grandes e reutilizar state entre turnos</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>UI consome os eventos tipados para mostrar etapas</span></li>
+          </ul>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">2</span>
-          <div><h3 class="font-semibold text-white mb-1">use_responses_api</h3><p class="text-sm text-neutral-400">Flag que troca /v1/chat/completions por /v1/responses. Quando ativar, o que muda no payload e o que cada middleware precisa saber para continuar funcionando.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">3</span>
-          <div><h3 class="font-semibold text-white mb-1">vLLM local e VllmChatModel</h3><p class="text-sm text-neutral-400">Servir Qwen3, DeepSeek e similares em máquina própria. Como o VllmChatModel dedicado se encaixa e quando vale o custo operacional do self-hosting.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">4</span>
-          <div><h3 class="font-semibold text-white mb-1">Providers CLI-backed</h3><p class="text-sm text-neutral-400">Codex CLI e Claude Code OAuth como provider do harness. Como reaproveitar a assinatura do CLI já logado e as implicações de ambientes compartilhados.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">5</span>
-          <div><h3 class="font-semibold text-white mb-1">Trade-off custo × latência × qualidade</h3><p class="text-sm text-neutral-400">Framework para escolher modelo por skill e por agent. Como medir custo por task, p95 de latência e qualidade sem cair em benchmark sintético.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex-shrink-0">6</span>
-          <div><h3 class="font-semibold text-white mb-1">Lab: mesma tarefa em 3 modelos</h3><p class="text-sm text-neutral-400">Rodar a mesma skill em três providers diferentes, comparar traces, tempo e custo e escrever uma conclusão honesta do trade-off observado.</p></div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Quando NÃO ligar</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Provider é OpenRouter/LiteLLM (ainda não cobrem Responses API completa)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Modelo não-OpenAI (Claude, Gemini, Qwen) — não entende o formato</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Middleware do DeerFlow faz mutação de <code>messages[]</code> em Chat format</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Precisa previsibilidade de schema — Responses API ainda evolui</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🖥️ vLLM local com VllmChatModel</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-purple-400">vLLM</strong> é o servidor de inference open-source dominante para modelos open-weights. DeerFlow traz um <strong class="text-purple-400">VllmChatModel</strong> dedicado que fala vLLM diretamente, com suporte a reasoning de modelos como Qwen3-Thinking, DeepSeek-R1 e variantes Hermes. Não é só "ChatOpenAI apontando para localhost": o provider especializado entende tags de reasoning, continuations e streaming tool-calls em modelos que não seguem o formato OpenAI exatamente.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Suba o servidor vLLM</h4>
+            <p class="text-sm text-neutral-400 mb-3">Container Docker ou binário local, uma GPU suficiente para o modelo escolhido</p>
+            <pre class="text-xs text-neutral-300 overflow-x-auto"><code>docker run --gpus all -p 8000:8000 \
+  vllm/vllm-openai:latest \
+  --model Qwen/Qwen3-32B-Instruct \
+  --enable-auto-tool-choice \
+  --tool-call-parser hermes</code></pre>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Declare o provider no conf.yaml</h4>
+            <p class="text-sm text-neutral-400 mb-3">Use <code>provider: vllm</code> em vez de <code>openai_compatible</code> para ativar o parser específico</p>
+            <pre class="text-xs text-neutral-300 overflow-x-auto"><code>REASONING_MODEL:
+  provider: vllm
+  base_url: http://localhost:8000/v1
+  model: Qwen/Qwen3-32B-Instruct
+  reasoning_parser: hermes</code></pre>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Valide tool calling</h4>
+            <p class="text-sm text-neutral-400 mb-3">Tool calling em modelos open-weights é historicamente frágil — teste antes de confiar</p>
+            <p class="text-neutral-300 text-sm">Rode uma skill simples que força tool call (ex.: data-analysis com CSV minúsculo). Se a skill não aciona a tool, o parser do vLLM está errado ou o modelo não foi fine-tuned para tool calling. Troque o <code>tool-call-parser</code> ou o modelo.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Meça throughput real</h4>
+            <p class="text-sm text-neutral-400 mb-3">vLLM vende throughput, não latência — avalie com carga representativa</p>
+            <p class="text-neutral-300 text-sm">Um Qwen3-32B numa H100 dá ~60-80 tokens/s para 1 usuário e 400+ tokens/s agregados em 8 usuários paralelos. Latência por requisição única é pior que GPT-4o-mini via API; ganho real é escala e dados sensíveis.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🔑 Providers CLI-backed: Codex CLI e Claude Code OAuth</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Dois providers especiais do DeerFlow conversam com <strong class="text-purple-400">CLIs já logadas</strong> em vez de API keys: <strong>Codex CLI</strong> (OpenAI) e <strong>Claude Code OAuth</strong> (Anthropic). Você reaproveita a assinatura que já paga e ganha acesso aos mesmos modelos de topo que o CLI usa — sem criar conta de API nova, sem cota diferente, sem billing separado.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Como funciona</h3>
+        <p class="text-neutral-300 mb-4">O provider do DeerFlow abre um processo stdio do CLI correspondente e troca mensagens no protocolo que ele entende. Do ponto de vista da skill, é um LLM como outro qualquer; do ponto de vista do billing, é a <strong class="text-purple-400">sua assinatura pessoal</strong> do CLI rodando local.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>Codex CLI</strong> — usa subscription ChatGPT Plus/Team/Enterprise, modelos gpt-5 via CLI oficial</li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>Claude Code OAuth</strong> — usa subscription Claude Max/Team, modelos Opus/Sonnet 4.6 via claude CLI</li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><strong>Sem API key</strong> — o OAuth do CLI já fez o trabalho de autenticação</li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6">
+          <h4 class="font-bold text-purple-400 mb-4">✓ Fazer</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Usar em máquina pessoal de dev onde o CLI já está logado</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Testar skills caras antes de pagar API key dedicada</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Aproveitar rate limits generosos da subscription</span></li>
+            <li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Documentar claramente que está usando assinatura pessoal</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Evitar</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Deploy em servidor compartilhado — vai logar com a conta de quem?</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Produção multi-tenant — viola ToS das duas subscriptions</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>CI/CD — sessões expiram, OAuth não renova automaticamente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Volume &gt;10k req/dia — você vai ser rate-limited e parar o agente</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Alerta legal</h3>
+        <p class="text-neutral-300">Os ToS da ChatGPT Plus/Claude Max não são explícitos sobre uso via harness; tecnicamente é "você usando o CLI". Na prática, se começar a parecer serviço pago revendido, você perde a conta. <strong>Use para dev/teste pessoal, nunca como substituto de API key em produto.</strong></p>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">💰 Trade-off custo × latência × qualidade</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        "Qual modelo usar?" é a pergunta errada. A certa é: <strong class="text-purple-400">qual modelo usar para qual papel?</strong> Um harness com 5 skills pode justificar 3 providers diferentes — um rápido e barato para triagem, um reasoning forte para planejamento, um self-hosted para dados sensíveis. A decisão é <em>por papel</em>, não global.
+      </p>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Benchmark informal (abril/2026, ordem de grandeza)</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-neutral-300">
+            <thead>
+              <tr class="border-b border-dark-600 text-left">
+                <th class="py-2 pr-4 text-blue-400">Modelo</th>
+                <th class="py-2 pr-4 text-blue-400">$/1M in</th>
+                <th class="py-2 pr-4 text-blue-400">$/1M out</th>
+                <th class="py-2 pr-4 text-blue-400">TTFT</th>
+                <th class="py-2 pr-4 text-blue-400">Qualidade</th>
+                <th class="py-2 text-blue-400">Quando</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-dark-600">
+              <tr><td class="py-2 pr-4">gpt-5-high</td><td class="py-2 pr-4">$5</td><td class="py-2 pr-4">$40</td><td class="py-2 pr-4">~4s</td><td class="py-2 pr-4">★★★★★</td><td class="py-2">lead_agent, planning</td></tr>
+              <tr><td class="py-2 pr-4">claude-sonnet-4.5</td><td class="py-2 pr-4">$3</td><td class="py-2 pr-4">$15</td><td class="py-2 pr-4">~1.5s</td><td class="py-2 pr-4">★★★★★</td><td class="py-2">skills longas, código</td></tr>
+              <tr><td class="py-2 pr-4">gpt-5-mini</td><td class="py-2 pr-4">$0.25</td><td class="py-2 pr-4">$2</td><td class="py-2 pr-4">~0.8s</td><td class="py-2 pr-4">★★★★</td><td class="py-2">triagem, title, resumo</td></tr>
+              <tr><td class="py-2 pr-4">gemini-2.5-flash</td><td class="py-2 pr-4">$0.15</td><td class="py-2 pr-4">$0.60</td><td class="py-2 pr-4">~0.4s</td><td class="py-2 pr-4">★★★</td><td class="py-2">sub-agents baratos</td></tr>
+              <tr><td class="py-2 pr-4">Qwen3-32B vLLM</td><td class="py-2 pr-4">~$0.20*</td><td class="py-2 pr-4">~$0.20*</td><td class="py-2 pr-4">~2s</td><td class="py-2 pr-4">★★★</td><td class="py-2">dados sensíveis</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-xs text-neutral-500 mt-3">* custo amortizado em H100 com 8 usuários paralelos; latência única é pior.</p>
+      </div>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Regra de ouro</h3>
+        <p class="text-neutral-300 mb-4">Antes de otimizar modelo, otimize o <strong class="text-purple-400">papel</strong>. Um lead_agent gpt-5-high custa 10× mais caro que um gpt-5-mini — mas se ele toma 1 decisão boa que evita 20 chamadas subsequentes erradas, sai barato. Use modelo caro onde decisão ruim <em>gera cascata</em>; use modelo barato onde só processa.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🧪 Lab: mesma tarefa em 3 modelos</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Chega de tabela. Vamos rodar a <strong class="text-purple-400">mesma</strong> skill de deep-research em três providers diferentes, capturar traces e comparar custo real. Ordem dos eventos é: preparar dataset fixo, declarar 3 model profiles, rodar, exportar, preencher planilha. O objetivo não é decidir "qual ganha" — é ver com seus olhos que "qualidade" é relativa ao caso de uso.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Prepare 3 queries representativas</h4>
+            <p class="text-neutral-300 text-sm">Uma fácil ("estado da arte em RAG em 2026, 1 parágrafo"), uma média ("comparativo entre vLLM, SGLang e TGI para servir Qwen3 em uma H100") e uma difícil ("análise crítica das limitações metodológicas do paper X, com citação de fonte"). Use as mesmas 3 em todos os runs.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Declare 3 profiles no conf.yaml</h4>
+            <p class="text-neutral-300 text-sm">Exemplo: <code>BASIC_MODEL_A</code> = claude-sonnet-4.5 via OpenRouter, <code>BASIC_MODEL_B</code> = gpt-5 via Codex CLI, <code>BASIC_MODEL_C</code> = Qwen3-32B via vLLM local. Crie <code>conf-a.yaml</code>, <code>conf-b.yaml</code>, <code>conf-c.yaml</code> para trocar sem editar variável de ambiente entre runs.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Execute e capture traces</h4>
+            <p class="text-neutral-300 text-sm">Rode a skill <code>deep-research</code> 3×3 = 9 vezes (3 queries × 3 providers). Use o modo trace do DeerFlow (<code>--trace</code>) para salvar JSON com tokens in/out, wall time, ferramentas chamadas e custo estimado.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Preencha a planilha de comparação</h4>
+            <p class="text-neutral-300 text-sm">9 linhas × colunas: query, provider, tokens_in, tokens_out, wall_time, custo_$, qualidade_1a5. Qualidade é nota subjetiva sua lendo a resposta — seja duro. Calcule custo_por_resposta_útil = custo / qualidade.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Escreva a conclusão (3 parágrafos)</h4>
+            <p class="text-neutral-300 text-sm">Um para cada query, dizendo qual provider venceu <em>para ela</em>. A conclusão raramente é "um único provider domina" — é "A venceu na fácil pelo custo, B na média pela qualidade, C na difícil porque só ele tinha os dados sensíveis ok". Guarde o documento — vai servir de referência para decisões futuras.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Resultado esperado</h3>
+        <p class="text-neutral-300">A primeira vez que você roda este lab, quase sempre descobre que estava pagando caro demais por uma skill onde o modelo barato bastaria, <strong>ou</strong> que estava usando um modelo médio onde o caro rendia 3× mais valor. Um dos dois. Raramente "estava tudo ótimo".</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
     <section class="mb-12">
-      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="../trilha2/index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Trilha Anterior</a>
+      <div class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">base_url é o ponto de extensão</strong><span class="text-neutral-400"> — qualquer servidor OpenAI-compatible entra no DeerFlow sem código novo: OpenRouter, LiteLLM, Azure, Ollama, o que for.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">use_responses_api só para OpenAI oficial</strong><span class="text-neutral-400"> — libera reasoning nativo, built-in tools e eventos tipados, mas quebra em gateways que não implementam o contrato novo.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">vLLM vence em dados sensíveis e escala</strong><span class="text-neutral-400"> — latência única pior que API, mas throughput paralelo e privacidade só existem self-hosted.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">CLI-backed é atalho para dev, não produção</strong><span class="text-neutral-400"> — usa sua assinatura pessoal; excelente para testar, proibido em deploy compartilhado.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Decisão é por papel, não global</strong><span class="text-neutral-400"> — modelo caro onde decisão ruim gera cascata, modelo barato onde só processa output.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Lab dos 3 provedores é obrigatório</strong><span class="text-neutral-400"> — não confie em benchmark de blog; rode a sua própria skill com a sua carga.</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">3.2 — 🛡️ Sandbox, file system e segurança</p>
+          <p class="text-neutral-400 text-sm mt-1">Agora que o DeerFlow tem LLMs para conversar, o que acontece quando ele executa código gerado no seu host?</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-start">
+          <a href="../trilha2/index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Trilha 2</a>
           <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Voltar para Trilha</a>
           <a href="modulo-3-2.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Próximo Módulo →</a>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="border-t border-dark-600 py-8">
@@ -149,12 +473,14 @@
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const htmlEl = document.documentElement;
-    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); } else { darkIcon.classList.remove('hidden'); }
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
     themeToggle.addEventListener('click', () => {
       darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
       htmlEl.classList.toggle('dark');
       localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
+
 </body>
 </html>
