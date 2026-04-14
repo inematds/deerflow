@@ -7,11 +7,15 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
+
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -22,6 +26,7 @@
     html:not(.dark) .text-neutral-400 { color: #6b7280; }
     html:not(.dark) .text-neutral-500 { color: #9ca3af; }
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .text-yellow-400 { color: #a16207; }
@@ -30,13 +35,30 @@
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
     html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+
     html:not(.dark) .text-blue-400 { color: #2563eb; }
     html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
     html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .bg-blue-900\/30 { background-color: rgba(37, 99, 235, 0.10); }
     html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
     html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
-    html:not(.dark) .bg-blue-600 { background-color: #2563eb; }
-    html:not(.dark) .hover\:bg-blue-500:hover { background-color: #3b82f6; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+
+    html:not(.dark) .text-cyan-400 { color: #0891b2; }
+    html:not(.dark) .bg-cyan-500\/20 { background-color: rgba(8, 145, 178, 0.12); }
+    html:not(.dark) .bg-cyan-900\/20 { background-color: rgba(8, 145, 178, 0.08); }
+    html:not(.dark) .border-cyan-500\/30 { border-color: rgba(8, 145, 178, 0.25); }
+
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220, 38, 38, 0.08); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220, 38, 38, 0.25); }
+
+    /* Light mode - T3 purple (botão próxima trilha) */
+    html:not(.dark) .bg-purple-600 { background-color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500:hover { background-color: #8b5cf6; }
+
+    /* Nav hovers T1/T3/T4 */
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
@@ -51,7 +73,10 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🦌</span><span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
@@ -71,8 +96,10 @@
 
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-blue-400">Trilha 2</a><span>/</span>
+      <a href="../../index.html" class="hover:text-blue-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-blue-400">Trilha 2</a>
+      <span>/</span>
       <span class="text-blue-400">Módulo 2.5</span>
     </div>
   </nav>
@@ -80,54 +107,276 @@
   <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.5</span>
-      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔌 Tools customizadas, MCP e grep/glob</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Leitura do RFC rfc-grep-glob-tools e do guia de MCP server. Como expor um serviço interno como MCP, configurar OAuth flows e plugar tudo numa skill existente.</p>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔧 Tools customizadas, MCP e grep/glob</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Como abrir janelas controladas para o mundo exterior. Tools nativas do harness, MCP como padrão de integração, OAuth onde importa e o que a RFC rfc-grep-glob-tools propõe para busca local.
+      </p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">4</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">60</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">5</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">55</div><div class="text-xs text-neutral-400">Minutos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Teoria + Lab</div><div class="text-xs text-neutral-400">Tipo</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
       </div>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
     <div class="mb-12 bg-primary/10 rounded-xl border border-primary/30 p-6">
-      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚧</span> Módulo em produção</h3>
-      <p class="text-neutral-300">Este módulo está sendo escrito em detalhe. A estrutura abaixo já reflete o recorte final; o texto completo de cada tópico virá na próxima iteração do curso.</p>
+      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Onde este módulo se encaixa</h3>
+      <p class="text-neutral-300">Você já sabe middleware (2.2), skill (2.3) e custom agent (2.4). Faltava a última peça: <strong class="text-primary">tools reais</strong> — o que cruza a fronteira do processo e fala com o mundo. É aqui que o agente deixa de ser um loop de texto e começa a fazer coisas.</p>
     </div>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6">Tópicos previstos</h2>
-      <div class="space-y-4">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">1</span>
-          <div><h3 class="font-semibold text-white mb-1">RFC rfc-grep-glob-tools</h3><p class="text-sm text-neutral-400">O melhor exemplo escrito do contrato de uma tool nativa: schema pydantic, paginação, formato de retorno e integração com o sandbox.</p></div>
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">📄 RFC rfc-grep-glob-tools</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A RFC <strong class="text-blue-400">rfc-grep-glob-tools</strong> propõe dois primitivos nativos — <code class="text-blue-400">grep</code> e <code class="text-blue-400">glob</code> — como tools de primeira classe no harness. Parece trivial mas resolve um problema recorrente: agentes que gastam tokens inteiros listando diretórios ou lendo arquivos grandes para achar uma string.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Motivação</h4>
+            <p class="text-neutral-300 text-sm">Agentes gastavam 2-5k tokens por sessão só descobrindo o layout do repositório. A solução ad-hoc era colocar <code class="text-blue-400">shell</code> como tool, mas isso abre mão de sandbox. A RFC defende dois primitivos explícitos, dedicados, sandbox-friendly.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">2</span>
-          <div><h3 class="font-semibold text-white mb-1">Expor serviço como MCP server</h3><p class="text-sm text-neutral-400">Model Context Protocol via stdio ou HTTP/SSE. Registrar tools, definir schemas e plugar como fonte adicional no config.yaml do DeerFlow.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">grep tool</h4>
+            <p class="text-neutral-300 text-sm">Args: <code class="text-blue-400">pattern</code>, <code class="text-blue-400">path</code>, <code class="text-blue-400">glob</code>, <code class="text-blue-400">output_mode</code>. Usa ripgrep no backend, devolve só os matches (nome do arquivo + linha). Nunca lê arquivos inteiros.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">3</span>
-          <div><h3 class="font-semibold text-white mb-1">OAuth flows para MCP HTTP/SSE</h3><p class="text-sm text-neutral-400">client_credentials (service-to-service) e refresh_token (usuário). Token caching, scopes, renovação automática e failure modes.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">glob tool</h4>
+            <p class="text-neutral-300 text-sm">Args: <code class="text-blue-400">pattern</code>. Devolve lista de paths ordenada por data de modificação. Substitui "list directory" que o modelo insistia em inventar quando não havia tool própria.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">4</span>
-          <div><h3 class="font-semibold text-white mb-1">Lab: API interna como MCP</h3><p class="text-sm text-neutral-400">Expor uma API interna existente como MCP server com OAuth2 e fazer uma skill do DeerFlow consumi-la de ponta a ponta, incluindo erros.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Integração com sandbox</h4>
+            <p class="text-neutral-300 text-sm">Ambas rodam read-only dentro do sandbox configurado. Sem acesso a <code class="text-blue-400">/etc</code>, sem gravação, sem execução. Auditado por middleware como qualquer tool.</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🌐 Expor serviço como MCP server</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-blue-400">MCP</strong> (Model Context Protocol) é o padrão da Anthropic que o DeerFlow adota como transporte preferencial para tools externas. Expor uma API interna como MCP server significa que qualquer harness compatível (DeerFlow, Claude Desktop, Cursor) pode consumir essas tools sem código específico.
+      </p>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Conceito Central</h3>
+        <p class="text-neutral-300 mb-4">Um MCP server declara: (a) um <strong class="text-blue-400">contrato</strong> com lista de tools + schemas JSON, (b) um <strong class="text-blue-400">transport</strong> (stdio para local, HTTP/SSE para remoto), (c) um <strong class="text-blue-400">handler</strong> por tool que recebe args e devolve resultado. O cliente (harness) descobre as tools por introspecção, sem hardcoding.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>stdio</strong> — subprocess local, sem rede. Ideal para dev, CLI, tools de filesystem.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>HTTP + SSE</strong> — serviço remoto, autenticado, disponível em rede. Ideal para APIs internas da empresa.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Schema auto-descoberto</strong> — o harness chama <code class="text-blue-400">tools/list</code> na hora do boot e registra tudo.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Versionamento</strong> — bump do servidor = bump da lista. Clientes reagem em reload.</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Por que MCP e não REST direto</h3>
+        <p class="text-neutral-300">Você poderia abrir uma tool que faz <code class="text-primary">requests.get(...)</code> em qualquer endpoint. Funciona — até a terceira integração. O que MCP entrega é <strong>descobrimento automático</strong>, <strong>schema consistente</strong>, <strong>autenticação padronizada</strong> e <strong>portabilidade entre harnesses</strong>. O mesmo servidor que o DeerFlow consome serve Claude Desktop, Cursor e qualquer cliente MCP-compatível. Custo de escrever é o mesmo; economia na segunda integração já paga.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🔐 OAuth flows</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        MCP via HTTP/SSE em produção exige autenticação. O DeerFlow suporta dois fluxos OAuth padrão: <strong class="text-blue-400">client_credentials</strong> (server-to-server, sem usuário) e <strong class="text-blue-400">refresh_token</strong> (com usuário real, rotação). Saber qual usar evita surpresas em 30 dias.
+      </p>
+
+      <div class="bg-cyan-900/20 rounded-xl border border-cyan-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-cyan-400 mb-4 flex items-center"><span class="mr-2">📊</span> Dados dos fluxos</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>client_credentials</strong> — o harness troca <code class="text-cyan-400">client_id + client_secret</code> por um access token de curta duração. Sem usuário. Uso: integrações internas, CI/CD, automações.</li>
+          <li><strong>refresh_token</strong> — usuário final autoriza uma vez; harness guarda refresh token e troca por access tokens. Uso: Slack, Notion, Google, qualquer serviço com permissão por conta.</li>
+          <li><strong>Escopo</strong> — sempre o menor possível. Uma tool que só lê não precisa de escopo write.</li>
+          <li><strong>Rotação</strong> — refresh tokens em KMS/secret store; nunca em disco sem criptografia.</li>
+          <li><strong>Expiração</strong> — monitorar e renovar com buffer (ex: 5 minutos antes de expirar).</li>
+        </ul>
+      </div>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Descoberta</h4>
+            <p class="text-sm text-neutral-300">Harness lê <code class="text-blue-400">config/mcp.yaml</code> e conecta ao servidor. Primeira chamada: <code class="text-blue-400">initialize</code> com auth token.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Lista de tools</h4>
+            <p class="text-sm text-neutral-300">Servidor retorna <code class="text-blue-400">tools/list</code> com nome, descrição e schema JSON de cada tool. Harness registra no catálogo runtime.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Invocação</h4>
+            <p class="text-sm text-neutral-300">Quando o agente decide usar, harness envia <code class="text-blue-400">tools/call</code>. Auth header injetado pelo middleware. Resultado volta serializado.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Renovação de token</h4>
+            <p class="text-sm text-neutral-300">Middleware detecta 401/token próximo a expirar, faz o refresh e retenta a call uma vez antes de propagar erro.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">🚨</span> Alerta: credenciais nunca no prompt</h3>
+        <p class="text-neutral-300 mb-3">Tokens vivem em variáveis de ambiente, secret stores ou KMS. O modelo <strong>nunca</strong> vê esses valores. O middleware injeta o header <code class="text-red-400">Authorization</code> no handler, depois que a tool call já foi validada. Qualquer pipeline que coloque token no prompt é pipeline quebrado.</p>
+        <p class="text-neutral-300">E não loge tokens no LangSmith. O DeerFlow tem redaction list padrão — mantenha atualizada sempre que adicionar novo campo sensível.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🧰 Tools customizadas além de MCP</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Nem toda tool precisa virar MCP server. Para lógica que vive dentro da própria app, o DeerFlow aceita tools no formato <strong class="text-blue-400">LangChain</strong> — decorator <code class="text-blue-400">@tool</code> numa função Python com docstring clara, type hints e retorno serializável. É o caminho mais curto para adicionar capacidade nova.
+      </p>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Quando usar cada formato</h3>
+        <p class="text-neutral-300 mb-3"><strong class="text-primary">LangChain @tool local</strong>: lógica que só o DeerFlow usa, sem outros clientes, tem acesso ao state da app. Ex: enriquecer uma query com configs da empresa, parsear um formato proprietário.</p>
+        <p class="text-neutral-300 mb-3"><strong class="text-primary">MCP stdio</strong>: ferramenta de filesystem, CLI wrappers, scripts de manutenção. Isolamento de processo sai de graça.</p>
+        <p class="text-neutral-300"><strong class="text-primary">MCP HTTP/SSE</strong>: API interna consumida por múltiplos agentes/clientes, com autenticação, rate limit, observabilidade do lado servidor. Padrão para produção.</p>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-white mb-4">Anatomia mínima de uma @tool</h3>
+        <pre class="bg-dark-900 rounded-lg p-4 text-xs text-blue-400 overflow-x-auto"><code>from langchain_core.tools import tool
+
+@tool
+def enrich_query_with_config(query: str, tenant_id: str) -&gt; str:
+    """Adiciona filtros específicos do tenant a uma query de busca.
+
+    Use quando o usuário fizer uma pergunta de busca sem mencionar
+    filtros e o tenant tiver restrições configuradas (ex: região,
+    compliance, idioma).
+
+    Args:
+        query: a query original, em linguagem natural.
+        tenant_id: identificador do tenant ativo.
+
+    Returns:
+        a query enriquecida, pronta para ser usada em search tools.
+    """
+    cfg = load_tenant_config(tenant_id)
+    filters = " ".join(cfg.get("default_filters", []))
+    return f"{query} {filters}".strip()</code></pre>
+        <p class="text-neutral-400 text-sm mt-3">Docstring vira o schema — não pule nem abrevie. O modelo lê essa docstring para decidir se usa a tool.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🧪 Lab: API interna como MCP server</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Expor uma API interna (fake mas realista) como MCP server, conectar ao DeerFlow e consultar via a skill <code class="text-blue-400">brazilian-gov-research</code> que você criou no módulo 2.3. No fim você tem: servidor MCP rodando, DeerFlow falando com ele, skill acionando as tools novas.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-white mb-4">Passos do lab</h3>
+        <ol class="space-y-4 text-neutral-300">
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">1.</span><div><strong class="text-white">Criar API fake</strong>: um FastAPI mínimo em <code class="text-blue-400">tools/internal-api/</code> com dois endpoints: <code class="text-blue-400">GET /budget/&lt;municipio&gt;/&lt;year&gt;</code> e <code class="text-blue-400">GET /population/&lt;municipio&gt;</code>. Dados mock num JSON.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">2.</span><div><strong class="text-white">Envolver como MCP server</strong>: usar <code class="text-blue-400">mcp</code> SDK Python. Cada endpoint vira uma tool com schema JSON auto-gerado. Servidor expõe em <code class="text-blue-400">http://localhost:8765/mcp</code> usando SSE.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">3.</span><div><strong class="text-white">Rodar servidor</strong>: <code class="text-blue-400">uv run python -m internal_api.mcp_server</code>. Teste com <code class="text-blue-400">curl http://localhost:8765/mcp/tools</code> — deve listar as duas tools.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">4.</span><div><strong class="text-white">Configurar client no DeerFlow</strong>: em <code class="text-blue-400">config/mcp.yaml</code>, adicione um entry <code class="text-blue-400">internal-api</code> com transport <code class="text-blue-400">http-sse</code>, url do servidor, e OAuth <code class="text-blue-400">client_credentials</code> usando um client fake local.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">5.</span><div><strong class="text-white">Reiniciar harness</strong>. No log de boot procure <em>"mcp client connected: internal-api (2 tools)"</em>. Se der erro, 95% das vezes é OAuth — verifique client_id/secret.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">6.</span><div><strong class="text-white">Ajustar a skill brazilian-gov-research</strong>: troque as tools fake pelas novas do MCP. Descrição e corpo permanecem — a ideia é que a skill aponte para tools que já existem no ambiente.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">7.</span><div><strong class="text-white">Testar query completa</strong>: <em>"qual o gasto de Florianópolis em saúde em 2024 por habitante?"</em>. No LangSmith, confirme que a skill foi acionada, chamou <code class="text-blue-400">GET /budget/...</code> e <code class="text-blue-400">GET /population/...</code>, e combinou os resultados.</div></li>
+        </ol>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Entregável</h3>
+        <p class="text-neutral-300">Repositório (local) com: <code class="text-primary">internal_api/</code> rodando, configuração MCP no DeerFlow, skill atualizada e trace do LangSmith mostrando as 2 chamadas à API interna. Bônus: rate limit de 10 req/s configurado no servidor para validar que o middleware trata 429 graciosamente.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
     <section class="mb-12">
-      <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
-        <div class="flex flex-col sm:flex-row gap-4">
+      <div class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">grep e glob são primitivos sandbox-friendly</strong><span class="text-neutral-400"> — RFC rfc-grep-glob-tools mata a necessidade de expor shell.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">MCP é o transport padrão</strong><span class="text-neutral-400"> — contrato + schema + transport. Mesmo servidor serve DeerFlow e outros clients compatíveis.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">client_credentials para server-to-server, refresh_token para usuário</strong><span class="text-neutral-400"> — sempre escopo mínimo, nunca token no prompt.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">LangChain @tool é o atalho para tools locais</strong><span class="text-neutral-400"> — MCP só quando precisar de isolamento ou compartilhamento.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">API interna como MCP é composição</strong><span class="text-neutral-400"> — sobe o servidor, plugar no harness, ajustar a skill existente para usar as novas tools.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Docstring da @tool é schema</strong><span class="text-neutral-400"> — escreva como se fosse documentação para humanos e para o modelo, que é o que é.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Trilha 2 está encerrada</strong><span class="text-neutral-400"> — você agora consegue ler ARCHITECTURE, escrever middleware, criar skills, compor custom agents e integrar tools via MCP.</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-blue-400 mb-2">Próxima Trilha:</h3>
+          <p class="text-neutral-300">Trilha 3 — Avançado II: operação, observabilidade e escala</p>
+          <p class="text-neutral-400 text-sm mt-1">Como colocar tudo isso em produção sem queimar a noite de alguém. Cost control, incident playbooks, multi-tenant.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-start">
           <a href="modulo-2-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a>
           <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Voltar para Trilha</a>
-          <a href="../trilha3/index.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Próxima Trilha →</a>
+          <a href="../trilha3/index.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Próxima Trilha →</a>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="border-t border-dark-600 py-8">
@@ -141,12 +390,14 @@
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const htmlEl = document.documentElement;
-    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); } else { darkIcon.classList.remove('hidden'); }
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
     themeToggle.addEventListener('click', () => {
       darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
       htmlEl.classList.toggle('dark');
       localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
+
 </body>
 </html>

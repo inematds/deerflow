@@ -7,11 +7,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
+
+    /* Light mode - base */
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -22,6 +27,7 @@
     html:not(.dark) .text-neutral-400 { color: #6b7280; }
     html:not(.dark) .text-neutral-500 { color: #9ca3af; }
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .text-yellow-400 { color: #a16207; }
@@ -30,13 +36,31 @@
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
     html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+
+    /* Light mode - T2 Blue */
     html:not(.dark) .text-blue-400 { color: #2563eb; }
     html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
     html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .bg-blue-900\/30 { background-color: rgba(37, 99, 235, 0.10); }
     html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
     html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
     html:not(.dark) .bg-blue-600 { background-color: #2563eb; }
     html:not(.dark) .hover\:bg-blue-500:hover { background-color: #3b82f6; }
+
+    /* Light mode - cyan (dados na Trilha 2) */
+    html:not(.dark) .text-cyan-400 { color: #0891b2; }
+    html:not(.dark) .bg-cyan-500\/20 { background-color: rgba(8, 145, 178, 0.12); }
+    html:not(.dark) .bg-cyan-900\/20 { background-color: rgba(8, 145, 178, 0.08); }
+    html:not(.dark) .border-cyan-500\/30 { border-color: rgba(8, 145, 178, 0.25); }
+
+    /* Light mode - red */
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220, 38, 38, 0.08); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220, 38, 38, 0.25); }
+
+    /* Nav hovers T1/T3/T4 */
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
@@ -51,7 +75,10 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🦌</span><span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
@@ -71,8 +98,10 @@
 
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-blue-400">Trilha 2</a><span>/</span>
+      <a href="../../index.html" class="hover:text-blue-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-blue-400">Trilha 2</a>
+      <span>/</span>
       <span class="text-blue-400">Módulo 2.2</span>
     </div>
   </nav>
@@ -80,58 +109,298 @@
   <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.2</span>
-      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔀 Middleware e execução</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Como o middleware intercepta chamadas, como o lead_agent despacha para custom agents pelo agent_name e como tool calls falham e se recuperam sem quebrar o fluxo.</p>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">⚙️ Middleware e execução</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Toda tool call no DeerFlow passa por uma esteira. Entender essa esteira é a diferença entre apagar incêndios em produção e ter um agente que se auto-corrige quando uma API externa cai.
+      </p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">5</div><div class="text-xs text-neutral-400">Tópicos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">50</div><div class="text-xs text-neutral-400">Minutos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Teoria + Lab</div><div class="text-xs text-neutral-400">Tipo</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
       </div>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
     <div class="mb-12 bg-primary/10 rounded-xl border border-primary/30 p-6">
-      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚧</span> Módulo em produção</h3>
-      <p class="text-neutral-300">Este módulo está sendo escrito em detalhe. A estrutura abaixo já reflete o recorte final; o texto completo de cada tópico virá na próxima iteração do curso.</p>
+      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Pré-requisito mental</h3>
+      <p class="text-neutral-300">Revise o módulo 2.1 se "node <code class="text-primary">act</code>" ainda soa abstrato. Todo o middleware vive <em>dentro</em> desse node — a esteira é executada cada vez que o grafo decide rodar uma tool.</p>
     </div>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6">Tópicos previstos</h2>
-      <div class="space-y-4">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">1</span>
-          <div><h3 class="font-semibold text-white mb-1">Fluxo do middleware</h3><p class="text-sm text-neutral-400">A camada que roda antes/depois de cada chamada do agente. Pre/post hooks, ordem de execução, short-circuit e contexto compartilhado entre middlewares.</p></div>
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🔗 Fluxo do middleware</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-blue-400">Middleware</strong>, no DeerFlow, é uma camada plugável que intercepta cada tool call <em>antes</em> e <em>depois</em> da execução real. Pense em <em>onion layers</em>: o pedido desce por N middlewares até chegar ao handler da tool, e a resposta sobe pela mesma pilha em ordem inversa. Qualquer camada pode logar, transformar, bloquear ou substituir.
+      </p>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Conceito Central</h3>
+        <p class="text-neutral-300 mb-4">Um middleware é uma função <code class="text-blue-400">async (call, next) -&gt; result</code>. Recebe o <em>call</em> (nome da tool + args + contexto), pode alterá-lo, chama <code class="text-blue-400">next(call)</code> para descer na pilha, recebe o <em>result</em>, pode alterá-lo, e devolve. É praticamente o mesmo padrão de Express/Koa — e funciona pelos mesmos motivos.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Antes do next</strong> — validação de args, rewrite, deny-list, medição de latência inicial.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>next(call)</strong> — passa adiante; se nada interceptou, vai até o handler real.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Depois do next</strong> — log de resultado, redaction, métricas, retry, conversão de erro.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Short-circuit</strong> — middleware pode devolver resultado <em>sem</em> chamar next (ex: cache hit, deny).</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Ordem importa</h3>
+        <p class="text-neutral-300">A ordem de registro define a ordem de execução. Guardrail deny-list sempre primeiro (short-circuit barato). Observabilidade/logging depois, para ver mesmo o que foi bloqueado. Retry e cache vão no meio, perto do handler. Inverter essa ordem transforma o middleware de ativo protetor em contador de bala perdida.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">📨 Despacho via agent_name</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Quando o lead_agent decide acionar um custom agent, ele <strong>não</strong> faz import Python direto. Ele emite uma tool call especial com <code class="text-blue-400">agent_name</code> no payload e deixa o middleware resolver. Isso parece cerimonial, mas é o que permite swap de agentes sem reboot e A/B testing de versões.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">lead_agent emite dispatch</h4>
+            <p class="text-sm text-neutral-400 mb-3">tool_call = {"name": "dispatch_agent", "args": {"agent_name": "security-auditor", ...}}</p>
+            <p class="text-neutral-300 text-sm">O plano diz "isso é trabalho do security-auditor". Em vez de importar a classe, o lead_agent produz uma tool call estruturada. A instrução vai no campo <code class="text-blue-400">args.task</code>.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">2</span>
-          <div><h3 class="font-semibold text-white mb-1">Despacho via agent_name</h3><p class="text-sm text-neutral-400">Como o lead_agent roteia para custom agents: registry, resolução de nome, troca de system prompt e retorno de controle quando a task termina.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Middleware de agents resolve</h4>
+            <p class="text-sm text-neutral-400 mb-3">Lookup no registry, aplica policy, injeta contexto isolado</p>
+            <p class="text-neutral-300 text-sm">Um middleware dedicado captura calls com <code class="text-blue-400">name == "dispatch_agent"</code>, consulta o registry (onde agentes estão registrados por nome), monta o subgrafo do custom agent e executa.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">3</span>
-          <div><h3 class="font-semibold text-white mb-1">Ciclo de vida de uma tool call</h3><p class="text-sm text-neutral-400">Do schema validation ao resultado observado pelo modelo. Onde cada erro aparece, async wrapping, timeouts e retrospecção no próximo turno.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Custom agent roda em sub-state</h4>
+            <p class="text-sm text-neutral-400 mb-3">Contexto próprio, memória própria, tools restritas</p>
+            <p class="text-neutral-300 text-sm">O custom agent começa com state isolado: só o <em>task</em> e as memórias pertinentes a ele. Ao terminar, devolve um resumo. O lead_agent vê esse resumo — não vê o histórico interno.</p>
+          </div>
         </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">4</span>
-          <div><h3 class="font-semibold text-white mb-1">Recuperação de erros</h3><p class="text-sm text-neutral-400">Retry, fallback e compensação. Como transformar exception crua em mensagem legível para o LLM sem causar loops nem perder observabilidade.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">5</span>
-          <div><h3 class="font-semibold text-white mb-1">Lab: middleware que loga tools</h3><p class="text-sm text-neutral-400">Escrever um middleware pequeno que registra toda tool call, argumentos, resultado e tempo. Plugar no harness sem mexer no core e conferir o output.</p></div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Resumo retorna como tool result</h4>
+            <p class="text-sm text-neutral-400 mb-3">lead_agent segue o grafo normal como se fosse qualquer tool</p>
+            <p class="text-neutral-300 text-sm">Do ponto de vista do lead_agent, custom agent é <em>uma tool</em>. Isso simplifica o grafo e explica por que acoplar um novo agente não exige mudar o lead.</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🔄 Ciclo de vida de uma tool call</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Aqui está a sequência completa — do momento em que o modelo produz o JSON da tool_call até a volta ao loop. São sete etapas, todas relevantes quando algo não funciona.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Parse &amp; validação de schema</h4>
+            <p class="text-neutral-300 text-sm">tool_call do LLM vira um objeto tipado. Args são validados contra o JSON schema registrado da tool. Erro aqui vira mensagem de sistema de volta ao modelo — ele reformata sozinho.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Guardrails (allow/deny)</h4>
+            <p class="text-neutral-300 text-sm">Middleware de guardrail checa se essa tool está permitida para esse usuário/skill/canal. Deny vira erro estruturado — o modelo aprende que aquela rota está fechada.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Pré-processamento</h4>
+            <p class="text-neutral-300 text-sm">Injeção de credenciais, rewrite de args (ex: normalizar paths), quota check. O modelo não vê credenciais — elas entram aqui, fora do prompt.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Handler real</h4>
+            <p class="text-neutral-300 text-sm">Executa a tool: HTTP request para MCP server, chamada Python local, spawn em sandbox. Timeout configurável — raro ser infinito.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Pós-processamento</h4>
+            <p class="text-neutral-300 text-sm">Redaction de PII, truncation de outputs grandes, sumarização por sub-agent quando o resultado estoura o threshold configurado.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">6</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">State update</h4>
+            <p class="text-neutral-300 text-sm">Resultado é anexado ao histórico de mensagens do state, memórias "worth remembering" são detectadas, métricas são publicadas.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">7</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Volta ao grafo</h4>
+            <p class="text-neutral-300 text-sm">Control flow volta ao node <code class="text-blue-400">plan</code>. O modelo lê o novo histórico e decide o próximo passo: outra tool, agent dispatch ou respond.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">💥 Recuperação de erros</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        APIs externas falham. Tools alucinam args. Sandbox estoura memória. A pergunta não é "se" mas "quando" — e o middleware é o lugar certo para tratar isso sem que o grafo inteiro caia.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+          <h4 class="font-bold text-blue-400 mb-4">✓ Fazer</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Retries com backoff exponencial para erros transientes (5xx, timeout).</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Converter erros em mensagens legíveis pelo modelo (ele re-planeja).</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Circuit breaker por tool — falha em série desliga a tool por N segundos.</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Fallback tool quando disponível (ex: search B se search A cai).</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Observabilidade: sempre logar a tentativa <em>e</em> o resultado.</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Evitar</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Retry infinito em 4xx — são erros de args, insistir piora.</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Swallowing de exceção: retornar "ok" quando deu erro.</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Crash do grafo inteiro por falha de tool opcional.</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Expor stacktraces de Python direto no prompt do modelo.</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Fail-fast global — bom é fail-fast <em>por tool</em>, não por sessão.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-cyan-900/20 rounded-xl border border-cyan-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-cyan-400 mb-4 flex items-center"><span class="mr-2">📊</span> Heurísticas úteis</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>3 retries</strong> com backoff <code class="text-cyan-400">1s, 2s, 4s</code> cobre 95% das falhas transientes em APIs públicas.</li>
+          <li><strong>Circuit breaker</strong> abre após 5 falhas consecutivas e reabre após 60s (half-open probe).</li>
+          <li><strong>Budget por turno</strong>: máximo N tool calls por turno (default 20) evita loops custosos.</li>
+          <li><strong>Timeout padrão</strong> de 30s por tool; IO realmente lenta opta-in explicitamente.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🧪 Lab: middleware que loga tools</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Escrever o primeiro middleware. Objetivo simples: interceptar cada tool call, logar nome + duração + sucesso, e devolver. Trinta linhas de Python. Depois dessa base você adiciona retry, quota e guardrail sem esforço.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-white mb-4">Passos do lab</h3>
+        <ol class="space-y-4 text-neutral-300">
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">1.</span><div><strong class="text-white">Criar arquivo</strong> em <code class="text-blue-400">deerflow/app/middleware/tool_logger.py</code>. A app importa do harness, nunca o contrário.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">2.</span><div><strong class="text-white">Escrever o middleware</strong>:
+            <pre class="bg-dark-900 rounded-lg p-4 mt-2 text-xs text-blue-400 overflow-x-auto"><code>import time, logging
+from deerflow.harness.middleware import ToolMiddleware, ToolCall, ToolResult
+
+log = logging.getLogger("deerflow.tools")
+
+class ToolLogger(ToolMiddleware):
+    async def __call__(self, call: ToolCall, next) -&gt; ToolResult:
+        t0 = time.monotonic()
+        try:
+            result = await next(call)
+            elapsed = (time.monotonic() - t0) * 1000
+            log.info("tool_ok name=%s ms=%.1f", call.name, elapsed)
+            return result
+        except Exception as e:
+            elapsed = (time.monotonic() - t0) * 1000
+            log.warning("tool_err name=%s ms=%.1f err=%s", call.name, elapsed, e)
+            raise</code></pre>
+          </div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">3.</span><div><strong class="text-white">Registrar no bootstrap</strong>. Em <code class="text-blue-400">deerflow/app/bootstrap.py</code>, adicione <code class="text-blue-400">harness.middleware.add(ToolLogger())</code> <em>antes</em> dos middlewares já existentes.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">4.</span><div><strong class="text-white">Reiniciar</strong>: <code class="text-blue-400">docker compose restart deerflow</code>. Confirme no log startup a linha <em>"middleware registered: tool_logger"</em>.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">5.</span><div><strong class="text-white">Rodar query</strong> que use pelo menos uma tool (ex: <em>"pesquise sobre LangGraph e me dê 3 referências"</em>). Em seguida <code class="text-blue-400">docker compose logs --tail=50 deerflow</code> e procure linhas <code class="text-blue-400">tool_ok</code>.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">6.</span><div><strong class="text-white">Validar no LangSmith</strong>: cruze as durações do log com o trace — devem bater em ±10ms. Se não baterem, provavelmente há middleware extra entre o logger e o handler.</div></li>
+        </ol>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Entregável</h3>
+        <p class="text-neutral-300">Snippet do log mostrando 3+ linhas <code class="text-primary">tool_ok</code> com durações reais + screenshot do trace correspondente no LangSmith. Com isso você prova que o middleware está na posição certa da pilha.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
     <section class="mb-12">
-      <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
-        <div class="flex flex-col sm:flex-row gap-4">
+      <div class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Middleware é onion: antes → next → depois</strong><span class="text-neutral-400"> — o mesmo padrão de Express/Koa aplicado a tool calls.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Custom agent é uma tool call via agent_name</strong><span class="text-neutral-400"> — lead_agent não importa classes, despacha via registry.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Ciclo de vida tem 7 etapas</strong><span class="text-neutral-400"> — parse, guardrail, pré-proc, handler, pós-proc, state, volta.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Erro não derruba o grafo</strong><span class="text-neutral-400"> — retry com backoff para transiente, mensagem legível para args errados, circuit breaker para falha persistente.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Ordem de middlewares importa</strong><span class="text-neutral-400"> — guardrail antes, observabilidade cobrindo tudo, cache/retry perto do handler.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Middleware custom é trivial</strong><span class="text-neutral-400"> — 30 linhas de Python, registro no bootstrap, e a app ganha observabilidade sem tocar no harness.</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">2.3 — 🎨 Criando a sua primeira skill</p>
+          <p class="text-neutral-400 text-sm mt-1">Anatomia, trigger accuracy, testes e lab de skill para cruzar IBGE + Portal da Transparência.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-start">
           <a href="modulo-2-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a>
           <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Voltar para Trilha</a>
           <a href="modulo-2-3.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Próximo Módulo →</a>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="border-t border-dark-600 py-8">
@@ -145,12 +414,14 @@
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const htmlEl = document.documentElement;
-    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); } else { darkIcon.classList.remove('hidden'); }
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
     themeToggle.addEventListener('click', () => {
       darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
       htmlEl.classList.toggle('dark');
       localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
+
 </body>
 </html>

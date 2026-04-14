@@ -7,11 +7,15 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
+
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -22,6 +26,7 @@
     html:not(.dark) .text-neutral-400 { color: #6b7280; }
     html:not(.dark) .text-neutral-500 { color: #9ca3af; }
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .text-yellow-400 { color: #a16207; }
@@ -30,13 +35,27 @@
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
     html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+
     html:not(.dark) .text-blue-400 { color: #2563eb; }
     html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
     html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .bg-blue-900\/30 { background-color: rgba(37, 99, 235, 0.10); }
     html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
     html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
     html:not(.dark) .bg-blue-600 { background-color: #2563eb; }
     html:not(.dark) .hover\:bg-blue-500:hover { background-color: #3b82f6; }
+
+    html:not(.dark) .text-cyan-400 { color: #0891b2; }
+    html:not(.dark) .bg-cyan-500\/20 { background-color: rgba(8, 145, 178, 0.12); }
+    html:not(.dark) .bg-cyan-900\/20 { background-color: rgba(8, 145, 178, 0.08); }
+    html:not(.dark) .border-cyan-500\/30 { border-color: rgba(8, 145, 178, 0.25); }
+
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220, 38, 38, 0.08); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220, 38, 38, 0.25); }
+
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
@@ -51,7 +70,10 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🦌</span><span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
@@ -71,8 +93,10 @@
 
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-blue-400">Trilha 2</a><span>/</span>
+      <a href="../../index.html" class="hover:text-blue-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-blue-400">Trilha 2</a>
+      <span>/</span>
       <span class="text-blue-400">Módulo 2.3</span>
     </div>
   </nav>
@@ -80,58 +104,278 @@
   <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.3</span>
-      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🛠️ Criando a sua primeira skill</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Anatomia de uma skill, uso da meta-skill skill-creator, a arte da trigger accuracy e testes. Lab final: uma skill brazilian-gov-research cruzando IBGE e Portal da Transparência.</p>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🎨 Criando a sua primeira skill</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Do arquivo vazio à skill acionada automaticamente pelo lead_agent. Por que a descrição é mais importante que as instruções, como testar trigger accuracy, e a receita para cruzar IBGE com Portal da Transparência.
+      </p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">5</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">70</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">60</div><div class="text-xs text-neutral-400">Minutos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Lab intenso</div><div class="text-xs text-neutral-400">Tipo</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
       </div>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
     <div class="mb-12 bg-primary/10 rounded-xl border border-primary/30 p-6">
-      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚧</span> Módulo em produção</h3>
-      <p class="text-neutral-300">Este módulo está sendo escrito em detalhe. A estrutura abaixo já reflete o recorte final; o texto completo de cada tópico virá na próxima iteração do curso.</p>
+      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> O ponto de extensão mais importante do DeerFlow</h3>
+      <p class="text-neutral-300">Na Trilha 1 você aprendeu que skill é um dos pilares. Aqui você constrói uma. Skill mal-feita é invisível para o modelo (nunca é acionada) e skill bem-feita vira parte permanente do catálogo da sua organização. A diferença está quase toda na <strong class="text-primary">descrição</strong>.</p>
     </div>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6">Tópicos previstos</h2>
-      <div class="space-y-4">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">1</span>
-          <div><h3 class="font-semibold text-white mb-1">Anatomia de uma skill</h3><p class="text-sm text-neutral-400">Dissecando uma skill real do catálogo público: skill.yaml, description, system prompt, tool bindings e arquivos auxiliares.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">2</span>
-          <div><h3 class="font-semibold text-white mb-1">Meta-skill skill-creator</h3><p class="text-sm text-neutral-400">A skill oficial que ajuda a criar outras skills. Fluxo guiado, scaffold padrão, geração de description e avaliação de trigger automatizada.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">3</span>
-          <div><h3 class="font-semibold text-white mb-1">Trigger accuracy</h3><p class="text-sm text-neutral-400">A arte de escrever a description para acionar na hora certa. Use when, do not use when, exemplos positivos/negativos e disambiguação.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">4</span>
-          <div><h3 class="font-semibold text-white mb-1">Testes e validação</h3><p class="text-sm text-neutral-400">Evals de trigger, golden tests de output, comparação entre versões e integração com CI rodando evals a cada alteração da skill.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">5</span>
-          <div><h3 class="font-semibold text-white mb-1">Lab: skill brazilian-gov-research</h3><p class="text-sm text-neutral-400">Criar do zero uma skill que cruza IBGE e Portal da Transparência, com tools próprias, caching, citações inline e entregável em markdown.</p></div>
-        </div>
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">📐 Anatomia de uma skill</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Uma skill no DeerFlow é um diretório com três artefatos: <strong class="text-blue-400">SKILL.md</strong> (frontmatter YAML + corpo em Markdown), um conjunto opcional de <strong class="text-blue-400">tools/</strong> em Python e, se necessário, <strong class="text-blue-400">references/</strong> com arquivos de apoio. É texto puro, versionável, diff-able. Você revê skill como revê código.
+      </p>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Conceito Central</h3>
+        <p class="text-neutral-300 mb-4">O frontmatter tem três campos obrigatórios: <code class="text-blue-400">name</code>, <code class="text-blue-400">description</code> e <code class="text-blue-400">version</code>. O resto do arquivo é a instrução que o modelo lê quando a skill é acionada. Nada mais. Se está ficando complexo, você provavelmente está tentando meter duas skills no mesmo arquivo.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>name</strong> — kebab-case, único no registry (<code class="text-blue-400">brazilian-gov-research</code>).</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>description</strong> — 1-3 frases densas com gatilhos explícitos. É o que o modelo lê para decidir se aciona.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Corpo</strong> — instruções passo-a-passo do que fazer quando a skill é acionada. Bullet points, imperativo.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>tools/</strong> — funções Python com decorator <code class="text-blue-400">@tool</code>. Opcional, só se a skill precisa de algo que não existe no harness.</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-cyan-900/20 rounded-xl border border-cyan-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-cyan-400 mb-4 flex items-center"><span class="mr-2">📊</span> Números de uma skill saudável</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>SKILL.md</strong> — 40-150 linhas. Acima disso, considere quebrar em duas.</li>
+          <li><strong>Descrição</strong> — 40-80 palavras. Abaixo falta sinal; acima dilui.</li>
+          <li><strong>Tools por skill</strong> — 0 a 5. Mais que isso é geralmente um custom agent disfarçado.</li>
+          <li><strong>Tempo total por turno</strong> — orçamento de 2-3s + tempo de IO das tools chamadas.</li>
+          <li><strong>Tokens injetados no prompt</strong> — corpo inteiro, quando acionada. Manter enxuto é economia real.</li>
+        </ul>
       </div>
     </section>
 
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🪄 Meta-skill skill-creator</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O DeerFlow já vem com uma meta-skill chamada <strong class="text-blue-400">skill-creator</strong>. Ela sabe criar skills novas — você descreve o que quer, ela gera o SKILL.md, cria o diretório e oferece 5 prompts de teste. É o caminho mais rápido para entrar no hábito certo de modelagem, e funciona exatamente como qualquer outra skill do catálogo (só tem um truque: ela sabe onde escrever arquivos).
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Acionar com um pedido claro</h4>
+            <p class="text-neutral-300 text-sm">No chat do DeerFlow: <em>"Crie uma skill chamada brazilian-gov-research que cruza dados do IBGE com o Portal da Transparência."</em> A skill-creator reconhece o gatilho e começa a fazer perguntas.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Responder às perguntas de escopo</h4>
+            <p class="text-neutral-300 text-sm">Ela pergunta: qual é o gatilho típico? Quais tools usa? Qual é o formato de saída? Qual é o NOT-in-scope? Respostas curtas e concretas produzem skill melhor.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Revisar o draft gerado</h4>
+            <p class="text-neutral-300 text-sm">A skill-creator escreve o SKILL.md e mostra o diff. Você revisa, ajusta a descrição (sempre a descrição), e aprova. Nunca aprove sem ler.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Rodar os prompts de teste</h4>
+            <p class="text-neutral-300 text-sm">Ela gera 5 prompts: 2 que deveriam acionar a skill, 2 que não deveriam, 1 ambíguo. Se os dois positivos acionam e os dois negativos não, a descrição passou no smoke test.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Commit e revisão humana</h4>
+            <p class="text-neutral-300 text-sm">Skill vai para o git como qualquer código. PR com diff de SKILL.md + evals. Reviewer lê a descrição primeiro, o corpo depois — a mesma ordem que o lead_agent usa.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Quando não usar o skill-creator</h3>
+        <p class="text-neutral-300">Se você já tem uma skill parecida no catálogo, é mais rápido copiar e adaptar. O skill-creator é ótimo para primeira modelagem; não é mágico na iteração — a partir do draft inicial você edita direto.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🎯 Trigger accuracy: a arte da descrição</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A pior coisa que acontece com uma skill é nunca ser acionada. A segunda pior é ser acionada quando não devia. As duas são problema de <strong class="text-blue-400">descrição</strong>, não de conteúdo. O modelo não lê o corpo da skill quando decide; ele lê a descrição. Então é nela que você investe.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+          <h4 class="font-bold text-blue-400 mb-4">✓ Fazer na descrição</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Frases com gatilhos literais: "quando o usuário pedir dados de X".</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Usar 3-5 sinônimos-chave para aumentar recall.</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Explicitar o escopo <em>positivo</em> ("serve para") e <em>negativo</em> ("não serve para").</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Exemplos concretos: "ex: IBGE, INEP, DataSUS, Portal da Transparência".</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Manter sob ~80 palavras — mais que isso o modelo começa a diluir.</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Evitar na descrição</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Vaguidades: "ajuda com dados" (que dados?).</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Repetir o nome da skill no corpo — não adiciona sinal.</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Frases de marketing ("a melhor forma de..."). Modelo ignora.</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Cobrir dez casos de uso — vira recall baixo para todos.</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Depender de contexto que o modelo não tem ("usa a base da empresa").</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Teste de qualidade em 30 segundos</h3>
+        <p class="text-neutral-300">Leia a descrição em voz alta e se pergunte: "Se eu fosse o lead_agent lendo 50 descrições, essa teria chance de vencer as outras para o meu caso?". Se a resposta for "sei lá", reescreva. Descrição campeã é a que tem <em>gatilhos explícitos e escopo negativo</em>.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">✅ Testes e validação</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Skill é código. Código tem teste. A diferença é que o "teste" aqui tem duas camadas: <strong class="text-blue-400">trigger eval</strong> (a skill é acionada quando deveria?) e <strong class="text-blue-400">output eval</strong> (quando acionada, o resultado está certo?). Ignorar qualquer uma produz skill que parece funcionar em demo e não em produção.
+      </p>
+
+      <div class="bg-cyan-900/20 rounded-xl border border-cyan-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-cyan-400 mb-4 flex items-center"><span class="mr-2">📊</span> Estrutura de um eval mínimo</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>Trigger positive</strong> — 10 prompts que devem acionar. Meta: recall ≥ 90%.</li>
+          <li><strong>Trigger negative</strong> — 10 prompts ambíguos que não devem acionar. Meta: precision ≥ 90%.</li>
+          <li><strong>Output golden</strong> — 5 prompts positivos com output esperado escrito à mão. Roda em cada PR.</li>
+          <li><strong>Regression set</strong> — bugs já corrigidos viram tests para não voltarem.</li>
+          <li><strong>Latência-orçamento</strong> — máximo aceitável de tempo/tokens para skill concluir.</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica: eval não precisa ser pipeline fancy</h3>
+        <p class="text-neutral-300">Um script Python que roda 20 prompts contra o DeerFlow local e compara contra um JSON de expected já é 80% do valor. Ferramenta robusta vem quando a skill estiver em produção — antes é overengineering.</p>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Armadilha comum: "funcionou comigo"</h3>
+        <p class="text-neutral-300 mb-3">A skill foi acionada numa demo e parece perfeita. Você não criou eval. Duas semanas depois, um colega diz que "a skill parou de funcionar" — na verdade nunca foi consistente, e sem baseline você não tem como provar nem o contrário.</p>
+        <p class="text-neutral-300"><strong>Tratamento</strong>: no commit inicial da skill, um <code class="text-red-400">evals/&lt;skill-name&gt;.py</code> com ao menos 10 casos. CI roda a cada PR. Passou a ser padrão de PR, não favor.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🧪 Lab: skill brazilian-gov-research</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Construir uma skill real: cruzar dados do <strong class="text-blue-400">IBGE</strong> (indicadores socioeconômicos) com o <strong class="text-blue-400">Portal da Transparência</strong> (execução orçamentária). Quando o usuário pedir comparações do tipo "quanto o município X gastou em saúde versus sua população", a skill entra em ação.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-white mb-4">Passos do lab</h3>
+        <ol class="space-y-4 text-neutral-300">
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">1.</span><div><strong class="text-white">Criar diretório</strong>: <code class="text-blue-400">deerflow/app/skills/brazilian-gov-research/</code>. Dentro dele, um <code class="text-blue-400">SKILL.md</code>, um <code class="text-blue-400">tools/__init__.py</code> e um <code class="text-blue-400">references/endpoints.md</code>.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">2.</span><div><strong class="text-white">Escrever frontmatter + descrição</strong>:
+            <pre class="bg-dark-900 rounded-lg p-4 mt-2 text-xs text-blue-400 overflow-x-auto"><code>---
+name: brazilian-gov-research
+version: 0.1.0
+description: |
+  Cruza dados do IBGE (população, PIB, IDH, educação,
+  saúde) com o Portal da Transparência federal (execução
+  orçamentária, contratos, convênios). Aciona quando o
+  usuário pedir comparações município/estado envolvendo
+  indicadores sociais e gastos públicos brasileiros.
+  Ex: "gasto per capita em saúde no RS", "cruzar IDH
+  com investimento em educação em 2024". NÃO serve
+  para dados internacionais ou privados.
+---</code></pre>
+          </div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">3.</span><div><strong class="text-white">Escrever o corpo de instruções</strong> (imperativo, 1-2 parágrafos + checklist). Foco em: como consultar cada API, como normalizar códigos IBGE × códigos do Portal, como citar fonte no output.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">4.</span><div><strong class="text-white">Criar duas tools Python</strong>: <code class="text-blue-400">fetch_ibge(indicator, locality)</code> e <code class="text-blue-400">fetch_transparencia(year, municipio, area)</code>. Ambas com decorator <code class="text-blue-400">@tool</code>, docstring clara (vira schema) e tratamento de 404.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">5.</span><div><strong class="text-white">Registrar a skill</strong>: recarregar DeerFlow (<code class="text-blue-400">docker compose restart</code>). No log de boot, confirme <em>"skill loaded: brazilian-gov-research"</em>.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">6.</span><div><strong class="text-white">Testar trigger</strong>: 4 prompts positivos ("gasto per capita em saúde de Florianópolis em 2024") e 4 negativos ("gasto público em Portugal"). Verifique no LangSmith qual skill foi acionada em cada um.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">7.</span><div><strong class="text-white">Iterar descrição</strong>: se algum positivo não acionou, a descrição está faltando um gatilho. Se um negativo acionou, está faltando escopo negativo. Repita.</div></li>
+        </ol>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Entregável</h3>
+        <p class="text-neutral-300">Diretório da skill commitado + screenshots do LangSmith mostrando trigger correto em 4/4 positivos e 0/4 negativos. Bônus: um eval script em <code class="text-primary">evals/brazilian-gov-research.py</code> rodando os 8 prompts de forma automatizada.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
     <section class="mb-12">
-      <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
-        <div class="flex flex-col sm:flex-row gap-4">
+      <div class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Skill = SKILL.md + tools/ opcionais + references/</strong><span class="text-neutral-400"> — texto puro, diff-able, review-able como código.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">skill-creator é o atalho</strong><span class="text-neutral-400"> — use para o primeiro draft e depois edite à mão.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Descrição é 80% do trabalho</strong><span class="text-neutral-400"> — gatilhos explícitos, sinônimos, escopo positivo e negativo.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Eval tem duas camadas</strong><span class="text-neutral-400"> — trigger (acionou?) e output (acertou?). Sem isso, demo boa e produção ruim.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Uma skill, uma responsabilidade</strong><span class="text-neutral-400"> — composição cobre os casos híbridos.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">brazilian-gov-research é o lab de referência</strong><span class="text-neutral-400"> — cruza IBGE com Portal da Transparência e serve de template para qualquer skill de dados brasileiros.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Eval vai no commit inicial</strong><span class="text-neutral-400"> — sem baseline, "parou de funcionar" vira discussão sem dados.</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">2.4 — 👥 Sub-agents e custom agents</p>
+          <p class="text-neutral-400 text-sm mt-1">Quando criar skill vs. custom agent. SOUL, RFC rfc-create-deerflow-agent e lab de security-auditor em canal Slack.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-start">
           <a href="modulo-2-2.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a>
           <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Voltar para Trilha</a>
           <a href="modulo-2-4.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Próximo Módulo →</a>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="border-t border-dark-600 py-8">
@@ -145,12 +389,14 @@
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const htmlEl = document.documentElement;
-    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); } else { darkIcon.classList.remove('hidden'); }
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
     themeToggle.addEventListener('click', () => {
       darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
       htmlEl.classList.toggle('dark');
       localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
+
 </body>
 </html>

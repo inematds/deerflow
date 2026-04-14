@@ -7,11 +7,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
     .dark body { background-color: #111827; }
+
+    /* Light mode - base */
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -22,6 +27,7 @@
     html:not(.dark) .text-neutral-400 { color: #6b7280; }
     html:not(.dark) .text-neutral-500 { color: #9ca3af; }
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .text-yellow-400 { color: #a16207; }
@@ -30,13 +36,31 @@
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
     html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+
+    /* Light mode - T2 Blue (acento da trilha) */
     html:not(.dark) .text-blue-400 { color: #2563eb; }
     html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
     html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .bg-blue-900\/30 { background-color: rgba(37, 99, 235, 0.10); }
     html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
     html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
     html:not(.dark) .bg-blue-600 { background-color: #2563eb; }
     html:not(.dark) .hover\:bg-blue-500:hover { background-color: #3b82f6; }
+
+    /* Light mode - cyan (dados na Trilha 2) */
+    html:not(.dark) .text-cyan-400 { color: #0891b2; }
+    html:not(.dark) .bg-cyan-500\/20 { background-color: rgba(8, 145, 178, 0.12); }
+    html:not(.dark) .bg-cyan-900\/20 { background-color: rgba(8, 145, 178, 0.08); }
+    html:not(.dark) .border-cyan-500\/30 { border-color: rgba(8, 145, 178, 0.25); }
+
+    /* Light mode - red (alertas) */
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220, 38, 38, 0.08); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220, 38, 38, 0.25); }
+
+    /* Light mode - nav hovers (T1/T3/T4) */
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
@@ -47,11 +71,15 @@
 </head>
 <body class="bg-dark-900 text-neutral-100 min-h-screen">
 
+  <!-- NAVIGATION -->
   <nav class="sticky top-0 z-40 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-14">
         <div class="flex items-center space-x-4">
-          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🦌</span><span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span></a>
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
           <span class="text-neutral-600">|</span>
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
@@ -69,19 +97,25 @@
     </div>
   </nav>
 
+  <!-- BREADCRUMB -->
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center space-x-2 text-sm text-neutral-400">
-      <a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span>
-      <a href="index.html" class="hover:text-blue-400">Trilha 2</a><span>/</span>
+      <a href="../../index.html" class="hover:text-blue-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-blue-400">Trilha 2</a>
+      <span>/</span>
       <span class="text-blue-400">Módulo 2.1</span>
     </div>
   </nav>
 
+  <!-- HEADER -->
   <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.1</span>
-      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🏛️ Arquitetura profunda</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Leitura guiada do ARCHITECTURE.md e do HARNESS_APP_SPLIT.md. Como o lead_agent é um grafo LangGraph, como o contexto é gerido e onde entram os guardrails.</p>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🏗️ Arquitetura profunda</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Abrir a caixa-preta. Como o lead_agent é um grafo LangGraph, onde mora a fronteira entre harness e app, e que políticas de contexto impedem um agente de 60 minutos de colapsar no meio do caminho.
+      </p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">60</div><div class="text-xs text-neutral-400">Minutos</div></div>
@@ -92,50 +126,269 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Intro -->
     <div class="mb-12 bg-primary/10 rounded-xl border border-primary/30 p-6">
-      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚧</span> Módulo em produção</h3>
-      <p class="text-neutral-300">Este módulo está sendo escrito em detalhe. A estrutura abaixo já reflete o recorte final; o texto completo de cada tópico virá na próxima iteração do curso.</p>
+      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Como ler este módulo</h3>
+      <p class="text-neutral-300">Assumo que você já terminou a Trilha 1 — sabe o que é skill, sub-agent e memória. Agora vamos descer ao esqueleto. Se uma seção parecer teórica demais, pule para o <strong class="text-primary">Lab no tópico 6</strong> e volte depois; o trace no LangSmith torna tudo concreto em minutos.</p>
     </div>
 
-    <section class="mb-12">
-      <h2 class="text-2xl font-bold mb-6">Tópicos previstos</h2>
-      <div class="space-y-4">
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">1</span>
-          <div><h3 class="font-semibold text-white mb-1">LangGraph no DeerFlow</h3><p class="text-sm text-neutral-400">Nodes, edges, state e por que o harness escolheu LangGraph como backbone. Como o StateGraph é instanciado e os reducers controlam o state compartilhado.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">2</span>
-          <div><h3 class="font-semibold text-white mb-1">O grafo do lead_agent</h3><p class="text-sm text-neutral-400">O main loop do harness: plan → act → observe → respond. Como skills são descobertas e como custom agents são despachados a partir do mesmo grafo.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">3</span>
-          <div><h3 class="font-semibold text-white mb-1">Split harness vs. app</h3><p class="text-sm text-neutral-400">O que mora em cada lado. HARNESS_APP_SPLIT.md decodificado: boundary de dependências, embedded client e reuso do harness em múltiplas apps.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">4</span>
-          <div><h3 class="font-semibold text-white mb-1">Context engineering</h3><p class="text-sm text-neutral-400">Janela, compactação, summarization e priorização. As políticas que decidem o que entra e sai do prompt a cada turno sem estourar o limite.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">5</span>
-          <div><h3 class="font-semibold text-white mb-1">Guardrails</h3><p class="text-sm text-neutral-400">Input/output validators, allow/deny lists, policy engine. Como eles se integram ao middleware e por que tanto commit recente mexe exatamente aqui.</p></div>
-        </div>
-        <div class="bg-dark-800 rounded-xl border border-dark-600 p-5 flex items-start space-x-4">
-          <span class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 font-bold flex-shrink-0">6</span>
-          <div><h3 class="font-semibold text-white mb-1">Lab: traçar o grafo via LangSmith</h3><p class="text-sm text-neutral-400">Ligar LangSmith, rodar uma query complexa, abrir o trace inteiro e identificar onde o tempo foi gasto. Exportar o trace como evidência de diagnóstico.</p></div>
-        </div>
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🧭 O que é LangGraph no DeerFlow</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-blue-400">LangGraph</strong> é a biblioteca da LangChain que o DeerFlow usa como substrato do lead_agent. O modelo mental é simples: um <em>grafo direcionado</em> onde cada <strong>node</strong> é uma função Python que recebe um <em>state</em> compartilhado e devolve um patch desse state; cada <strong>edge</strong> decide o próximo node com base no state resultante. Não há mágica — é um loop que lê o state, executa um node, aplica o patch, consulta as edges e avança.
+      </p>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Conceito Central</h3>
+        <p class="text-neutral-300 mb-4">O LangGraph dá três coisas que o DeerFlow explora ao máximo: <strong class="text-blue-400">state tipado</strong>, <strong class="text-blue-400">edges condicionais</strong> e <strong class="text-blue-400">checkpointing</strong>. Juntas, transformam um loop de LLM em algo que se pode pausar, inspecionar, retomar e versionar.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>State</strong> — TypedDict/Pydantic com reducers que definem como cada campo é merjado (append em listas, replace em escalares).</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Nodes</strong> — funções puras <code class="text-blue-400">(state) -&gt; partial_state</code>. Sem efeito colateral fora do state, toda IO vai por tool.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Edges condicionais</strong> — roteamento decidido por uma função que olha o state. É aqui que o agente "decide".</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Checkpointer</strong> — salva o state a cada passo num backend (SQLite/Postgres). Crash recovery sai de graça.</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Por que grafo e não pipeline</h3>
+        <p class="text-neutral-300">Pipeline assume que você sabe a ordem dos passos antes de começar. Um agente não sabe — precisa decidir "chamo a skill de research ou pergunto de volta?" olhando o state atual. Grafo com edge condicional representa isso nativamente; pipeline exige um dispatcher por fora e você reinventa metade do LangGraph até o fim do mês.</p>
       </div>
     </section>
 
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🧠 O grafo do lead_agent</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O lead_agent do DeerFlow é, no fundo, um grafo minúsculo com cinco nodes e duas edges condicionais. Tudo que você vê acontecer numa sessão — plano, chamada de skill, execução de tool, reflexão, resposta final — passa por eles. Entender essa topologia é o que torna trivial depurar qualquer comportamento estranho.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">entry — recepção do turno</h4>
+            <p class="text-sm text-neutral-400 mb-3">Normaliza input, carrega memórias relevantes, injeta guardrails</p>
+            <p class="text-neutral-300 text-sm">Recebe a mensagem do usuário, roda retrievers de memória, monta o system prompt com as instruções obrigatórias e publica tudo no state. Nenhuma decisão de negócio acontece aqui — só montagem.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">plan — chamada ao LLM</h4>
+            <p class="text-sm text-neutral-400 mb-3">O modelo decide: responder direto, chamar skill, despachar custom agent</p>
+            <p class="text-neutral-300 text-sm">Única chamada "cara". O output vem como tool_calls estruturados. Aqui é onde trigger accuracy de skill vive ou morre — se a descrição da skill não bateu, o modelo vai ignorá-la.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">route — edge condicional</h4>
+            <p class="text-sm text-neutral-400 mb-3">Inspeciona tool_calls e decide o próximo node</p>
+            <p class="text-neutral-300 text-sm">Se veio tool_call, vai para <code class="text-blue-400">act</code>. Se veio mensagem final, vai para <code class="text-blue-400">respond</code>. Se veio despacho para custom agent, troca o subgrafo inteiro. É 20 linhas de Python e mudar isso é reescrever o harness.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">act — execução de tool/skill</h4>
+            <p class="text-sm text-neutral-400 mb-3">Roda a tool, aplica middleware, grava resultado no state</p>
+            <p class="text-neutral-300 text-sm">Aqui entra o sandbox, o MCP client, o search provider, o filesystem. Errors são capturados e viram mensagens do sistema no state — o modelo lê e decide se tenta de novo. Depois volta para <code class="text-blue-400">plan</code>.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">respond — saída do turno</h4>
+            <p class="text-sm text-neutral-400 mb-3">Formata resposta final, persiste memórias novas, fecha trace</p>
+            <p class="text-neutral-300 text-sm">Passa pela camada de saída (formatação por canal: Slack, web, API), grava memórias "worth remembering" detectadas no turno, marca o checkpoint final e devolve ao chamador.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Loop natural: plan ↔ act</h3>
+        <p class="text-neutral-300">Entre <code class="text-primary">plan</code> e <code class="text-primary">act</code> existe um ciclo. Enquanto o modelo produzir tool_calls, o grafo oscila entre os dois. Quando o modelo produz só texto, a edge condicional manda para <code class="text-primary">respond</code> e fecha o turno. A profundidade desse ciclo é o "max iterations" do agente — um guardrail que evita loops infinitos por mais que o modelo insista.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🧩 Split harness ↔ app</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O documento <strong class="text-blue-400">HARNESS_APP_SPLIT.md</strong> define uma fronteira que parece burocrática e não é: onde termina o <em>harness</em> (a engine do agente) e onde começa a <em>app</em> (o produto que usa essa engine). Errar esse recorte é o motivo número um de forks que quebram em toda atualização.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+          <h4 class="font-bold text-blue-400 mb-4">🦴 Harness — o esqueleto</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Grafo LangGraph do lead_agent</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Loader de skills/tools/MCP</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Middleware pipeline e ciclo de tool</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Memory store e context engine</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Sandbox adapters (local/docker/k8s)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Observabilidade (LangSmith hooks)</span></li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-white mb-4">📦 App — o produto rodando dentro</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-neutral-400">•</span><span>Catálogo de skills específicas do cliente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-neutral-400">•</span><span>Prompts e personalidade (SOUL)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-neutral-400">•</span><span>Canais de entrada (Slack, web, API)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-neutral-400">•</span><span>Credenciais, flags e config por ambiente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-neutral-400">•</span><span>UI, autenticação, billing</span></li>
+            <li class="flex items-start space-x-2"><span class="text-neutral-400">•</span><span>Logs de negócio e métricas de produto</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Regra de ouro da fronteira</h3>
+        <p class="text-neutral-300"><strong>A app depende do harness. O harness nunca depende da app.</strong> Se um arquivo dentro de <code class="text-red-400">deerflow/harness/</code> importa algo de <code class="text-red-400">deerflow/app/</code>, é bug. Esse é o único teste objetivo que separa um fork saudável de um fork que vai doer para manter.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">📐 Context engineering na prática</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Agora na Trilha 2 você precisa saber <em>como</em> o DeerFlow faz context engineering, não só que faz. São três políticas plugadas dentro do node <code class="text-blue-400">entry</code>: <strong class="text-blue-400">janela ativa</strong>, <strong class="text-blue-400">compactação</strong> e <strong class="text-blue-400">summarization por sub-agent</strong>. Cada uma resolve um problema diferente.
+      </p>
+
+      <div class="bg-cyan-900/20 rounded-xl border border-cyan-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-cyan-400 mb-4 flex items-center"><span class="mr-2">📊</span> Dados do context engine</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>Janela ativa</strong> — mantém as N últimas mensagens inteiras (default 20) + turno atual. Tudo mais antigo cai na pilha fria.</li>
+          <li><strong>Threshold de compactação</strong> — quando tokens ativos &gt; 70% da janela do modelo, dispara summarization do trecho mais antigo da pilha fria.</li>
+          <li><strong>Pin de guardrails</strong> — system prompt e instruções obrigatórias são ancorados no topo e nunca são compactados.</li>
+          <li><strong>Memórias seletivas</strong> — retriever só traz as 5 memórias mais relevantes por turno, com score mínimo de similaridade.</li>
+          <li><strong>Tool outputs grandes</strong> — resultados acima de ~4k tokens são sumarizados por sub-agent antes de voltar ao loop.</li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Por que isso importa na depuração</h3>
+        <p class="text-neutral-300">Quando um agente "esquece" uma instrução a meio do turno, 9 em 10 vezes não é falha do modelo — é que o texto caiu na compactação. No LangSmith trace isso aparece claro: o node <code class="text-primary">entry</code> mostra o prompt montado, e você vê o que sobreviveu. <strong>Sempre olhe o prompt final antes de culpar o modelo.</strong></p>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🚧 Guardrails</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-blue-400">Guardrail</strong>, no DeerFlow, é uma instrução ancorada no system prompt que <strong>não pode ser sobrescrita nem pelo usuário nem por skill</strong>. Ele vive num slot protegido do context engine; compactação, memória e prompts de skills não o tocam. É o único lugar onde "instrução obrigatória" realmente significa obrigatório.
+      </p>
+
+      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Categorias típicas</h3>
+        <ul class="space-y-3 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1 font-bold">Safety</span><span>— regras de conteúdo, PII, tópicos proibidos.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1 font-bold">Escopo</span><span>— "só responda sobre produto X", "sempre cite fonte".</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1 font-bold">Tool allow/deny</span><span>— lista branca de tools que podem ser chamadas por turno.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1 font-bold">Output shape</span><span>— formato obrigatório de resposta quando há contrato com o canal.</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">🚨</span> Guardrail não é prompt "normal"</h3>
+        <p class="text-neutral-300 mb-3">Muitos times tentam implementar guardrail colando texto no prompt de uma skill. <strong>Não funciona.</strong> Na primeira compactação ele vira resumo genérico; na primeira conversa longa some; e nenhum deny-list de tool é aplicado de verdade.</p>
+        <p class="text-neutral-300">No DeerFlow, guardrails passam pelo subsistema certo: config no harness, injeção no node <code class="text-red-400">entry</code> e enforcement no middleware de tools. Commits recentes da ByteDance mexeram aqui justamente para blindar contra prompt injection em memórias carregadas por retriever.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🧪 Lab: traçar o grafo via LangSmith</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Chega de teoria. Vamos ligar o LangSmith, rodar uma query complexa e abrir o trace inteiro do grafo. O objetivo é identificar, em minutos, onde o tempo foi gasto e quais tool calls falharam.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-white mb-4">Passos do lab</h3>
+        <ol class="space-y-4 text-neutral-300">
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">1.</span><div><strong class="text-white">Criar conta no LangSmith</strong> e gerar um API key em <code class="text-blue-400">Settings → API Keys</code>. O tier free é suficiente para o lab.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">2.</span><div><strong class="text-white">Exportar variáveis</strong> antes de subir o DeerFlow:<br><code class="text-blue-400 text-xs">LANGCHAIN_TRACING_V2=true</code><br><code class="text-blue-400 text-xs">LANGCHAIN_API_KEY=lsv2_...</code><br><code class="text-blue-400 text-xs">LANGCHAIN_PROJECT=deerflow-lab-2.1</code></div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">3.</span><div><strong class="text-white">Reiniciar o harness</strong>: <code class="text-blue-400">docker compose restart deerflow</code>. Confirme no log a linha <em>"LangSmith tracing enabled"</em>.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">4.</span><div><strong class="text-white">Rodar uma query pesada</strong>: peça um deep-research cruzando duas fontes diferentes, algo como <em>"compare crescimento do PIB brasileiro e argentino nos últimos 10 anos, cite IBGE e INDEC, gere um gráfico"</em>. Isso garante ao menos 3 tool calls.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">5.</span><div><strong class="text-white">Abrir o trace</strong> em <code class="text-blue-400">smith.langchain.com</code> no projeto <code class="text-blue-400">deerflow-lab-2.1</code>. Você vê a árvore: <code class="text-blue-400">entry → plan → act(tool) → plan → act(tool) → ... → respond</code>.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">6.</span><div><strong class="text-white">Identificar o gargalo</strong>: ordene por <em>Latency</em>. Quase sempre um único node domina — geralmente uma tool de busca externa. Esse é o alvo a otimizar.</div></li>
+          <li class="flex items-start space-x-3"><span class="text-blue-400 font-bold">7.</span><div><strong class="text-white">Exportar o trace</strong> como JSON (botão <em>Export</em> no canto superior direito do run). Guarde — vai ser sua evidência quando abrir ticket interno ou issue no repositório do DeerFlow.</div></li>
+        </ol>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Entregável do lab</h3>
+        <p class="text-neutral-300">Um screenshot ou JSON do trace com: (a) número de iterações plan↔act, (b) tempo total, (c) tool mais lenta, (d) tokens estimados no prompt final. Se conseguir responder essas quatro em 2 minutos olhando o LangSmith, o lab serviu.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
     <section class="mb-12">
-      <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
-        <div class="flex flex-col sm:flex-row gap-4">
+      <div class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">LangGraph = state tipado + edges condicionais + checkpointer</strong><span class="text-neutral-400"> — três recursos que transformam um loop de LLM em algo pausável, inspecionável e versionável.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">lead_agent = 5 nodes, 2 edges</strong><span class="text-neutral-400"> — entry → plan ⇄ act → respond. O ciclo plan↔act é o que faz o agente "agir".</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Harness nunca depende da app</strong><span class="text-neutral-400"> — é o único teste objetivo de um fork saudável.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Context engine faz janela + compactação + summarization</strong><span class="text-neutral-400"> — quando o agente "esquece", o culpado costuma ser a compactação, não o modelo.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">Guardrails vivem em slot protegido</strong><span class="text-neutral-400"> — prompt colado numa skill não é guardrail.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-blue-400 mt-1">✓</span>
+            <div><strong class="text-white">LangSmith torna o grafo concreto</strong><span class="text-neutral-400"> — liga as três variáveis, roda uma query pesada, e em minutos você lê o comportamento real.</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">2.2 — ⚙️ Middleware e execução</p>
+          <p class="text-neutral-400 text-sm mt-1">Como o DeerFlow intercepta, transforma e recupera tool calls. Inclui lab hands-on de middleware em Python.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-start">
           <a href="../trilha1/index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Trilha Anterior</a>
           <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">Voltar para Trilha</a>
           <a href="modulo-2-2.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Próximo Módulo →</a>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="border-t border-dark-600 py-8">
@@ -149,12 +402,14 @@
     const darkIcon = document.getElementById('theme-toggle-dark-icon');
     const lightIcon = document.getElementById('theme-toggle-light-icon');
     const htmlEl = document.documentElement;
-    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); } else { darkIcon.classList.remove('hidden'); }
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
     themeToggle.addEventListener('click', () => {
       darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
       htmlEl.classList.toggle('dark');
       localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
     });
   </script>
+
 </body>
 </html>
