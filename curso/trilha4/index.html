@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha 4 — Comparativo | DeerFlow 2.0 | INEMA.CLUB</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+    .modal.hidden { display: none; }
+
+    /* Light mode - base */
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100, html:not(.dark) .text-white { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Light mode - T4 Amber (ativa) */
+    html:not(.dark) .text-amber-400 { color: #92400e; }
+    html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217, 119, 6, 0.12); }
+    html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217, 119, 6, 0.08); }
+    html:not(.dark) .border-amber-500\/30 { border-color: rgba(217, 119, 6, 0.25); }
+    html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217, 119, 6, 0.08); }
+    html:not(.dark) .hover\:border-amber-500\/50:hover { border-color: rgba(217, 119, 6, 0.4); }
+    html:not(.dark) .bg-amber-600 { background-color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500:hover { background-color: #b45309; }
+
+    /* Light mode - T1/T2/T3 (links inativos) */
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-40 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Avançado I</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Avançado II</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Comparativo</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">TRILHA 4</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">⚖️ Comparativo — DeerFlow vs. Claude Code vs. Antigravity</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Pode rodar como aula standalone. DeerFlow vs. Claude Code vs. Antigravity — quando usar o quê. No fim, você sabe escolher a ferramenta certa por tipo de tarefa, não por moda: matriz de 10 eixos, posicionamento honesto das 3 plataformas e 4 labs comparativos resolvendo a mesma tarefa em cada uma.
+      </p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">4</div>
+          <div class="text-xs text-neutral-400">Módulos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">23</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">~4h</div>
+          <div class="text-xs text-neutral-400">Duração</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-amber-400">Transversal</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- NAVEGAÇÃO RÁPIDA -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-6">Navegação Rápida</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <a href="modulo-4-1.html" class="block bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-amber-500/50 transition-colors">
+          <div class="flex items-center justify-between mb-1"><span class="text-amber-400 font-bold text-sm">4.1</span><span class="text-xs text-neutral-500">~60 min</span></div>
+          <h3 class="text-lg font-bold hover:text-amber-400 transition-colors">📐 Framework de comparação (matriz de 10 eixos)</h3>
+          <p class="text-sm text-neutral-400 mt-1">A ferramenta analítica: por que matriz fixa, os 10 eixos que valem para qualquer plataforma e lab preenchendo a matriz inteira para DeerFlow.</p>
+        </a>
+        <a href="modulo-4-2.html" class="block bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-amber-500/50 transition-colors">
+          <div class="flex items-center justify-between mb-1"><span class="text-amber-400 font-bold text-sm">4.2</span><span class="text-xs text-neutral-500">~45 min</span></div>
+          <h3 class="text-lg font-bold hover:text-amber-400 transition-colors">🎯 Posicionamento das 3 plataformas</h3>
+          <p class="text-sm text-neutral-400 mt-1">Esqueleto honesto: Claude Code como par de programação, Antigravity como IDE de agentes, DeerFlow como harness hospedável. Lab "diga oi" nas 3.</p>
+        </a>
+        <a href="modulo-4-3.html" class="block bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-amber-500/50 transition-colors">
+          <div class="flex items-center justify-between mb-1"><span class="text-amber-400 font-bold text-sm">4.3</span><span class="text-xs text-neutral-500">~75 min</span></div>
+          <h3 class="text-lg font-bold hover:text-amber-400 transition-colors">🧪 Labs comparativos 1 e 2</h3>
+          <p class="text-sm text-neutral-400 mt-1">Tarefa de código (refatorar módulo Python e abrir PR) e tarefa de research (relatório com 10 fontes citadas). Como comparar com honestidade.</p>
+        </a>
+        <a href="modulo-4-4.html" class="block bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-amber-500/50 transition-colors">
+          <div class="flex items-center justify-between mb-1"><span class="text-amber-400 font-bold text-sm">4.4</span><span class="text-xs text-neutral-500">~75 min</span></div>
+          <h3 class="text-lg font-bold hover:text-amber-400 transition-colors">🧭 Labs comparativos 3 e 4 + guia de escolha</h3>
+          <p class="text-sm text-neutral-400 mt-1">Tarefa híbrida (CSV → PPT → Slack), extensibilidade (skill/tool nova em cada um) e redação do guia de escolha pessoal por tipo de tarefa.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- DIVISOR -->
+    <div class="mb-12 pt-4 border-t border-dark-600">
+      <h2 class="text-2xl font-bold mt-8">Conteúdo Detalhado</h2>
+      <p class="text-neutral-400 text-sm mt-1">Explore os tópicos de cada módulo sem sair desta página.</p>
+    </div>
+
+    <!-- MÓDULO 4.1 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-amber-400 font-bold">4.1</span><span class="text-xs text-neutral-500">~60 min · Teoria + Lab</span></div>
+        <h3 class="text-2xl font-bold mb-2">📐 Framework de comparação (matriz de 10 eixos)</h3>
+        <p class="text-neutral-400 text-sm">Antes de comparar plataformas, é preciso fixar a régua. Este módulo estabelece os 10 eixos que valem para qualquer ferramenta agêntica — da categoria ao público-alvo — e termina preenchendo a matriz inteira para DeerFlow 2.0.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🧭</span>
+            <div><span class="font-medium">Por que matriz fixa em vez de "X vs Y"</span><span class="text-neutral-500 text-sm ml-2">- régua antes do combate</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Uma matriz fixa de eixos é um conjunto pré-definido de perguntas que você faz para qualquer plataforma, antes de conhecê-la a fundo, para evitar comparações enviesadas ou motivadas por marketing.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem régua fixa, toda comparação vira torcida; com régua fixa, o aluno aprende a avaliar ferramentas futuras que ainda nem existem.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Critério fixo vs. ad-hoc; viés de novidade; empate honesto; comparabilidade longitudinal; decisão por tarefa e não por plataforma.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🏷️</span>
+            <div><span class="font-medium">Eixo 1 — Categoria</span><span class="text-neutral-500 text-sm ml-2">- IDE-agent, harness, framework, SaaS</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Classificar a plataforma na sua categoria estrutural: IDE-agent (roda dentro do editor), harness (orquestrador hospedável), framework (biblioteca para você construir) ou SaaS (produto fechado).</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Categorias diferentes resolvem problemas diferentes — comparar um IDE-agent com um harness como "rivais" já é um erro de leitura.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">IDE-agent; harness; framework; SaaS vertical; fronteiras borradas; confundir categoria com feature.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🌍</span>
+            <div><span class="font-medium">Eixo 2 — Onde roda</span><span class="text-neutral-500 text-sm ml-2">- local, cloud, hybrid</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Pergunta crua: a plataforma roda na máquina do usuário, em servidores do fornecedor ou num híbrido com partes em cada lado? E quem tem acesso aos dados em cada caso?</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Define se você pode usar a ferramenta com dados sensíveis, se depende de uptime de terceiros e qual é a superfície de ataque.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Local-first; cloud-first; self-hosted; data residency; offline capability; telemetria obrigatória.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🧩</span>
+            <div><span class="font-medium">Eixo 3 — Modelo de extensibilidade</span><span class="text-neutral-500 text-sm ml-2">- skills, tools, extensions, plugins</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Como a plataforma permite que você adicione capacidades novas: via skills, tools, extensions, plugins, MCP servers, ou "nenhuma, só use as features prontas".</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">O modelo de extensibilidade define o teto prático da plataforma — ferramenta fechada trava no primeiro caso de uso fora do catálogo.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Skills; tools; MCP; plugins; extension points; DX de extensão; catálogo público.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🧱</span>
+            <div><span class="font-medium">Eixo 4 — Execução de código e sandbox</span><span class="text-neutral-500 text-sm ml-2">- tipo de isolamento</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Onde e como a plataforma executa código gerado pelo agente: no host do usuário sem isolamento, em container Docker, em pod K8s ou em sandbox remoto do fornecedor.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">A resposta define o perfil de risco, de velocidade e de portabilidade — é o eixo que mais separa "ferramenta pessoal" de "ferramenta de empresa".</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Sandbox host; Docker; K8s; remote sandbox; isolamento de rede; persistência entre execuções.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🧠</span>
+            <div><span class="font-medium">Eixo 5 — Memória</span><span class="text-neutral-500 text-sm ml-2">- nenhuma, sessão, long-term</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Quanto a plataforma lembra entre interações: só o contexto atual, a sessão inteira, ou memória de longo prazo persistida entre sessões e projetos.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Memória de longo prazo muda a forma como você usa a ferramenta — deixa de repetir contexto e começa a acumular projeto.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Stateless; session memory; long-term memory; recall semântico; memory hygiene; auditoria de memória.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">7</span>
+            <span class="text-lg">🕸️</span>
+            <div><span class="font-medium">Eixo 6 — Sub-agentes e orquestração</span><span class="text-neutral-500 text-sm ml-2">- multi-agente de verdade</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A plataforma suporta sub-agentes chamados por um lead agent? E se sim, eles são primeira classe (com SOUL e roteamento) ou só paralelismo de tools?</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Tarefas reais em produção quase sempre quebram em sub-tarefas com papéis diferentes — sem sub-agentes você acaba fazendo rodízio manual.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Lead agent; sub-agent; custom agent; roteamento por agent_name; SOUL; paralelismo real.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">8</span>
+            <span class="text-lg">🔬</span>
+            <div><span class="font-medium">Lab: matriz completa para DeerFlow</span><span class="text-neutral-500 text-sm ml-2">- eixos 1 a 10 preenchidos</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Preencher os 10 eixos (os 6 acima mais modelos suportados, interface, open source e público-alvo) para o DeerFlow 2.0 usando o que já se sabe das Trilhas 1, 2 e 3 — criando o gabarito da matriz.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Só quando você preenche a matriz inteira com uma plataforma conhecida percebe os eixos fracos, os eixos redundantes e o ponto cego.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Preenchimento honesto; citar fonte do README/docs; colar link por eixo; células "depende"; gabarito para os próximos módulos.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-4-1.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 4.2 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-amber-400 font-bold">4.2</span><span class="text-xs text-neutral-500">~45 min · Teoria + Lab</span></div>
+        <h3 class="text-2xl font-bold mb-2">🎯 Posicionamento das 3 plataformas</h3>
+        <p class="text-neutral-400 text-sm">O "esqueleto honesto" do curso: Claude Code como par de programação, Antigravity como a IDE pensada em agentes e DeerFlow como o harness que você hospeda. Termina com um lab-relâmpago dizendo "oi" nas três plataformas para calibrar primeira impressão.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">💻</span>
+            <div><span class="font-medium">Claude Code — o par de programação</span><span class="text-neutral-500 text-sm ml-2">- CLI/IDE-agent, Anthropic only</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">CLI/IDE-agent da Anthropic focado em engenharia de software, single-vendor em modelos, com skills + MCP e sandbox apoiado no host do desenvolvedor.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o estado da arte de "par de programação" em 2026 e o benchmark honesto para tarefas de código dentro do curso.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">CLI-first; IDE plugin; Anthropic-only; skills oficiais; MCP; sandbox do host; fluxo git-aware.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🪐</span>
+            <div><span class="font-medium">Antigravity — a IDE pensada em agentes</span><span class="text-neutral-500 text-sm ml-2">- Google, multi-agente</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">IDE-agent recente do Google focado em agentes autônomos dentro do próprio editor, com suporte multi-agente nativo e integração forte ao ecossistema Google/Gemini.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É a aposta mais nova em IDE agêntica, e comparar ao vivo é a forma honesta de evitar reagir a feature list de lançamento.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">IDE agêntica; multi-agente nativo; Gemini; workspace Google; autonomia no editor; UX emergente.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🦌</span>
+            <div><span class="font-medium">DeerFlow 2.0 — o harness que você hospeda</span><span class="text-neutral-500 text-sm ml-2">- multi-model, multi-channel, aberto</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Harness open-source multi-model e multi-channel (inclui IM), com skills para além de código (research, podcast, PPT, video), sandbox até K8s e memória de longo prazo como primeira classe.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o único dos três que você hospeda, estende livremente e pluga em IM — entender o posicionamento evita usá-lo pelo motivo errado.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Harness genérico; skills para além de código; canais IM; self-host K8s; long-term memory; open-source.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🎬</span>
+            <div><span class="font-medium">Por que demonstração ao vivo bate lista de features</span><span class="text-neutral-500 text-sm ml-2">- honestidade didática</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Princípio didático do curso: em vez de listar features das 3 plataformas num slide, resolver a mesma tarefa ao vivo em cada uma para o aluno ver tempo, fricção e resultado real.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Feature list envelhece em uma semana e premia marketing; demo ao vivo premia o que funciona hoje na sua máquina para a sua tarefa.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Demo-first; tarefa controlada; observação cega; tempo real; honestidade com o aluno.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔬</span>
+            <div><span class="font-medium">Lab: "diga oi" nas 3 plataformas</span><span class="text-neutral-500 text-sm ml-2">- anotar primeira impressão</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Lab-relâmpago: instalar/acessar Claude Code, Antigravity e DeerFlow, rodar a mesma mensagem "oi, o que você consegue fazer?" em cada um e anotar tempo, tom de resposta e fricção.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Calibrar a primeira impressão antes dos labs pesados evita que o aluno confunda "onboarding ruim" com "ferramenta ruim" nos módulos seguintes.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Onboarding comparado; tempo-para-primeira-resposta; tom do sistema; fricção de instalação; nota de baseline.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-4-2.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 4.3 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-amber-400 font-bold">4.3</span><span class="text-xs text-neutral-500">~75 min · Labs</span></div>
+        <h3 class="text-2xl font-bold mb-2">🧪 Labs comparativos 1 e 2</h3>
+        <p class="text-neutral-400 text-sm">Os dois primeiros labs comparativos rodados nas três plataformas: uma tarefa de código que vai até o PR e uma tarefa de research com fontes citadas. O foco é desenvolver a disciplina de comparar com honestidade — tempo, qualidade, fricção, custo — sem viés de novidade.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🛠️</span>
+            <div><span class="font-medium">Lab 1 — Tarefa de código</span><span class="text-neutral-500 text-sm ml-2">- refatorar módulo Python e abrir PR</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Dar às três plataformas o mesmo módulo Python legado para refatorar (extrair funções, tipar, cobrir com testes) e exigir que o resultado saia como PR aberto num fork.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É a tarefa em que Claude Code e Antigravity naturalmente brilham — o aluno precisa sentir isso antes de cair em cima com pretextos de research.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Diff equivalente; testes passando; PR descrito; tempo total; quantas rodadas foram necessárias; custo em tokens.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📰</span>
+            <div><span class="font-medium">Lab 2 — Tarefa de research</span><span class="text-neutral-500 text-sm ml-2">- relatório sobre X com 10 fontes citadas</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Pedir às três plataformas um relatório sobre um tema definido, com no mínimo 10 fontes explicitamente citadas e uma conclusão escrita — o domínio clássico da skill deep-research do DeerFlow.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Research profundo com memória e multi-fonte é onde o harness genérico mostra sua força sobre IDE-agents focados em código.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">10 fontes citáveis; diversidade de fontes; precisão factual; profundidade do relatório; tempo e custo comparados.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">📏</span>
+            <div><span class="font-medium">Como comparar com honestidade</span><span class="text-neutral-500 text-sm ml-2">- tempo, qualidade, fricção, custo</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Quatro dimensões fixas para anotar em qualquer lab comparativo: tempo total até o entregável, qualidade do output, fricção do caminho e custo em tokens/dinheiro.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Comparação sem rubrica vira "gostei mais de X"; comparação com rubrica resiste a revisão por outra pessoa.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Tempo até entregável; nota de qualidade; número de rodadas; fricção UX; custo real; planilha por lab.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🧊</span>
+            <div><span class="font-medium">Interpretar resultados sem viés de novidade</span><span class="text-neutral-500 text-sm ml-2">- descontar o "uau"</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Método para reler os resultados da comparação descontando a novidade: a plataforma mais nova parece mais impressionante porque é nova, não porque é melhor.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem descontar novidade, toda comparação feita em 2026 elege Antigravity; com desconto, a conclusão passa a ser por tarefa.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Viés de novidade; efeito demo; reteste daqui a 30 dias; separar UX novo de capacidade; pesos por dimensão.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">📝</span>
+            <div><span class="font-medium">Resumo dos labs 1 e 2</span><span class="text-neutral-500 text-sm ml-2">- primeiras conclusões por tarefa</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Fechar os dois primeiros labs com um parágrafo por plataforma, resumindo o que funcionou, o que atrapalhou e uma nota de 0 a 10 para cada uma nas duas tarefas.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Escrever obriga a conclusão — o aluno descobre que tinha opinião diferente do que imaginava só de ter usado as três.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Rubrica fechada; nota final por tarefa; comentário honesto; insumo para o guia do módulo 4.4.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-4-3.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 4.4 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-amber-400 font-bold">4.4</span><span class="text-xs text-neutral-500">~75 min · Labs + entrega</span></div>
+        <h3 class="text-2xl font-bold mb-2">🧭 Labs comparativos 3 e 4 + guia de escolha</h3>
+        <p class="text-neutral-400 text-sm">A tarefa híbrida que mistura dados, apresentação e mensagem, e a tarefa de extensibilidade que força criar algo novo em cada plataforma. Fecha com a redação do guia de escolha pessoal: qual ferramenta usar para cada tipo de tarefa no dia a dia do aluno.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🧬</span>
+            <div><span class="font-medium">Lab 3 — Tarefa híbrida</span><span class="text-neutral-500 text-sm ml-2">- CSV → PPT → post no Slack</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Tarefa de ponta a ponta: analisar um CSV de vendas, gerar um PPT com as conclusões e postar um resumo num canal Slack — três skills diferentes encadeadas num fluxo só.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É a tarefa em que DeerFlow ganha naturalmente, porque multi-skill e multi-channel estão no posicionamento dele — ver isso ao vivo vale mais que um slide.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Encadeamento de skills; data-analysis + ppt-generation; canal IM; tempo ponta-a-ponta; fricção de integração em cada plataforma.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🧰</span>
+            <div><span class="font-medium">Lab 4 — Tarefa de extensibilidade</span><span class="text-neutral-500 text-sm ml-2">- criar skill/tool nova em cada plataforma</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Mesma capacidade nova (por exemplo, "consultar uma API interna e retornar X") implementada como skill/tool em cada uma das três plataformas para comparar DX, esforço e limites.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o teste que separa "plataforma confortável" de "plataforma que você consegue dobrar" — o aluno sente o teto de extensibilidade de cada uma na pele.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">DX de extensão; quantidade de código; test loop; onde publicar; reversibilidade; trigger accuracy da skill.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">⚖️</span>
+            <div><span class="font-medium">Quando DeerFlow ganha naturalmente e quando empata</span><span class="text-neutral-500 text-sm ml-2">- honestidade do recorte</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Mapeamento das tarefas em que DeerFlow ganha sem esforço (research profundo, multi-channel, fluxos longos com memória) e das que ele apenas empata ou perde (edição rápida de código, UX dentro do editor).</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Curso honesto precisa dizer onde a própria ferramenta não é a melhor — é isso que faz o aluno confiar na recomendação quando ela chega.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Ganhos naturais; empates; perdas assumidas; recorte por tipo de tarefa; fim do viés de torcida.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🗺️</span>
+            <div><span class="font-medium">Redigir a recomendação final por tipo de tarefa</span><span class="text-neutral-500 text-sm ml-2">- tabela "quando usar o quê"</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Montar uma tabela final "tipo de tarefa → plataforma recomendada → justificativa em uma frase" consolidando os 4 labs e a matriz do módulo 4.1.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Tabela é a forma mais defensável de recomendação — cada linha pode ser contestada separadamente e revisada sem reabrir o debate todo.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Tabela de decisão; justificativa curta; exceções declaradas; data de validade; plano de reavaliação.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🎓</span>
+            <div><span class="font-medium">Entregável: guia de escolha pessoal</span><span class="text-neutral-500 text-sm ml-2">- o fim da Trilha 4</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-amber-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Documento curto de uso próprio em que o aluno registra, nas palavras dele, para quais tarefas vai usar cada uma das três plataformas no dia a dia depois do curso.</p></div>
+              <div><span class="text-amber-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o entregável que prova que o objetivo do módulo transversal foi atingido: escolher a ferramenta certa por tipo de tarefa, não por moda.</p></div>
+              <div><span class="text-amber-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Guia pessoal; decisão por contexto; revisão periódica; compromisso com critério e não com ferramenta; fim honesto do curso.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-4-4')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-4-4.html" class="px-4 py-2 text-sm bg-amber-600 hover:bg-amber-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>DeerFlow 2.0 — do básico ao avançado · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> · 2026</p>
+    </div>
+  </footer>
+
+  <!-- MODAIS -->
+  <div id="modal-4-1" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-amber-400 font-bold">4.1</span><span class="font-semibold">📐 Framework de comparação (matriz de 10 eixos)</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-1.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-4-2" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-amber-400 font-bold">4.2</span><span class="font-semibold">🎯 Posicionamento das 3 plataformas</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-2.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-4-3" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-amber-400 font-bold">4.3</span><span class="font-semibold">🧪 Labs comparativos 1 e 2</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-3.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-4-4" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-amber-400 font-bold">4.4</span><span class="font-semibold">🧭 Labs comparativos 3 e 4 + guia de escolha</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-4-4.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <script>
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.bg-dark-800');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+        if (exp !== explanation) exp.classList.remove('active');
+      });
+      explanation.classList.toggle('active');
+    }
+
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+    }
+    function closeModal() {
+      document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
+      document.body.style.overflow = 'auto';
+    }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+    const htmlEl = document.documentElement;
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
+      htmlEl.classList.toggle('dark');
+      localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>
