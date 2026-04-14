@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha 2 — Avançado I: Arquitetura e Extensão | DeerFlow 2.0 | INEMA.CLUB</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+    .modal.hidden { display: none; }
+
+    /* Light mode - base */
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100, html:not(.dark) .text-white { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+
+    /* Light mode - T2 Blue (ativa) */
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .hover\:border-blue-500\/50:hover { border-color: rgba(37, 99, 235, 0.4); }
+    html:not(.dark) .bg-blue-600 { background-color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500:hover { background-color: #3b82f6; }
+
+    /* Light mode - T1/T3/T4 (links inativos) */
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217, 119, 6, 0.08); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-40 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10">
+            <span class="sm:hidden">T2</span><span class="hidden sm:inline">Avançado I</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span><span class="hidden sm:inline">Avançado II</span>
+          </a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">
+            <span class="sm:hidden">T4</span><span class="hidden sm:inline">Comparativo</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">TRILHA 2</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🧠 Avançado I — Arquitetura e Extensão</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Como o harness funciona por dentro e como estendê-lo. LangGraph, middleware, skills customizadas, sub-agents, custom agents, tools e MCP. No fim, você cria skill nova, custom agent e MCP server — e sabe quando usar cada um.
+      </p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">5</div>
+          <div class="text-xs text-neutral-400">Módulos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">26</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">~5h</div>
+          <div class="text-xs text-neutral-400">Duração</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-blue-400">Avançado</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- NAVEGAÇÃO RÁPIDA (cartões simples clicáveis) -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-6">Navegação Rápida</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <a href="modulo-2-1.html" class="block bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-blue-500/50 transition-colors">
+          <div class="flex items-center justify-between mb-1"><span class="text-blue-400 font-bold text-sm">2.1</span><span class="text-xs text-neutral-500">~60 min</span></div>
+          <h3 class="text-lg font-bold hover:text-blue-400 transition-colors">🏛️ Arquitetura profunda</h3>
+          <p class="text-sm text-neutral-400 mt-1">LangGraph, lead_agent, split harness/app, context engineering e guardrails.</p>
+        </a>
+        <a href="modulo-2-2.html" class="block bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-blue-500/50 transition-colors">
+          <div class="flex items-center justify-between mb-1"><span class="text-blue-400 font-bold text-sm">2.2</span><span class="text-xs text-neutral-500">~50 min</span></div>
+          <h3 class="text-lg font-bold hover:text-blue-400 transition-colors">🔀 Middleware e execução</h3>
+          <p class="text-sm text-neutral-400 mt-1">Fluxo do middleware, agent_name, ciclo de tool call e erros.</p>
+        </a>
+        <a href="modulo-2-3.html" class="block bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-blue-500/50 transition-colors">
+          <div class="flex items-center justify-between mb-1"><span class="text-blue-400 font-bold text-sm">2.3</span><span class="text-xs text-neutral-500">~70 min</span></div>
+          <h3 class="text-lg font-bold hover:text-blue-400 transition-colors">🛠️ Criando a sua primeira skill</h3>
+          <p class="text-sm text-neutral-400 mt-1">Anatomia, skill-creator, trigger accuracy, testes e lab gov-br.</p>
+        </a>
+        <a href="modulo-2-4.html" class="block bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-blue-500/50 transition-colors">
+          <div class="flex items-center justify-between mb-1"><span class="text-blue-400 font-bold text-sm">2.4</span><span class="text-xs text-neutral-500">~60 min</span></div>
+          <h3 class="text-lg font-bold hover:text-blue-400 transition-colors">👥 Sub-agents e custom agents</h3>
+          <p class="text-sm text-neutral-400 mt-1">Diferença, SOUL, RFC de custom agent e decisão de design.</p>
+        </a>
+        <a href="modulo-2-5.html" class="block bg-dark-800 rounded-xl border border-dark-600 p-5 hover:border-blue-500/50 transition-colors">
+          <div class="flex items-center justify-between mb-1"><span class="text-blue-400 font-bold text-sm">2.5</span><span class="text-xs text-neutral-500">~60 min</span></div>
+          <h3 class="text-lg font-bold hover:text-blue-400 transition-colors">🔌 Tools customizadas, MCP e grep/glob</h3>
+          <p class="text-sm text-neutral-400 mt-1">RFC de tools, MCP server, OAuth flows e API interna como MCP.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- DIVISOR -->
+    <div class="mb-12 pt-4 border-t border-dark-600">
+      <h2 class="text-2xl font-bold mt-8">Conteúdo Detalhado</h2>
+      <p class="text-neutral-400 text-sm mt-1">Explore os tópicos de cada módulo sem sair desta página.</p>
+    </div>
+
+    <!-- MÓDULO 2.1 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-blue-400 font-bold">2.1</span><span class="text-xs text-neutral-500">~60 min · Teoria + Lab</span></div>
+        <h3 class="text-2xl font-bold mb-2">🏛️ Arquitetura profunda</h3>
+        <p class="text-neutral-400 text-sm">Leitura guiada do ARCHITECTURE.md e do HARNESS_APP_SPLIT.md. Como o lead_agent é um grafo LangGraph, como o contexto é gerido e onde entram os guardrails.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🕸️</span>
+            <div><span class="font-medium">LangGraph no DeerFlow</span><span class="text-neutral-500 text-sm ml-2">- nodes, edges, state</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">LangGraph é a biblioteca que modela o agente como um grafo de nodes que lêem/escrevem um state compartilhado. O DeerFlow usa LangGraph como backbone do lead_agent.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem entender nodes, edges e state reducers, você não consegue depurar por que o agente tomou uma decisão nem estender o harness sem quebrar invariantes.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">StateGraph; conditional edges; checkpoints; reducers; streaming via astream_events; persistência de state entre turnos.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🎯</span>
+            <div><span class="font-medium">O grafo do lead_agent</span><span class="text-neutral-500 text-sm ml-2">- o "main loop" do harness</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O lead_agent é o grafo central que recebe a mensagem do usuário, decide planejar ou agir, dispara skills ou custom agents e costura os resultados na resposta final.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Toda interação passa por ele. Se você não sabe onde entra o prompt, onde saem as tools e onde aparece o output, não há como customizar de forma segura.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Plan → act → observe → respond; integração com skills via descoberta; dispatch para custom agents; encerramento quando o plano está completo.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🧱</span>
+            <div><span class="font-medium">Split harness vs. app</span><span class="text-neutral-500 text-sm ml-2">- o que é núcleo, o que é aplicação</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O harness é o motor reutilizável (grafo, memória, tools, sandbox). A app é o que roda em cima: API gateway, frontend, canais IM, integrações específicas.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Saber o que é harness e o que é app define onde uma feature nova deve morar — e evita forks desnecessários do core quando uma extensão resolveria.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">HARNESS_APP_SPLIT.md; boundary de dependências; embedded client; app gateway; reuso do mesmo harness em múltiplas apps.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">📐</span>
+            <div><span class="font-medium">Context engineering</span><span class="text-neutral-500 text-sm ml-2">- janela, compactação, summarization</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O conjunto de políticas que decide o que entra e sai do prompt a cada turno: histórico, memórias, resultados de tools, instruções de sistema.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Estender sem conhecer context engineering enche a janela e degrada o agente silenciosamente — o bug aparece como "o modelo ficou burro".</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Compactação automática; summarization de trechos antigos; priorização por relevância; contrato de retorno curto das sub-tasks.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🛡️</span>
+            <div><span class="font-medium">Guardrails</span><span class="text-neutral-500 text-sm ml-2">- proteções e validações</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Camadas de validação que checam entradas, saídas e chamadas de tool antes/depois de executar — bloqueiam prompts maliciosos e operações perigosas.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Quem deploya sem guardrails ou mexe neles às cegas vira manchete. A git log recente do DeerFlow mostra vários fixes exatamente aqui.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Input/output validators; allow/deny lists de tools; policy engine; integração com middleware; failure modes e fallback.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+            <span class="text-lg">🔬</span>
+            <div><span class="font-medium">Lab: traçar o grafo via LangSmith</span><span class="text-neutral-500 text-sm ml-2">- onde o tempo realmente é gasto</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Lab prático: ligar LangSmith, rodar uma query complexa e inspecionar o trace completo para entender a sequência real de nodes e tools.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Ver o trace de verdade derruba mitos: o que parecia lento muitas vezes é uma tool externa e não o modelo — e o que parecia mágica vira mecânica.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">LangSmith API key; run tree; tokens por node; latência por edge; identificar hot paths; exportar trace como evidência.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-2-1.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 2.2 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-blue-400 font-bold">2.2</span><span class="text-xs text-neutral-500">~50 min · Teoria + Lab</span></div>
+        <h3 class="text-2xl font-bold mb-2">🔀 Middleware e execução</h3>
+        <p class="text-neutral-400 text-sm">Como o middleware intercepta as chamadas, como o lead_agent despacha para custom agents pelo agent_name e como erros de tool são recuperados.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🧪</span>
+            <div><span class="font-medium">Fluxo do middleware</span><span class="text-neutral-500 text-sm ml-2">- interceptação antes/depois</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Camada que roda antes e depois de cada chamada do agente, permitindo logar, validar, transformar input/output e interromper execução quando necessário.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Middleware é onde moram telemetria, auditoria, rate limits e políticas. Tudo que você quer observar ou controlar passa por aqui.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Pre/post hooks; ordem de execução; short-circuit; contexto compartilhado entre middlewares; integração com guardrails.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">📮</span>
+            <div><span class="font-medium">Despacho via agent_name</span><span class="text-neutral-500 text-sm ml-2">- roteamento para custom agents</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Quando o lead_agent decide delegar para um custom agent, ele coloca o agent_name no state e o middleware roteia a execução para o agente correto.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Todo custom agent novo depende desse protocolo. Sem entender como o despacho funciona, custom agents "somem" sem erro explícito.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Registry de agentes; resolução de agent_name; troca de system prompt; retorno de controle; fallback para lead quando não há match.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🔧</span>
+            <div><span class="font-medium">Ciclo de vida de uma tool call</span><span class="text-neutral-500 text-sm ml-2">- do planejamento ao resultado</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Modelo propõe tool call → middleware valida → tool executa → resultado volta para o state → modelo observa e decide o próximo passo.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Cada etapa pode falhar de um jeito diferente. Saber onde cada erro aparece é a diferença entre debugar em minutos ou em horas.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Schema validation; argumentos inválidos; async wrapping; timeouts; resultado estruturado vs. raw; retrospecção no próximo turno.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🚑</span>
+            <div><span class="font-medium">Recuperação de erros</span><span class="text-neutral-500 text-sm ml-2">- retry, fallback, compensação</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Políticas para lidar com tool call que falha: retornar erro estruturado para o modelo decidir, tentar de novo, usar fallback ou abortar a task.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Erro mal tratado faz o agente repetir a mesma chamada quebrada ou entrar em loop. Recuperação correta mantém o fluxo resiliente.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Exception wrapping; mensagens de erro legíveis para o LLM; retry policies; circuit breaker; logging estruturado para postmortem.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🔬</span>
+            <div><span class="font-medium">Lab: middleware que loga tools</span><span class="text-neutral-500 text-sm ml-2">- observabilidade mínima viável</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Escrever um middleware simples que registra toda tool call, argumentos, resultado e tempo de execução — e plugá-lo no harness sem mexer no core.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o "hello world" de quem vai estender o DeerFlow. Quem não consegue fazer um logger não vai conseguir fazer um guardrail.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Registro do middleware; hooks on_tool_start/end; formato JSON-line; integração com LangSmith; overhead aceitável.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-2-2.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 2.3 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-blue-400 font-bold">2.3</span><span class="text-xs text-neutral-500">~70 min · Lab intenso</span></div>
+        <h3 class="text-2xl font-bold mb-2">🛠️ Criando a sua primeira skill</h3>
+        <p class="text-neutral-400 text-sm">Anatomia de uma skill, uso da meta-skill skill-creator, a arte da trigger accuracy e testes de validação. Lab final: uma skill brazilian-gov-research cruzando IBGE e Portal da Transparência.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🧬</span>
+            <div><span class="font-medium">Anatomia de uma skill</span><span class="text-neutral-500 text-sm ml-2">- dissecando uma do catálogo</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Uma skill é um diretório com metadados, prompt de sistema, tools opcionais e instruções de uso. Vamos abrir deep-research linha por linha.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem conhecer o contrato real de uma skill, todo esforço de criar uma nova vira chute. Ler skills prontas é o caminho mais curto.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">skill.yaml; description/trigger; system prompt; tool bindings; arquivos auxiliares; convenções do catálogo público.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🧙</span>
+            <div><span class="font-medium">Meta-skill skill-creator</span><span class="text-neutral-500 text-sm ml-2">- o DeerFlow criando skills</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Uma skill que ajuda você a criar outras skills: faz perguntas, gera o scaffold, sugere descrição e testa o trigger — é um copiloto do autor.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Usar a meta-skill cai direto em boas práticas que levaria semanas para descobrir sozinho. É o atalho oficial.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Fluxo guiado; scaffold padrão; geração de description; avaliação de trigger; integração com skill registry.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🎯</span>
+            <div><span class="font-medium">Trigger accuracy</span><span class="text-neutral-500 text-sm ml-2">- acionar na hora certa</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">A arte de escrever a description da skill para que o lead_agent a acione só quando deve — nem menos, nem mais.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Descrição ruim causa os dois piores bugs: skill que nunca dispara e skill que dispara em tudo. Ambos desgastam a confiança do usuário.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Use when; do not use when; exemplos positivos/negativos; disambiguação com skills vizinhas; avaliação por casos de teste.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">✅</span>
+            <div><span class="font-medium">Testes e validação</span><span class="text-neutral-500 text-sm ml-2">- como saber se a skill é boa</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Conjunto de casos de teste que validam trigger, comportamento em sucesso e comportamento em falhas previsíveis da skill.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem testes, toda alteração na description é roleta-russa com o comportamento do agente em produção.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Evals de trigger; golden tests de output; comparação entre versões; CI rodando evals; métricas de acurácia.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🇧🇷</span>
+            <div><span class="font-medium">Lab: skill brazilian-gov-research</span><span class="text-neutral-500 text-sm ml-2">- IBGE + Portal da Transparência</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Construir do zero uma skill que faz pesquisa cruzando dados do IBGE e do Portal da Transparência, com tools próprias e prompt afiado.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Um lab real força você a pensar em auth, rate limit, formato de retorno e citação de fontes — as partes que "no papel" parecem triviais.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">API pública do IBGE; API do Portal da Transparência; caching local; citações inline; entregável em markdown.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-2-3.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 2.4 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-blue-400 font-bold">2.4</span><span class="text-xs text-neutral-500">~60 min · Teoria + Lab</span></div>
+        <h3 class="text-2xl font-bold mb-2">👥 Sub-agents e custom agents</h3>
+        <p class="text-neutral-400 text-sm">A diferença fundamental entre um sub-agent (chamado dentro de uma task) e um custom agent (roteado pelo lead). Leitura guiada do RFC rfc-create-deerflow-agent e decisão de design: skill ou custom agent?</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">🪞</span>
+            <div><span class="font-medium">Sub-agent vs. custom agent</span><span class="text-neutral-500 text-sm ml-2">- nomes parecidos, papéis opostos</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Sub-agent é chamado dentro de uma task para isolar contexto. Custom agent é uma persona roteada pelo lead_agent com SOUL próprio e ciclo de vida longo.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Misturar os dois é o erro mais comum de quem chega ao DeerFlow vindo de outros frameworks. O design inteiro depende da distinção.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Task-local vs. conversation-level; contexto isolado vs. contexto herdado; retorno resumido vs. diálogo contínuo; uso típico de cada um.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">👤</span>
+            <div><span class="font-medium">SOUL de um custom agent</span><span class="text-neutral-500 text-sm ml-2">- a "persona" em código</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">SOUL é o conjunto de arquivos que define identidade, tom, escopo, tools autorizadas e políticas de um custom agent. É a config-pai do agente.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É onde você desenha um agente que se comporta como especialista em algo específico sem ficar brigando com o prompt do lead.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Arquivos do SOUL; agent_name; system prompt próprio; toolset restrito; memórias/rotinas dedicadas; versionamento.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">📜</span>
+            <div><span class="font-medium">RFC rfc-create-deerflow-agent</span><span class="text-neutral-500 text-sm ml-2">- leitura guiada</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">RFC oficial que documenta motivação, design e processo para criar um custom agent novo — é o "manual do autor" reconhecido upstream.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Ler o RFC encurta meses de discussão. Ele já responde "por que isso e não aquilo" para a maioria das decisões que você vai tomar.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Motivação; requisitos não-funcionais; alternativas rejeitadas; open questions; impacto em memória e guardrails.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🧭</span>
+            <div><span class="font-medium">Decisão: skill ou custom agent?</span><span class="text-neutral-500 text-sm ml-2">- quando é cada um</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Um framework de decisão: se é uma capacidade pontual com gatilho claro, skill; se é uma persona duradoura com escopo inteiro, custom agent.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Escolher errado aumenta o custo de manutenção e confunde usuários. Essa é a decisão de design mais frequente no dia a dia.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Escopo pontual vs. amplo; reuso dentro de outras skills; posse de memória; custo de SOUL; heurística de "se em dúvida, skill primeiro".</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+            <span class="text-lg">🛡️</span>
+            <div><span class="font-medium">Lab: custom agent security-auditor no Slack</span><span class="text-neutral-500 text-sm ml-2">- persona especializada + canal</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Criar um custom agent security-auditor com SOUL próprio, plugar num canal Slack dedicado e fazer ele auditar snippets e PRs.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o exercício que junta SOUL, despacho, tools e canal IM em um único fluxo funcional — exatamente o caso de uso empresarial real.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">SOUL para auditoria; toolset restrito a leitura; Slack bot; roteamento por canal; memórias de achados recorrentes.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-4')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-2-4.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 2.5 -->
+    <div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-blue-400 font-bold">2.5</span><span class="text-xs text-neutral-500">~60 min · Teoria + Lab</span></div>
+        <h3 class="text-2xl font-bold mb-2">🔌 Tools customizadas, MCP e grep/glob</h3>
+        <p class="text-neutral-400 text-sm">Leitura guiada da RFC rfc-grep-glob-tools e do guia de MCP server. Como expor um serviço interno como MCP, como configurar OAuth flows e como plugar tudo numa skill existente.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+            <span class="text-lg">📜</span>
+            <div><span class="font-medium">RFC rfc-grep-glob-tools</span><span class="text-neutral-500 text-sm ml-2">- o contrato de uma tool nativa</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">RFC que introduziu as tools grep e glob no DeerFlow, definindo schema, semântica, paginação e integração com o sandbox.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o melhor exemplo escrito do contrato esperado de uma tool nativa — serve de modelo quando você for criar a sua.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Schema pydantic; paginação e limite; formato de retorno; integração com sandbox; tratamento de erros previsíveis.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+            <span class="text-lg">🧩</span>
+            <div><span class="font-medium">Expor serviço como MCP server</span><span class="text-neutral-500 text-sm ml-2">- plugando no DeerFlow</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">MCP (Model Context Protocol) é o padrão para expor tools externas via stdio ou HTTP/SSE. O DeerFlow consome MCP servers como fonte adicional de tools.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">MCP é como você integra sistemas legados sem mexer no core do harness — escreve um server pequeno e pronto.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Transport stdio vs. HTTP/SSE; tool registration; schema; configuração no config.yaml; namespacing de tools MCP.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+            <span class="text-lg">🔐</span>
+            <div><span class="font-medium">OAuth flows para MCP HTTP/SSE</span><span class="text-neutral-500 text-sm ml-2">- client_credentials e refresh_token</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Quando o MCP server exige auth, o DeerFlow negocia tokens via client_credentials (service-to-service) ou refresh_token (usuário).</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Todo MCP server sério em empresa precisa disso. Quem ignora OAuth vira um projeto de POC que nunca sobe.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">client_credentials; refresh_token; token caching; scopes; renovação automática; falha graceful quando o token expira.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="topic-item">
+          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+            <span class="text-lg">🔬</span>
+            <div><span class="font-medium">Lab: API interna como MCP</span><span class="text-neutral-500 text-sm ml-2">- do zero ao agente consumindo</span></div>
+          </button>
+          <div class="topic-explanation px-6 pb-4">
+            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Expor uma API interna existente como MCP server e fazer uma skill do DeerFlow consultá-la — de ponta a ponta, incluindo auth e erros.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o lab que valida se você entendeu MCP, OAuth, tool schema e integração com skill. Tudo junto, como no mundo real.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">MCP SDK; tool schemas auto-gerados; OAuth2 do lado do server; cliente configurado no config.yaml; verificação end-to-end.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-2-5')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-2-5.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>DeerFlow 2.0 — do básico ao avançado · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> · 2026</p>
+    </div>
+  </footer>
+
+  <!-- MODAIS -->
+  <div id="modal-2-1" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">2.1</span><span class="font-semibold">🏛️ Arquitetura profunda</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-1.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-2-2" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">2.2</span><span class="font-semibold">🔀 Middleware e execução</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-2.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-2-3" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">2.3</span><span class="font-semibold">🛠️ Criando a sua primeira skill</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-3.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-2-4" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">2.4</span><span class="font-semibold">👥 Sub-agents e custom agents</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-4.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-2-5" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">2.5</span><span class="font-semibold">🔌 Tools customizadas, MCP e grep/glob</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-2-5.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <script>
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.bg-dark-800');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+        if (exp !== explanation) exp.classList.remove('active');
+      });
+      explanation.classList.toggle('active');
+    }
+
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+    }
+    function closeModal() {
+      document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
+      document.body.style.overflow = 'auto';
+    }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+    const htmlEl = document.documentElement;
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
+      htmlEl.classList.toggle('dark');
+      localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>
