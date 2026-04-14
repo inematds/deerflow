@@ -120,8 +120,8 @@
         Antes de comparar plataformas, é preciso fixar a régua. Este módulo estabelece os 10 eixos que valem para qualquer ferramenta agêntica — da categoria ao público-alvo — e termina preenchendo a matriz inteira para DeerFlow 2.0.
       </p>
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">8</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">50</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">9</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">60</div><div class="text-xs text-neutral-400">Minutos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Intermediário</div><div class="text-xs text-neutral-400">Nível</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Teoria</div><div class="text-xs text-neutral-400">Tipo</div></div>
       </div>
@@ -397,7 +397,240 @@
 
       <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
         <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Por que começar pelo DeerFlow</h3>
-        <p class="text-neutral-300">Porque é a plataforma que você <strong>já conhece</strong> depois das Trilhas 1-3. Preencher primeiro uma ferramenta conhecida calibra o tamanho de cada célula e mostra quais eixos são difíceis sem hands-on. Nos módulos 4.2-4.4, você reusa esta matriz para Claude Code e Antigravity.</p>
+        <p class="text-neutral-300">Porque é a plataforma que você <strong>já conhece</strong> depois das Trilhas 1-3. Preencher primeiro uma ferramenta conhecida calibra o tamanho de cada célula e mostra quais eixos são difíceis sem hands-on. Nos módulos 4.2-4.4, você reusa esta matriz para Claude Code e Antigravity. Quando terminar, confira sua tabela contra o <strong class="text-amber-400">gabarito visual da seção 9</strong> abaixo.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 9 — GABARITO VISUAL: MATRIZ + GRÁFICOS -->
+    <section id="topico-9" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">9</span>
+        <h2 class="text-2xl font-bold">📋 Gabarito visual: matriz e gráficos comparativos</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Depois de preencher sua matriz no lab, compare com o gabarito abaixo. Os 10 eixos aparecem primeiro como <strong class="text-amber-400">tabela completa</strong> com as três plataformas lado a lado, depois como <strong class="text-amber-400">gráficos de barras</strong> para as dimensões mais decisivas. Use como referência — plataformas mudam rápido, então releia em 6 meses.
+      </p>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-5 mb-6">
+        <h3 class="text-sm font-semibold text-red-400 mb-2 flex items-center"><span class="mr-2">⚠️</span> Leitura honesta</h3>
+        <p class="text-neutral-300 text-sm">Os gráficos usam escala 1–5 por dimensão. <strong>Não é ranking geral</strong> — cada dimensão vale por si. "Forte em isolamento" não significa "melhor plataforma"; significa exatamente isso: forte em isolamento. Some pelas dimensões que importam <em>para o seu caso</em>, não pelas que estão no gráfico.</p>
+      </div>
+
+      <!-- MATRIZ COMPLETA -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-4 sm:p-6 mb-8 overflow-x-auto">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">📊</span> Matriz de 10 eixos — as três plataformas</h3>
+        <table class="w-full text-sm text-left min-w-[720px]">
+          <thead class="text-xs uppercase text-neutral-400 border-b border-dark-600">
+            <tr>
+              <th class="py-3 pr-4 w-44">Eixo</th>
+              <th class="py-3 px-3 bg-amber-500/10 rounded-t-lg">🦌 DeerFlow 2.0</th>
+              <th class="py-3 px-3">💻 Claude Code</th>
+              <th class="py-3 px-3">🚀 Antigravity</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-dark-600 text-neutral-300">
+            <tr>
+              <td class="py-3 pr-4 font-semibold text-amber-400">1. Categoria</td>
+              <td class="py-3 px-3 bg-amber-500/5">Harness genérico open-source</td>
+              <td class="py-3 px-3">IDE-agent (CLI + IDE extensions)</td>
+              <td class="py-3 px-3">IDE-agent (editor dedicado)</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4 font-semibold text-amber-400">2. Onde roda</td>
+              <td class="py-3 px-3 bg-amber-500/5">Self-hosted (Docker ou K8s) + providers à escolha</td>
+              <td class="py-3 px-3">Local-first (terminal/IDE do dev) + chamadas para Anthropic</td>
+              <td class="py-3 px-3">Cloud-first com editor local como frontend</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4 font-semibold text-amber-400">3. Extensibilidade</td>
+              <td class="py-3 px-3 bg-amber-500/5">Skills + tools + custom agents + MCP + providers</td>
+              <td class="py-3 px-3">Skills oficiais + MCP servers + hooks</td>
+              <td class="py-3 px-3">Extensões dentro do editor, catálogo pequeno em 2026</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4 font-semibold text-amber-400">4. Sandbox</td>
+              <td class="py-3 px-3 bg-amber-500/5">Local / Docker / Kubernetes configurável</td>
+              <td class="py-3 px-3">No host, confia no dev; approval prompts</td>
+              <td class="py-3 px-3">Sandbox do fornecedor, não auditável pelo usuário</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4 font-semibold text-amber-400">5. Memória</td>
+              <td class="py-3 px-3 bg-amber-500/5">Long-term de 1ª classe · user, feedback, project, reference</td>
+              <td class="py-3 px-3">File-based (CLAUDE.md + memory tool) por projeto</td>
+              <td class="py-3 px-3">Session + persistência leve no workspace</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4 font-semibold text-amber-400">6. Sub-agentes / orquestração</td>
+              <td class="py-3 px-3 bg-amber-500/5">Sub-agents + custom agents com SOUL + lead_agent</td>
+              <td class="py-3 px-3">Task tool com sub-agents reais e isolamento de contexto</td>
+              <td class="py-3 px-3">Multi-agente de 1ª classe dentro do editor</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4 font-semibold text-amber-400">7. Modelos suportados</td>
+              <td class="py-3 px-3 bg-amber-500/5">Multi-vendor: OpenAI, Anthropic, OpenRouter, vLLM local, Doubao, DeepSeek, Kimi</td>
+              <td class="py-3 px-3">Anthropic (Claude) apenas</td>
+              <td class="py-3 px-3">Google (Gemini) apenas</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4 font-semibold text-amber-400">8. Interface</td>
+              <td class="py-3 px-3 bg-amber-500/5">Web (Next.js), API, IM (Telegram, Slack, Feishu, WeChat, WeCom)</td>
+              <td class="py-3 px-3">CLI + extensões IDE (VS Code, JetBrains) + web</td>
+              <td class="py-3 px-3">Editor dedicado (desktop)</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4 font-semibold text-amber-400">9. Open source?</td>
+              <td class="py-3 px-3 bg-amber-500/5">Sim, repositório público, licença permissiva</td>
+              <td class="py-3 px-3">Parcial · CLI fechada, SDK e partes abertas</td>
+              <td class="py-3 px-3">Fechado</td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4 font-semibold text-amber-400">10. Público-alvo primário</td>
+              <td class="py-3 px-3 bg-amber-500/5 rounded-b-lg">Times que hospedam e estendem o harness para research, mídia, análise, IM</td>
+              <td class="py-3 px-3">Devs e times de engenharia de software</td>
+              <td class="py-3 px-3">Devs que querem IDE-first com agentes autônomos</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="text-xs text-neutral-500 mt-4"><strong>Leitura:</strong> a coluna amber destaca DeerFlow só para ajudar o olho — não implica vantagem. Células da mesma linha que dizem coisas diferentes normalmente significam <em>escopo diferente</em>, não "melhor/pior".</p>
+      </div>
+
+      <!-- GRÁFICOS COMPARATIVOS -->
+      <h3 class="text-xl font-bold mb-2">📈 Gráficos comparativos</h3>
+      <p class="text-neutral-400 text-sm mb-6">Cinco dimensões visualmente. Escala 1 = mínimo, 5 = máximo <em>naquela dimensão específica</em>. Leia uma por uma.</p>
+
+      <!-- CHART 1: Isolamento de sandbox -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-4">
+        <div class="flex items-start justify-between mb-4 flex-wrap gap-2">
+          <h4 class="font-semibold text-amber-400">🛡️ Isolamento de sandbox</h4>
+          <span class="text-xs text-neutral-500">1 = sem isolamento · 5 = pronto para multi-tenant</span>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-neutral-300">🦌 DeerFlow 2.0</span><span class="text-amber-400 font-bold">5 / 5</span></div>
+            <div class="h-3 bg-dark-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-600 to-amber-400" style="width: 100%"></div></div>
+            <p class="text-xs text-neutral-500 mt-1">Local/Docker/K8s configurável · quotas, policies, multi-tenant real.</p>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-neutral-300">💻 Claude Code</span><span class="text-amber-400 font-bold">2 / 5</span></div>
+            <div class="h-3 bg-dark-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-600 to-amber-400" style="width: 40%"></div></div>
+            <p class="text-xs text-neutral-500 mt-1">Executa no host; confia no dev. Approval prompts, mas sem isolamento real.</p>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-neutral-300">🚀 Antigravity</span><span class="text-amber-400 font-bold">3 / 5</span></div>
+            <div class="h-3 bg-dark-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-600 to-amber-400" style="width: 60%"></div></div>
+            <p class="text-xs text-neutral-500 mt-1">Sandbox do fornecedor (cloud-side), não auditável pelo usuário.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHART 2: Profundidade de memória -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-4">
+        <div class="flex items-start justify-between mb-4 flex-wrap gap-2">
+          <h4 class="font-semibold text-amber-400">🧠 Profundidade de memória</h4>
+          <span class="text-xs text-neutral-500">1 = stateless · 5 = long-term categorizada</span>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-neutral-300">🦌 DeerFlow 2.0</span><span class="text-amber-400 font-bold">5 / 5</span></div>
+            <div class="h-3 bg-dark-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-600 to-amber-400" style="width: 100%"></div></div>
+            <p class="text-xs text-neutral-500 mt-1">Long-term de 1ª classe, 4 categorias, revisável pelo usuário.</p>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-neutral-300">💻 Claude Code</span><span class="text-amber-400 font-bold">4 / 5</span></div>
+            <div class="h-3 bg-dark-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-600 to-amber-400" style="width: 80%"></div></div>
+            <p class="text-xs text-neutral-500 mt-1">File-based (CLAUDE.md + memory tool), persistente por projeto, sem categorização nativa.</p>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-neutral-300">🚀 Antigravity</span><span class="text-amber-400 font-bold">3 / 5</span></div>
+            <div class="h-3 bg-dark-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-600 to-amber-400" style="width: 60%"></div></div>
+            <p class="text-xs text-neutral-500 mt-1">Session + persistência leve no workspace; long-term ainda amadurecendo.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHART 3: Extensibilidade -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-4">
+        <div class="flex items-start justify-between mb-4 flex-wrap gap-2">
+          <h4 class="font-semibold text-amber-400">🧩 Extensibilidade</h4>
+          <span class="text-xs text-neutral-500">1 = fechada · 5 = múltiplas formas plugáveis</span>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-neutral-300">🦌 DeerFlow 2.0</span><span class="text-amber-400 font-bold">5 / 5</span></div>
+            <div class="h-3 bg-dark-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-600 to-amber-400" style="width: 100%"></div></div>
+            <p class="text-xs text-neutral-500 mt-1">Skills + tools + custom agents com SOUL + MCP + providers — cinco pontos de extensão.</p>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-neutral-300">💻 Claude Code</span><span class="text-amber-400 font-bold">4 / 5</span></div>
+            <div class="h-3 bg-dark-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-600 to-amber-400" style="width: 80%"></div></div>
+            <p class="text-xs text-neutral-500 mt-1">Skills oficiais + MCP servers + hooks + settings. DX madura, catálogo crescendo.</p>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-neutral-300">🚀 Antigravity</span><span class="text-amber-400 font-bold">2 / 5</span></div>
+            <div class="h-3 bg-dark-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-600 to-amber-400" style="width: 40%"></div></div>
+            <p class="text-xs text-neutral-500 mt-1">Extensões dentro do editor, catálogo público pequeno em 2026.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHART 4: Cobertura de casos fora de código -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-4">
+        <div class="flex items-start justify-between mb-4 flex-wrap gap-2">
+          <h4 class="font-semibold text-amber-400">🌐 Cobertura fora de código</h4>
+          <span class="text-xs text-neutral-500">1 = só engenharia · 5 = research / mídia / análise / IM</span>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-neutral-300">🦌 DeerFlow 2.0</span><span class="text-amber-400 font-bold">5 / 5</span></div>
+            <div class="h-3 bg-dark-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-600 to-amber-400" style="width: 100%"></div></div>
+            <p class="text-xs text-neutral-500 mt-1">Skills maduras para research, PPT, podcast, newsletter, vídeo, análise, IM nativo.</p>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-neutral-300">💻 Claude Code</span><span class="text-amber-400 font-bold">2 / 5</span></div>
+            <div class="h-3 bg-dark-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-600 to-amber-400" style="width: 40%"></div></div>
+            <p class="text-xs text-neutral-500 mt-1">Centro de gravidade em engenharia de software; fora disso é possível, mas não é forte.</p>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-neutral-300">🚀 Antigravity</span><span class="text-amber-400 font-bold">2 / 5</span></div>
+            <div class="h-3 bg-dark-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-600 to-amber-400" style="width: 40%"></div></div>
+            <p class="text-xs text-neutral-500 mt-1">IDE-first; foco em desenvolvimento de software dentro do editor.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHART 5: Data residency / controle -->
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <div class="flex items-start justify-between mb-4 flex-wrap gap-2">
+          <h4 class="font-semibold text-amber-400">🔒 Data residency e controle</h4>
+          <span class="text-xs text-neutral-500">1 = cloud only · 5 = self-hosted completo</span>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-neutral-300">🦌 DeerFlow 2.0</span><span class="text-amber-400 font-bold">5 / 5</span></div>
+            <div class="h-3 bg-dark-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-600 to-amber-400" style="width: 100%"></div></div>
+            <p class="text-xs text-neutral-500 mt-1">Self-hosted; dados, memória, sandbox e traces em infra sua. vLLM local fecha o circuito.</p>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-neutral-300">💻 Claude Code</span><span class="text-amber-400 font-bold">3 / 5</span></div>
+            <div class="h-3 bg-dark-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-600 to-amber-400" style="width: 60%"></div></div>
+            <p class="text-xs text-neutral-500 mt-1">Contexto local, mas chamadas de modelo saem para Anthropic. Bom para código, fraco para dados regulados.</p>
+          </div>
+          <div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-neutral-300">🚀 Antigravity</span><span class="text-amber-400 font-bold">2 / 5</span></div>
+            <div class="h-3 bg-dark-700 rounded-full overflow-hidden"><div class="h-full bg-gradient-to-r from-amber-600 to-amber-400" style="width: 40%"></div></div>
+            <p class="text-xs text-neutral-500 mt-1">Cloud-first; data residency estrita fica difícil de garantir.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Como usar os gráficos na decisão</h3>
+        <p class="text-neutral-300 mb-3">Escolha <strong>2 ou 3 dimensões</strong> que importam para o seu caso e some os scores só delas. Ignore as outras. Exemplos:</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-primary mt-1">→</span><span><strong>Engenharia de software pura</strong>: priorize extensibilidade + sub-agentes + sandbox razoável — Claude Code e Antigravity brigam aqui.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-primary mt-1">→</span><span><strong>Research + mídia + IM</strong>: priorize cobertura fora de código + memória long-term — DeerFlow vence naturalmente.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-primary mt-1">→</span><span><strong>Dados regulados / compliance</strong>: priorize data residency + isolamento de sandbox — DeerFlow self-hosted é o único viável.</span></li>
+        </ul>
       </div>
     </section>
 
@@ -425,7 +658,11 @@
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-amber-400 mt-1">✓</span>
-            <div><strong class="text-white">Matriz preenchida para DeerFlow</strong><span class="text-neutral-400"> — é o gabarito que vai ser reusado nos módulos 4.2-4.4 para Claude Code e Antigravity.</span></div>
+            <div><strong class="text-white">Matriz preenchida para DeerFlow</strong><span class="text-neutral-400"> — o gabarito que vai ser reusado nos módulos 4.2-4.4 para Claude Code e Antigravity.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-amber-400 mt-1">✓</span>
+            <div><strong class="text-white">Gabarito visual na seção 9</strong><span class="text-neutral-400"> — tabela 3 plataformas × 10 eixos + cinco gráficos de barras (sandbox, memória, extensibilidade, cobertura fora de código, data residency). Releia a cada 6 meses porque plataformas mudam rápido.</span></div>
           </div>
         </div>
 
