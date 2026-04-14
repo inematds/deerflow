@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1.1 — Big Picture | DeerFlow 2.0 | INEMA.CLUB</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    /* Light mode - base */
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100, html:not(.dark) .text-white { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+
+    /* Light mode - T1 Emerald */
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .bg-emerald-600 { background-color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500:hover { background-color: #10b981; }
+
+    /* Light mode - outros (nav) */
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217, 119, 6, 0.08); }
+
+    /* Light mode - blue (dados) */
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+
+    /* Light mode - red (alertas) */
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220, 38, 38, 0.08); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220, 38, 38, 0.25); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-40 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦌</span>
+            <span class="font-bold text-lg hidden sm:inline">DeerFlow 2.0</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Avançado I</span></a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Avançado II</span></a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Comparativo</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Trilha 1</a>
+      <span>/</span>
+      <span class="text-emerald-400">Módulo 1.1</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.1</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔭 Big Picture</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">
+        Antes de instalar, entender o recorte. O que é um super agent harness, por que a v2 é uma reescrita da v1, e quais são os cinco pilares que sustentam tudo que vem depois.
+      </p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">8</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">30</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Teoria</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Intro -->
+    <div class="mb-12 bg-primary/10 rounded-xl border border-primary/30 p-6">
+      <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Como ler este módulo</h3>
+      <p class="text-neutral-300">Este é o único módulo do curso sem lab. O objetivo é instalar vocabulário na sua cabeça para que o resto faça sentido. Leia inteiro antes de passar para o 1.2 — <strong class="text-primary">o tempo investido aqui é pago 10x nos próximos módulos</strong>.</p>
+    </div>
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🏛️ O que é um super agent harness</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A palavra "agent" virou elástica. Virou sinônimo de qualquer coisa que chama LLM em loop. Um <strong class="text-emerald-400">super agent harness</strong> é uma categoria específica: é a camada que fica <em>entre</em> o modelo e tudo que ele precisa fazer no mundo — skills, sub-agents, memória, sandbox, canais de comunicação. Não é um chatbot com tools. Não é um framework de agente. É um hospedeiro completo para trabalhos não-triviais.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Conceito Central</h3>
+        <p class="text-neutral-300 mb-4">Um harness é um <strong class="text-emerald-400">orquestrador persistente</strong>. Ele recebe um pedido, planeja, aciona skills, roda código em sandbox, consulta memória, coordena sub-agents e devolve o resultado. Tudo sem que o modelo precise entender como cada peça funciona.</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Orquestra</strong> — decide o quê fazer e em que ordem</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Isola</strong> — cada passo roda onde deve, com contexto certo</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Persiste</strong> — memória e traces sobrevivem à sessão</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Estende</strong> — skills, tools, providers, canais IM são plugáveis</span></li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ O que harness É</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Plataforma de hospedagem de agentes</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Extensível por skills e providers</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Multi-canal (web, IM, API)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Observável de ponta a ponta</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ O que harness NÃO é</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Um chatbot (chatbot não planeja e não executa código)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Um framework (framework é biblioteca, não produto rodando)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Um IDE-agent (IDE vive dentro do editor de código)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Um pipeline fixo (pipeline não decide o próximo passo)</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🔄 A virada da v1 para a v2</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O DeerFlow <strong class="text-emerald-400">v1</strong> era "Deep Research" — um produto focado, com pipeline relativamente fixo para pesquisar tema → gerar relatório. A <strong class="text-emerald-400">v2</strong> é uma <strong>reescrita completa</strong>. Não compartilha código com a v1. Não é upgrade. O escopo mudou: de produto de research para harness de propósito geral. Entender isso evita procurar documentação no lugar errado.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">DeerFlow v1 — Deep Research</h4>
+            <p class="text-sm text-neutral-400 mb-3">Produto focado, fluxo quase linear</p>
+            <p class="text-neutral-300 text-sm">Um único caso de uso tratado muito bem: pesquisa profunda com citação de fontes. A arquitetura refletia esse foco — pipeline, não grafo. Pouco espaço para extensão de terceiros.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">A reescrita</h4>
+            <p class="text-sm text-neutral-400 mb-3">Decisão de zerar e reconstruir</p>
+            <p class="text-neutral-300 text-sm">Quando a ByteDance quis que o DeerFlow cobrisse podcast, PPT, código, análise, decidiu que forçar essas capacidades sobre o pipeline da v1 era um erro. A v2 começou do zero com LangGraph como substrato.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">DeerFlow v2 — Harness genérico</h4>
+            <p class="text-sm text-neutral-400 mb-3">Plataforma multi-uso, extensível</p>
+            <p class="text-neutral-300 text-sm">Lead agent sobre um grafo LangGraph, catálogo de skills plugáveis, memória de primeira classe, sandbox configurável e múltiplos canais de entrada. Deep Research agora é só uma skill entre muitas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Atenção: não há migração automática</h3>
+        <p class="text-neutral-300">Se você tem conteúdo, configs ou hacks feitos para a v1, <strong>não dá para importar</strong>. As arquiteturas são incompatíveis. Muita documentação antiga na internet ainda se refere a v1 sem deixar isso claro — desconfie de qualquer guia que não mencione LangGraph, skills ou lead_agent.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🧩 Pilar 1: Skills</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A <strong class="text-emerald-400">skill</strong> é a unidade de capacidade do DeerFlow. É um pacote com três coisas: uma <strong>descrição</strong> (para o agente saber quando acionar), um conjunto de <strong>instruções</strong> (para saber como executar) e, opcionalmente, <strong>tools</strong> próprias. É isto e nada mais.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Por que skill é o pilar mais importante</h3>
+        <p class="text-neutral-300 mb-4">Porque é o principal ponto de extensão. Sub-agents, sandbox e memória são infraestrutura — você usa, mas raramente precisa reescrever. <strong class="text-emerald-400">Skills, você escreve.</strong> A maior parte do que diferencia um DeerFlow genérico de um DeerFlow "feito para a sua empresa" está no catálogo de skills que você adicionou.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Descrição é contrato</strong> — erre a descrição e a skill nunca é acionada</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Escopo limitado</strong> — uma skill para uma coisa, composição faz o resto</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Versionável</strong> — skills são arquivos de texto, entram no git</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300">Antes de criar uma skill, procure no catálogo público. Tem mais skill pronta do que você imagina — deep-research, data-analysis, ppt-generation, podcast-generation, code-documentation, consulting-analysis. Ver a lista completa evita reinventar.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">👥 Pilar 2: Sub-agents</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Um <strong class="text-emerald-400">sub-agent</strong> é um agente filho que o lead_agent invoca para fazer um pedaço da tarefa com <strong>contexto isolado</strong>, e que retorna apenas o resultado útil. Na prática: "vai ler esses 50 artigos e me devolve só as 3 conclusões que importam". O lead_agent não precisa carregar os 50 artigos inteiros na sua janela.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Para que servem</h3>
+        <p class="text-neutral-300 mb-4">Sub-agents resolvem o problema de <strong class="text-emerald-400">poluição de contexto</strong>. Sem eles, qualquer pesquisa longa enche a janela do agente principal com lixo intermediário — trechos de artigos, outputs de comandos, resultados parciais. Com eles, o agente principal mantém só o essencial.</p>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Dados práticos</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>5-10×</strong> — redução típica de tokens consumidos pelo agente principal em pesquisas longas</li>
+          <li><strong>Contexto isolado</strong> — sub-agent começa do zero, não vê o histórico do pai</li>
+          <li><strong>Retorno resumido</strong> — só o que você pedir explicitamente volta para o pai</li>
+          <li><strong>Paralelizável</strong> — múltiplos sub-agents podem rodar ao mesmo tempo</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">📦 Pilar 3: Sandbox</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-emerald-400">Sandbox</strong> é onde código gerado pelo agente roda. O DeerFlow oferece três modos — <strong>Local</strong>, <strong>Docker</strong>, <strong>Kubernetes</strong> — com trade-offs entre conveniência e segurança. A decisão entre eles não é de performance; é de <strong>risco</strong>.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Os três modos em uma frase</h3>
+        <ul class="space-y-3 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">Local</span><span>— rápido, sem isolamento, só em máquina dedicada de dev.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">Docker</span><span>— um container por execução, default recomendado para uso pessoal e equipes pequenas.</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">K8s</span><span>— um Pod com quotas e isolamento de rede, único viável para multi-tenant em produção.</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">🚨</span> Alerta de segurança</h3>
+        <p class="text-neutral-300 mb-3">Rodar código gerado por LLM no host sem sandbox é equivalente a executar um anexo de email de remetente desconhecido. Não importa quão bem-intencionado esteja o prompt — o modelo pode alucinar, ser induzido via prompt injection, ou simplesmente errar.</p>
+        <p class="text-neutral-300"><strong>Regra prática:</strong> use Local apenas em máquina sem credenciais importantes. Para tudo o mais, Docker.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">📐 Pilar 4: Context Engineering</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-emerald-400">Context engineering</strong> é o conjunto de técnicas que decidem o que entra e o que sai da janela de contexto em cada turno do agente. Parece assunto interno — não é. É <strong>o motivo principal</strong> pelo qual um mesmo modelo parece "brilhante" num harness e "burro" em outro.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> O que entra na janela</h3>
+        <p class="text-neutral-300 mb-4">Em cada turno, o DeerFlow decide o que colocar no contexto do modelo: o prompt do usuário, o histórico relevante (não todo), memórias aplicáveis, instruções de skills ativas, resultados de tools recentes. <strong class="text-emerald-400">O que fica de fora é tão importante quanto o que entra.</strong></p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Compactação</strong> — histórico antigo é resumido automaticamente</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Seleção</strong> — só memórias relevantes para o turno entram</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Prioridade</strong> — instrução atual vence histórico antigo</li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><strong>Guardrails</strong> — instruções de segurança não podem ser sobrescritas</li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ O que ajuda o contexto</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Dividir tarefas grandes via sub-agents</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Limpar memórias obsoletas regularmente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Usar plan mode para tarefas longas</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Começar sessão nova quando o tema muda</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ O que envenena o contexto</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Colar blocos gigantes de texto no prompt</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Acumular memória sem revisar</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Conversar sobre 5 tópicos não-relacionados</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Ignorar a compactação automática</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 7 -->
+    <section id="topico-7" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">7</span>
+        <h2 class="text-2xl font-bold">💾 Pilar 5: Memory</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <strong class="text-emerald-400">Memória</strong> é o armazenamento de longo prazo que <strong>sobrevive</strong> à conversa. Guarda perfil do usuário, preferências de trabalho, fatos do projeto e referências a sistemas externos. É diferente de histórico de sessão: histórico morre quando a conversa fecha; memória não.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> As quatro categorias</h3>
+        <ul class="space-y-3 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">User</span><span>— quem é você, o que faz, como prefere trabalhar</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">Feedback</span><span>— correções e aprovações explícitas que o agente deve respeitar</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">Project</span><span>— fatos do projeto atual que não moram no código</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1 font-bold">Reference</span><span>— ponteiros para sistemas externos (dashboards, issue trackers, docs)</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Memória é um diário, não uma caixa-preta</h3>
+        <p class="text-neutral-300">No DeerFlow v2, você <strong>vê</strong> cada item de memória. Pode editar. Pode remover. Pode exportar para backup. Isso é deliberado — memória opaca é o caminho mais rápido para memory poisoning. Revise semanalmente e a memória vira um ativo; ignore e vira passivo.</p>
+      </div>
+    </section>
+
+    <!-- TOPICO 8 -->
+    <section id="topico-8" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">8</span>
+        <h2 class="text-2xl font-bold">🎬 Casos de uso reais</h2>
+      </div>
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Para fechar o big picture, o que o DeerFlow <strong>realmente</strong> faz bem hoje. Os casos abaixo não são publicidade — são os domínios em que o catálogo de skills públicas já resolve 80% do problema sem customização.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 text-xl">🔬</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Deep research e revisão de literatura</h4>
+            <p class="text-sm text-neutral-400 mb-3">Skills: deep-research, systematic-literature-review, academic-paper-review</p>
+            <p class="text-neutral-300 text-sm">Pesquisas estruturadas com citação de fontes, comparativo de papers, levantamento bibliográfico sistemático. É a cara da v1, mas agora como <em>uma</em> capacidade entre outras.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 text-xl">📊</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Análise de dados com gráficos</h4>
+            <p class="text-sm text-neutral-400 mb-3">Skills: data-analysis, chart-visualization</p>
+            <p class="text-neutral-300 text-sm">Sobe um CSV, pede análise e recebe de volta resumo textual + gráficos em arquivos reais. O diferencial é a composição automática: data-analysis aciona chart-visualization sem precisar pedir.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 text-xl">🎞️</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Mídia: PPT, podcast, vídeo, newsletter</h4>
+            <p class="text-sm text-neutral-400 mb-3">Skills: ppt-generation, podcast-generation, video-generation, newsletter-generation</p>
+            <p class="text-neutral-300 text-sm">Geração de artefatos de comunicação. A qualidade depende do modelo e da descrição, mas o <em>formato final</em> (arquivo .pptx, .mp3, .mp4, .md) sai pronto.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 text-xl">💻</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Engenharia de software</h4>
+            <p class="text-sm text-neutral-400 mb-3">Skills: frontend-design, code-documentation, vercel-deploy-claimable</p>
+            <p class="text-neutral-300 text-sm">Não é o caso de uso mais forte do DeerFlow (Claude Code e IDE-agents são mais fortes aqui), mas funciona bem para geração de UI, documentação de código e deploys pontuais.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 text-xl">💼</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Consultoria e análise de negócio</h4>
+            <p class="text-sm text-neutral-400 mb-3">Skills: consulting-analysis</p>
+            <p class="text-neutral-300 text-sm">Relatórios em formato específico (executive summary, SWOT, recomendações). Útil para quem quer resposta com estrutura fixa, não texto corrido.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📝</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Super agent harness ≠ chatbot, framework ou IDE-agent</strong><span class="text-neutral-400"> — é um orquestrador persistente com skills, sub-agents, sandbox, memória e canais.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">v2 é uma reescrita</strong><span class="text-neutral-400"> — não há migração automática da v1. Documentação antiga que não mencione LangGraph ou skills é quase certamente sobre v1.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Cinco pilares</strong><span class="text-neutral-400"> — Skills (extensão), Sub-agents (isolamento de contexto), Sandbox (execução segura), Context Engineering (janela eficiente), Memory (persistência).</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Skills é o pilar que você mais vai tocar</strong><span class="text-neutral-400"> — os outros são infraestrutura. A customização do DeerFlow para sua empresa mora quase toda no catálogo de skills.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Sandbox é decisão de risco</strong><span class="text-neutral-400"> — Local = dedicado, Docker = default, K8s = multi-tenant. Nunca Local em máquina com credenciais.</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Memória é diário editável</strong><span class="text-neutral-400"> — revise semanalmente. Categorias: user, feedback, project, reference.</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">1.2 — 🚀 Instalação e primeiro "olá mundo"</p>
+          <p class="text-neutral-400 text-sm mt-1">Do clone ao primeiro prompt rodando via Docker. Inclui lab hands-on.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha</a>
+          <a href="modulo-1-2.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">Próximo Módulo →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>DeerFlow 2.0 — do básico ao avançado · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> · 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+    const htmlEl = document.documentElement;
+    if (localStorage.getItem('color-theme') === 'light') { htmlEl.classList.remove('dark'); lightIcon.classList.remove('hidden'); }
+    else { darkIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      darkIcon.classList.toggle('hidden'); lightIcon.classList.toggle('hidden');
+      htmlEl.classList.toggle('dark');
+      localStorage.setItem('color-theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>
