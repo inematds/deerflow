@@ -1,5 +1,7 @@
 # Curso: DeerFlow 2.0 — do básico ao avançado
 
+![DeerFlow 2.0 — Lançamento](assets/deerflow-launch.png)
+
 Repositório de conteúdo do curso sobre **DeerFlow 2.0**, o super agent harness open-source da ByteDance.
 
 O curso cobre três frentes:
